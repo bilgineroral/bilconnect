@@ -71,7 +71,7 @@ public class FirstPageActivity extends AppCompatActivity {
     }
 
     public void forgotPasswordClicked(View view) {
-    //send to forgot password page
+    //send to forgot password page uses email to find the users questions
     }
 
 }
