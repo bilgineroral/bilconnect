@@ -12,7 +12,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.srt.bilconnect.databinding.ActivityMainBinding;
 import com.srt.bilconnect.databinding.ActivitySignUpBinding;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -44,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class/* nereye gideceğimizi yazacağız bittikten sonra koy!! */);
+                    Intent intent = new Intent(SignUpActivity.this, AdditionalInfoActivity.class/* nereye gideceğimizi yazacağız bittikten sonra koy!! */);//ekle
                     startActivity(intent);
                     finish();
                 }
@@ -55,6 +54,5 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             });
         }
-
     }
 }
