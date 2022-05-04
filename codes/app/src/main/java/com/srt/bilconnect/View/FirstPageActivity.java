@@ -72,7 +72,7 @@ public class FirstPageActivity extends AppCompatActivity {
 
     public void forgotPasswordClicked(View view) {
     //send to forgot password page uses email to find the users questions
-        Intent intent = new Intent(FirstPageActivity.this, ChangePasswordActivity.class);
+        Intent intent = new Intent(FirstPageActivity.this, ResetPasswordActivity.class);
         startActivity(intent);
         finish();
     }
