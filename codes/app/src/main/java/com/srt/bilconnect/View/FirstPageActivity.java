@@ -37,10 +37,6 @@ public class FirstPageActivity extends AppCompatActivity {
         }
     }
 
-    public void testMethod(View view) {// bu method veri tabanına yazmayı test etmek için
-
-    }
-
     public void loginClicked(View view) {
         String email = binding.emailText.getText().toString();
         String password = binding.passwordText.getText().toString();
@@ -76,6 +72,7 @@ public class FirstPageActivity extends AppCompatActivity {
 
     public void forgotPasswordClicked(View view) {
     //send to forgot password page uses email to find the users questions
+
     }
 
 }
