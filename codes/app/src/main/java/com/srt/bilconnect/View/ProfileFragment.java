@@ -1,4 +1,4 @@
-package com.oral.bilconnect;
+package com.srt.bilconnect.View;
 
 import android.os.Bundle;
 
