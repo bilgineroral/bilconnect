@@ -35,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
-    public void signUpContrinueClicked(View view) {
+    public void signUpContinueClicked(View view) {
         String username = binding.usernameText.getText().toString();
         String password = binding.passwordTextSignUp.getText().toString();
         String department = binding.departmentText.getText().toString();
