@@ -1,4 +1,4 @@
-package com.srt.bilconnect;
+package com.srt.bilconnect.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.srt.bilconnect.R;
 import com.srt.bilconnect.databinding.ActivityMainBinding;
 import com.srt.bilconnect.databinding.ActivityMainPageBinding;
 

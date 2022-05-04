@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilConnect">
         <activity
-            android:name=".AdditionalInfoActivity"
+            android:name=".View.AdditionalInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainPageActivity"
+            android:name=".View.MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".View.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".FirstPageActivity"
+            android:name=".View.FirstPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

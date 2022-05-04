@@ -1,4 +1,4 @@
-package com.srt.bilconnect;
+package com.srt.bilconnect.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,13 +12,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.databinding.ActivitySignUpBinding;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -54,13 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(AuthResult authResult) {
 
-                    /*HashMap<String, Object> userData = new HashMap<>();
-                    userData.put("Username", username);
-                    userData.put("Department", department);
-                    userData.put("Bilkent ID", bilkentId);
-                    userData.put("E-Mail", email);*/
-
-                    String userID = auth.getCurrentUser().getUid().toString();
+                    String userID = auth.getCurrentUser().getUid();
 
                     ArrayList<String> questionsAnswered = new ArrayList<>();
                     questionsAnswered.add(binding.teacherNameText.getText().toString());
@@ -80,7 +73,6 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
-                    //firebaseFirestore.collection("UserData" + "/" + userID).add(userData);
 
                     Intent intent = new Intent(SignUpActivity.this, AdditionalInfoActivity.class/* nereye gideceğimizi yazacağız bittikten sonra koy!! */);//ekle
                     startActivity(intent);

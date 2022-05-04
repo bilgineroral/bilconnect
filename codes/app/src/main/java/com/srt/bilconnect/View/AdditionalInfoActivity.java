@@ -1,4 +1,4 @@
-package com.srt.bilconnect;
+package com.srt.bilconnect.View;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -15,7 +15,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.renderscript.ScriptGroup;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,15 +22,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.srt.bilconnect.databinding.ActivityAdditionalInfoBinding;
-import com.srt.bilconnect.databinding.ActivityMainBinding;
 
-import java.util.HashMap;
 import java.util.UUID;
 
 public class AdditionalInfoActivity extends AppCompatActivity {
@@ -74,10 +70,8 @@ public class AdditionalInfoActivity extends AppCompatActivity {
                             String downloadUrl = uri.toString();
                             String userID = auth.getCurrentUser().getUid();
                             firebaseFirestore.collection("UserData").document(userID).update("profilePhotoURL", downloadUrl);
-
                         }
                     });
-
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

@@ -1,4 +1,4 @@
-package com.srt.bilconnect;
+package com.srt.bilconnect.Model;
 
 public interface Followable {
 }
