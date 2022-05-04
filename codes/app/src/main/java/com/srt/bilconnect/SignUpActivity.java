@@ -12,9 +12,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.srt.bilconnect.databinding.ActivitySignUpBinding;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -35,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
-    public void signUpContinueClicked(View view) {
+    public void signUpContinueClicked(View view) {// konunma göre kaydolabilme özelliğini ekle
         String username = binding.usernameText.getText().toString();
         String password = binding.passwordTextSignUp.getText().toString();
         String department = binding.departmentText.getText().toString();
@@ -49,6 +53,35 @@ public class SignUpActivity extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
+
+                    /*HashMap<String, Object> userData = new HashMap<>();
+                    userData.put("Username", username);
+                    userData.put("Department", department);
+                    userData.put("Bilkent ID", bilkentId);
+                    userData.put("E-Mail", email);*/
+
+                    String userID = auth.getCurrentUser().getUid().toString();
+
+                    ArrayList<String> questionsAnswered = new ArrayList<>();
+                    questionsAnswered.add(binding.teacherNameText.getText().toString());
+                    questionsAnswered.add(binding.favColorText.getText().toString());
+                    questionsAnswered.add(binding.petNameText.getText().toString());
+
+                    User newUser = new User(userID,email,bilkentId,questionsAnswered,department);
+
+                    firebaseFirestore.collection("UserData").document(userID).set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(SignUpActivity.this, "Account Created!", Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignUpActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    //firebaseFirestore.collection("UserData" + "/" + userID).add(userData);
+
                     Intent intent = new Intent(SignUpActivity.this, AdditionalInfoActivity.class/* nereye gideceğimizi yazacağız bittikten sonra koy!! */);//ekle
                     startActivity(intent);
                     finish();

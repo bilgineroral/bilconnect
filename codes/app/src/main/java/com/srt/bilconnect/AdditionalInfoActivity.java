@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -30,6 +31,7 @@ import com.google.firebase.storage.UploadTask;
 import com.srt.bilconnect.databinding.ActivityAdditionalInfoBinding;
 import com.srt.bilconnect.databinding.ActivityMainBinding;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class AdditionalInfoActivity extends AppCompatActivity {
@@ -62,10 +64,19 @@ public class AdditionalInfoActivity extends AppCompatActivity {
         if(imageData != null) {
             UUID uuid = UUID.randomUUID();
             String imageName = "images/" + uuid + ".jpg";
-
             storageReference.child(imageName).putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    StorageReference newReference = firebaseStorage.getReference(imageName);
+                    newReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            String downloadUrl = uri.toString();
+                            String userID = auth.getCurrentUser().getUid();
+                            firebaseFirestore.collection("UserData").document(userID).update("profilePhotoURL", downloadUrl);
+
+                        }
+                    });
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

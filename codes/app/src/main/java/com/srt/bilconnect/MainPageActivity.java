@@ -43,6 +43,7 @@ public class MainPageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.settings_menu) {
             //Settings menüsünü aç
+
         }
         else if(item.getItemId() == R.id.signout) {
             //Kullanının hesabını kapat
