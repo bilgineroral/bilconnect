@@ -1,10 +1,18 @@
 package com.srt.bilconnect.Model;
 
-public class Event {
+import java.io.Serializable;
 
-    private String eventText;
+public class Event implements Serializable {
 
-    public Event(String text) {
-        this.eventText = text;
+    // TEST VARIABLES
+    public String eventName;
+    public String hostName;
+    public int quota;
+
+    public Event(String text, String hostName, int quota) {
+
+        this.eventName = text;
+        this.hostName = hostName;
+        this.quota = quota;
     }
 }

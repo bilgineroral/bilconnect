@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilConnect">
         <activity
+            android:name=".View.RegisteredEventsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.ChangePasswordActivity"
             android:exported="false" />
         <activity
