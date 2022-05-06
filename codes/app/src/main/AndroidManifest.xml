@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilConnect">
         <activity
+            android:name=".View.EventCreationPages.SportsEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventCreationPages.OtherEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventCreationPages.EntertainmentEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventCreationPages.StudyEventActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.EventCreationActivity"
             android:exported="false" />
         <activity
