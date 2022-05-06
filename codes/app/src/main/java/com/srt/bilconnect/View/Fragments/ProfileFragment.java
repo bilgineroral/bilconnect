@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.User;
+import com.srt.bilconnect.View.RegisteredEventsActivity;
 import com.srt.bilconnect.databinding.FragmentProfileBinding;
 
 import java.util.stream.Collectors;
