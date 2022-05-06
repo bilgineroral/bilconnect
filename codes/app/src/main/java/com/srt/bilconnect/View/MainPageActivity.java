@@ -1,33 +1,39 @@
 package com.srt.bilconnect.View;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.srt.bilconnect.R;
-import com.srt.bilconnect.databinding.ActivityMainBinding;
 import com.srt.bilconnect.databinding.ActivityMainPageBinding;
+
 
 public class MainPageActivity extends AppCompatActivity {
 
-    private ActivityMainPageBinding binding;
     private FirebaseAuth auth;
+    private ActivityMainPageBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         binding = ActivityMainPageBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_nav);
+        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
     @Override
@@ -44,10 +50,9 @@ public class MainPageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.settings_menu) {
             //Settings menüsünü aç
-
         }
         else if(item.getItemId() == R.id.signout) {
-            //Kullanının hesabını kapat
+            //Kullananın hesabını kapat
             auth.signOut();
 
             Intent intentToFirstPage = new Intent(MainPageActivity.this, FirstPageActivity.class);
@@ -57,4 +62,5 @@ public class MainPageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

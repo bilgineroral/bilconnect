@@ -14,11 +14,16 @@ public class User implements Followable{
     private ArrayList<User> followers;
     private ArrayList<Followable> followedAccounts;
     private ArrayList<User> blockedAccounts;
+    private ArrayList<Event> pastEvents;
 //interestleri ekle
 //eventleri ekle
 //
 
-    public User() {}
+    public User() {
+        pastEvents = new ArrayList<>();
+        pastEvents.add(new Event("e1"));
+        pastEvents.add(new Event("e2"));
+    }
 
     public User(String userID, String email, String bilkentID, ArrayList<String> questionAnswers, String department) {
         this.userID = userID;
@@ -66,6 +71,10 @@ public class User implements Followable{
 
     public void setQuestionAnswers(ArrayList<String> questionAnswers) {
         this.questionAnswers = questionAnswers;
+    }
+
+    public ArrayList<Event> getPastEvents() {
+        return pastEvents;
     }
 
     public void setDepartment(String department) {
