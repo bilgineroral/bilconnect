@@ -21,9 +21,11 @@ public class User implements Followable{
 //
 
     public User() {
+        // test icin koydum..(Bilginer)
         pastEvents = new ArrayList<>();
-        pastEvents.add(new Event("e1"));
-        pastEvents.add(new Event("e2"));
+        pastEvents.add(new Event("takilmaca", "Sertac", 12));
+        pastEvents.add(new Event("ogle yemegi", "Bilginer", 4));
+        pastEvents.add(new Event("kodlama eventi", "Onur", 6));
     }
 
     public User(String userID, String email, String bilkentID, ArrayList<String> questionAnswers, String department) {

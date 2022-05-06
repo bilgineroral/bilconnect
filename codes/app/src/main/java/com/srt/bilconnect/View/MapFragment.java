@@ -33,7 +33,7 @@ public class MapFragment extends Fragment {
     }
 
     public void whenClicked(View view) {
-        Toast.makeText(getActivity(),"hello my friend", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"hello test", Toast.LENGTH_SHORT).show();
     }
 
     @Override
