@@ -1,10 +1,12 @@
 package com.srt.bilconnect.View;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +27,6 @@ public class MainPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         binding = ActivityMainPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -34,6 +34,10 @@ public class MainPageActivity extends AppCompatActivity {
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_nav);
         NavigationUI.setupWithNavController(binding.navView, navController);
+    }
+
+    public void addEvent(View view) {
+
     }
 
     @Override
@@ -62,5 +66,4 @@ public class MainPageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

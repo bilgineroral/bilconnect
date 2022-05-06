@@ -3,6 +3,7 @@ package com.srt.bilconnect.Model;
 import java.util.ArrayList;
 
 public class User implements Followable{
+    private String username;
     private String userID;
     private String bilkentID;
     private String email;
@@ -17,23 +18,37 @@ public class User implements Followable{
     private ArrayList<Interest> interests;
     private ArrayList<Event> pastEvents;
 //interestleri ekle
+
+
 //eventleri ekle
 //
 
     public User() {
         // test icin koydum..(Bilginer)
         pastEvents = new ArrayList<>();
-        pastEvents.add(new Event("takilmaca", "Sertac", 12));
-        pastEvents.add(new Event("ogle yemegi", "Bilginer", 4));
-        pastEvents.add(new Event("kodlama eventi", "Onur", 6));
+        pastEvents.add(new Event("takilmaca", new User(), 12));
+        pastEvents.add(new Event("ogle yemegi", new User(), 4));
+        pastEvents.add(new Event("kodlama eventi", new User(), 6));
     }
 
-    public User(String userID, String email, String bilkentID, ArrayList<String> questionAnswers, String department) {
+    public User(String username, String userID, String email, String bilkentID, ArrayList<String> questionAnswers, String department) {
+        this.username = username;
         this.userID = userID;
         this.email = email;
         this.bilkentID = bilkentID;
         this.questionAnswers = questionAnswers;
         this.department = department;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPastEvents(ArrayList<Event> pastEvents) {
+        this.pastEvents = pastEvents;
     }
 
     public String getBio() {
