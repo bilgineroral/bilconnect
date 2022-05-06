@@ -17,8 +17,6 @@ public class User implements Followable{
     private ArrayList<User> blockedAccounts;
     private ArrayList<Interest> interests;
     private ArrayList<Event> pastEvents;
-    private ArrayList<Event> createdEvents;
-    private ArrayList<Event> registeredEvents;
 //interestleri ekle
 
 
@@ -28,9 +26,9 @@ public class User implements Followable{
     public User() {
         // test icin koydum..(Bilginer)
         pastEvents = new ArrayList<>();
-        pastEvents.add(new Event("takilmaca", new User(), 12,null,null));
-        pastEvents.add(new Event("ogle yemegi", new User(), 4,null,null));
-        pastEvents.add(new Event("kodlama eventi", new User(), 6,null,null));
+        pastEvents.add(new Event("takilmaca", new User(), 12));
+        pastEvents.add(new Event("ogle yemegi", new User(), 4));
+        pastEvents.add(new Event("kodlama eventi", new User(), 6));
     }
 
     public User(String username, String userID, String email, String bilkentID, ArrayList<String> questionAnswers, String department) {
@@ -42,38 +40,6 @@ public class User implements Followable{
         this.department = department;
     }
 
-    public void addCreatedEvent(Event anEvent) {
-        this.createdEvents.add(anEvent);
-    }
-
-    public void addRegisteredEvents(Event anEvent) {
-        if(registeredEvents.contains(anEvent)) {}
-        else {
-            registeredEvents.add(anEvent);
-        }
-    }
-
-    public void unregisterFromEvent(Event anEvent) {
-        if(registeredEvents.contains(anEvent)) {
-            registeredEvents.remove(anEvent);
-        }
-    }
-
-    public ArrayList<Event> getCreatedEvents() {
-        return createdEvents;
-    }
-
-    public void setCreatedEvents(ArrayList<Event> createdEvents) {
-        this.createdEvents = createdEvents;
-    }
-
-    public ArrayList<Event> getRegisteredEvents() {
-        return registeredEvents;
-    }
-
-    public void setRegisteredEvents(ArrayList<Event> registeredEvents) {
-        this.registeredEvents = registeredEvents;
-    }
     public String getUsername() {
         return username;
     }
