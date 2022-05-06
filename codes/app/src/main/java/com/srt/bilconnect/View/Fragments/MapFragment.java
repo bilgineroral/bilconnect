@@ -1,29 +1,28 @@
-package com.srt.bilconnect.View;
+package com.srt.bilconnect.View.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.srt.bilconnect.databinding.FragmentHomeBinding;
+import com.srt.bilconnect.databinding.FragmentDashboardBinding;
 
-public class HomeFragment extends Fragment {
+public class MapFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
-    TextView homeView;
+    private FragmentDashboardBinding binding;
+    private Button button;
 
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        homeView = binding.homeTextViewTest;
-        homeView.setOnClickListener(new View.OnClickListener() {
+        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        button = binding.button;
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 whenClicked(view);
@@ -34,7 +33,7 @@ public class HomeFragment extends Fragment {
     }
 
     public void whenClicked(View view) {
-        Toast.makeText(getActivity(), "Home Fragment", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"hello test", Toast.LENGTH_SHORT).show();
     }
 
     @Override

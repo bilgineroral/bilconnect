@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.srt.bilconnect.View.HomeFragment"
+        android:name="com.srt.bilconnect.View.Fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.srt.bilconnect.View.MapFragment"
+        android:name="com.srt.bilconnect.View.Fragments.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.srt.bilconnect.View.ProfileFragment"
+        android:name="com.srt.bilconnect.View.Fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

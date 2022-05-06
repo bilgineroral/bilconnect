@@ -1,4 +1,4 @@
-package com.srt.bilconnect.View;
+package com.srt.bilconnect.View.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
