@@ -3,16 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2515" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2515" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2515" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2515" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2515" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_additional_info.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_change_password.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_event_creation.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_event_page.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_main_page.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_registered_events.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/activity_sign_up.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/fragment_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/layout/recycler_view_elements.xml" value="0.22826086956521738" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/menu/option_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2515" />
+        <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2515" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_additional_info.xml" value="0.36666666666666664" />
-        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_change_password.xml" value="0.36666666666666664" />
-        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_event_creation.xml" value="0.36666666666666664" />
-        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_event_page.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_main.xml" value="0.3342391304347826" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_main_page.xml" value="0.36666666666666664" />
-        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_main_with_nav.xml" value="0.36666666666666664" />
-        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_registered_events.xml" value="0.36666666666666664" />
-        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_reset_password.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />
+<<<<<<< Updated upstream
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_study_event.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/fragment_dashboard.xml" value="0.23822463768115942" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/fragment_event_creation_first.xml" value="0.36666666666666664" />
@@ -21,6 +36,8 @@
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/recycler_view_elements.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+=======
+>>>>>>> Stashed changes
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/menu/option_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

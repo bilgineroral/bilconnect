@@ -184,4 +184,14 @@ public class User implements Followable{
     public void setProfilePhotoURL(String profilePhotoURL) {
         this.profilePhotoURL = profilePhotoURL;
     }
+
+    @Override
+    public void addFollower(Followable anObject) {
+
+    }
+
+    @Override
+    public void removeFollower(Followable anObject) {
+
+    }
 }
