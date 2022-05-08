@@ -40,6 +40,7 @@ public class AdditionalInfoActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private ActivityResultLauncher<String> permissionLauncher;
+    private String bio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,5 +131,13 @@ public class AdditionalInfoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void finishRegistration(View view){
+
+        bio = binding.bioText.getText().toString();
+        Intent intent = new Intent(AdditionalInfoActivity.this, MainPageActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

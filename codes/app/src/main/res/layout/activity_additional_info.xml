@@ -11,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="354dp"
         android:text="Add Profile Picture"
+        app:layout_constraintBottom_toTopOf="@+id/bioTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,5 +39,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectImage" />
+
+    <EditText
+        android:id="@+id/bioText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="89dp"
+        android:ems="10"
+        android:hint="Write a bio!"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
+
+    <TextView
+        android:id="@+id/bioTextView"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="389dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="100dp"
+        android:text="Great! Now write a bio. You can share further information about yourself here."
+        app:layout_constraintBottom_toTopOf="@+id/okButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="85dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="finishRegistration"
+        android:text="Ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
