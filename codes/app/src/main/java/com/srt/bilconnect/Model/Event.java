@@ -6,37 +6,19 @@ import java.util.ArrayList;
 public class Event implements Serializable {
 
     // TEST VARIABLES
-    private String title;
+    private String eventName;
     private String description;
     private User host;
     private int quota;
     private ArrayList<User> attendees;
-    private ArrayList<Interest> interests;
     private Place eventPlace;
 
     public Event() {}
-    public Event(String title, User host, int quota, ArrayList<Interest> interests, Place eventPlace) {
-        this.interests = interests;
-        this.eventPlace = eventPlace;
-        this.title = title;
+    public Event(String text, User host, int quota) {
+
+        this.eventName = text;
         this.host = host;
         this.quota = quota;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ArrayList<Interest> getInterests() {
-        return interests;
-    }
-
-    public void setInterests(ArrayList<Interest> interests) {
-        this.interests = interests;
     }
 
     public void setDescription(String description) {
@@ -64,7 +46,7 @@ public class Event implements Serializable {
     }
 
     public void setEventName(String eventName) {
-        this.title = eventName;
+        this.eventName = eventName;
     }
 
     public void setHost(User host) {
@@ -76,7 +58,7 @@ public class Event implements Serializable {
     }
 
     public String getEventName() {
-        return title;
+        return eventName;
     }
 
     public User getHost() {
