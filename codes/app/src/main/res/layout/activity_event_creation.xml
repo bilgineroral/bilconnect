@@ -6,4 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".View.EventCreationActivity">
 
+    <Button
+        android:id="@+id/sportsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="26dp"
+        android:onClick="selectSports"
+        android:text="Sports"
+        app:layout_constraintEnd_toEndOf="@+id/sportsImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/studyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:onClick="selectStudy"
+        android:text="Study"
+        app:layout_constraintEnd_toEndOf="@+id/otherButton"
+        app:layout_constraintStart_toStartOf="@+id/otherButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/entertainmentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="262dp"
+        android:onClick="selectEntertainment"
+        android:text="Entertainment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/otherButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:onClick="selectOther"
+        android:text="Other"
+        app:layout_constraintBaseline_toBaselineOf="@+id/entertainmentButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/sportsImageView"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="86dp"
+        app:layout_constraintBottom_toBottomOf="@+id/entertainmentButton"
+        app:layout_constraintEnd_toEndOf="@+id/entertainmentButton"
+        app:layout_constraintStart_toStartOf="@+id/entertainmentButton"
+        app:layout_constraintTop_toTopOf="@+id/sportsButton"
+        app:srcCompat="@drawable/sportsphoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

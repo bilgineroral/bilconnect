@@ -17,7 +17,7 @@ public class Place implements Followable{
 
     public void setPlaceName(String placeName) { this.placeName = placeName; }
 
-    public void changeRating(double newRating)
+    public void changeRating(double newRating) //aldığı şey double olacak ancak oydan alacak mesela 4.7 almalı kişiden
     {
         ratings.add(newRating);
         rating = (rating + newRating) / ratings.size();

@@ -12,6 +12,7 @@ public class Event implements Serializable {
     private int quota;
     private ArrayList<User> attendees;
     private Place eventPlace;
+    private ArrayList<Interest> interests;
 
     public Event() {}
     public Event(String text, User host, int quota) {
@@ -68,4 +69,7 @@ public class Event implements Serializable {
     public int getQuota() {
         return quota;
     }
+
+    public ArrayList<Interest> getInterests() {return this.interests;}
+    public void setInterests(ArrayList<Interest> interests) {this.interests = interests;}
 }

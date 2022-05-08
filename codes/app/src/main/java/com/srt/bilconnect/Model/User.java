@@ -1,22 +1,28 @@
 package com.srt.bilconnect.Model;
 
+import com.srt.bilconnect.View.AdditionalInfoActivity;
+
 import java.util.ArrayList;
 
 public class User implements Followable{
     private String username;
-    private String userID;
+    private String userID;    //int olmayacak mı (serhat soruyor)
     private String bilkentID;
     private String email;
     private ArrayList<String> questionAnswers;
     private String department;
     private String profilePhotoURL;
-    private String bio;
+    private String bio = new AdditionalInfoActivity().getBioAfterRegistration();  // oldu mu bi kontrol edin beyler
+    private String dorm;
+    private String password;
     private double rating;
     private ArrayList<User> followers;
     private ArrayList<Followable> followedAccounts;
     private ArrayList<User> blockedAccounts;
     private ArrayList<Interest> interests;
     private ArrayList<Event> pastEvents;
+    private ArrayList<Event> registeredEvents;
+    private ArrayList<Event> createdEvents;
 //interestleri ekle
 
 
@@ -151,6 +157,18 @@ public class User implements Followable{
         this.profilePhotoURL = profilePhotoURL;
     }
 
+    public String getDorm() {return dorm;}
+    public void setDorm(String dorm) {this.dorm = dorm;}
+
+    public String getPassword() {return password;}
+    public void setPassword(String password) {this.password = password;}
+
+    public ArrayList<Event> getRegisteredEvents() {return this.registeredEvents;}
+    public void setRegisteredEvents(ArrayList<Event> registeredEvents) {this.registeredEvents = registeredEvents;}
+
+    public ArrayList<Event> getCreatedEvents() {return this.createdEvents;}
+    public void setCreatedEvents(ArrayList<Event> createdEvents) {this.createdEvents = createdEvents;}
+
     @Override
     public void addFollower(Followable anObject) {
 
@@ -160,4 +178,29 @@ public class User implements Followable{
     public void removeFollower(Followable anObject) {
 
     }
+
+    public void register(CurrentEvent anEvent){
+
+    }
+
+    public void createEvent(){
+
+    }
+
+    public void unregister(Event anEvent){
+
+    }
+
+    public void follow(Followable aUser){
+
+    }
+
+    public void unfollow(Followable aUser){
+
+    }
+
+    public void block(Followable aUser){
+
+    }
+
 }
