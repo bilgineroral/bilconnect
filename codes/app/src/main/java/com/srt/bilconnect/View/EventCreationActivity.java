@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.srt.bilconnect.View.EventCreationPages.EntertainmentEventActivity;
 import com.srt.bilconnect.View.EventCreationPages.OtherEventActivity;
@@ -46,6 +47,7 @@ public class EventCreationActivity extends AppCompatActivity {
     public void selectOther(View view){
         Intent intent = new Intent(EventCreationActivity.this, OtherEventActivity.class);
         startActivity(intent);
+        Toast.makeText(getApplicationContext(), "testhey", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

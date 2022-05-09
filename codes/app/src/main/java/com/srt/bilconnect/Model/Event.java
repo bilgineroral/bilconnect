@@ -9,6 +9,7 @@ public class Event implements Serializable {
     private String eventName;
     private String description;
     private User host;
+    private String hostTest;
     private int quota;
     private ArrayList<User> attendees;
     private Place eventPlace;
@@ -20,6 +21,33 @@ public class Event implements Serializable {
         this.eventName = text;
         this.host = host;
         this.quota = quota;
+    }
+
+    // for tests...
+    public Event(String title, String host, int quota) {
+        this.title = title;
+        this.hostTest = host;
+        this.quota = quota;
+    }
+
+    public String getHostTest() {
+        return hostTest;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public ArrayList<Interest> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(ArrayList<Interest> interests) {
+        this.interests = interests;
     }
 
     public void setDescription(String description) {
