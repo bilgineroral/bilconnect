@@ -171,20 +171,20 @@ public class User implements Followable{
 
     @Override
     public void addFollower(Followable anObject) {
-
+        followers.add((User) anObject);
     }
 
     @Override
     public void removeFollower(Followable anObject) {
-
+        followers.remove(anObject);
     }
 
     public void register(CurrentEvent anEvent){
-
+        registeredEvents.add(anEvent);
     }
 
     public void createEvent(){
-
+        Event newEvent = new CurrentEvent(
     }
 
     public void unregister(Event anEvent){

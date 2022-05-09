@@ -2,7 +2,7 @@ package com.srt.bilconnect.Model;
 
 import java.util.ArrayList;
 
-public class PastEvent {
+public class PastEvent extends Event{
 
     private ArrayList<Review> reviews;
 

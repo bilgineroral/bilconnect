@@ -1,4 +1,4 @@
 package com.srt.bilconnect.Model;
 
-public class Interest {
+public abstract class Interest {
 }
