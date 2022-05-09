@@ -15,7 +15,7 @@
         android:id="@+id/navigation_map"
         android:name="com.srt.bilconnect.View.Fragments.MapFragment"
         android:label="fragment_map"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_profile"
