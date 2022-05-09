@@ -3,6 +3,9 @@ package com.srt.bilconnect.View.EventCreationPages;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -11,13 +14,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Interest;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
+import java.util.ArrayList;
+import java.util.UUID;
+
 public class StudyEventActivity extends AppCompatActivity {
+
+    private FirebaseAuth auth;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseStorage firebaseStorage;
+    private ActivityStudyEventBinding binding;
+    private ArrayList<Interest> interests;//can be implemented in an arraylist
+    private static User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

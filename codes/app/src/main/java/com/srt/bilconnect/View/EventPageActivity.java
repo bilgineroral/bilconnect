@@ -20,6 +20,6 @@ public class EventPageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Event event = (Event) intent.getSerializableExtra("event"); // from profile
-        binding.nameText.setText(event.getEventName());
+        binding.nameText.setText(event.getTitle());
     }
 }
