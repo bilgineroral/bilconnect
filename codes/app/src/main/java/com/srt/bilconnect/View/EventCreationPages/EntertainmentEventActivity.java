@@ -66,7 +66,5 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                 selectedButton.setBackgroundColor(Color.argb(100,103,58,183));
                 isSelected[i] = true;
             }
-
     }
-
 }

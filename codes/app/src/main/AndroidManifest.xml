@@ -39,6 +39,18 @@
             android:name=".View.SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".View.EventCreationPages.EntertainmentEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventCreationPages.OtherEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventCreationPages.SportsEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EventCreationPages.StudyEventActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.FirstPageActivity"
             android:exported="true">
             <intent-filter>

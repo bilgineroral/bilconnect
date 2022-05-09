@@ -27,23 +27,21 @@ public class User implements Followable{
 
 
 //eventleri ekle
-//
 
-    public User() {
+    public User() {//boş user constructoru firebase için gerekli
         // test icin koydum..(Bilginer)
-        /*
+
         pastEvents = new ArrayList<>();
         pastEvents.add(new Event("takilmaca", new User(), 12));
         pastEvents.add(new Event("ogle yemegi", new User(), 4));
         pastEvents.add(new Event("kodlama eventi", new User(), 6));
     }
 
-    public User(String username, String userID, String email, String bilkentID, ArrayList<String> questionAnswers, String department) {
+    public User(String username, String userID, String email, String bilkentID, String department) {
         this.username = username;
         this.userID = userID;
         this.email = email;
         this.bilkentID = bilkentID;
-        this.questionAnswers = questionAnswers;
         this.department = department;
     }
 

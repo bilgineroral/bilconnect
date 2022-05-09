@@ -60,7 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
                     questionsAnswered.add(binding.favColorText.getText().toString());
                     questionsAnswered.add(binding.petNameText.getText().toString());
 
-                    User newUser = new User(username,userID,email,bilkentId,questionsAnswered,department);
+                    User newUser = new User(username,userID,email,bilkentId,department);
 
                     firebaseFirestore.collection("UserData").document(userID).set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

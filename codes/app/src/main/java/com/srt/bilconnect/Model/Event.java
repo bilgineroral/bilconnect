@@ -6,32 +6,27 @@ import java.util.ArrayList;
 public class Event implements Serializable {
 
     // TEST VARIABLES
-    private String eventName;
+    private String title;
     private String description;
     private User host;
-    private String hostTest;
     private int quota;
     private ArrayList<User> attendees;
     private Place eventPlace;
     private ArrayList<Interest> interests;
 
     public Event() {}
-    public Event(String text, User host, int quota) {
-
-        this.eventName = text;
+    public Event(String title, User host, int quota, ArrayList<Interest> interests, Place eventPlace) {
+        this.interests = interests;
+        this.eventPlace = eventPlace;
+        this.title = title;
         this.host = host;
         this.quota = quota;
     }
 
-    // for tests...
-    public Event(String title, String host, int quota) {
-        this.title = title;
-        this.hostTest = host;
-        this.quota = quota;
-    }
-
-    public String getHostTest() {
-        return hostTest;
+    public Event(String s, User user, int i) {
+        this.title = s;
+        this.host = user;
+        this.quota = i;
     }
 
     public String getTitle() {
@@ -74,20 +69,12 @@ public class Event implements Serializable {
         return eventPlace;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
     public void setHost(User host) {
         this.host = host;
     }
 
     public void setQuota(int quota) {
         this.quota = quota;
-    }
-
-    public String getEventName() {
-        return eventName;
     }
 
     public User getHost() {
@@ -97,7 +84,4 @@ public class Event implements Serializable {
     public int getQuota() {
         return quota;
     }
-
-    public ArrayList<Interest> getInterests() {return this.interests;}
-    public void setInterests(ArrayList<Interest> interests) {this.interests = interests;}
 }

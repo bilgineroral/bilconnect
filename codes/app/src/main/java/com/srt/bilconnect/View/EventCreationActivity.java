@@ -26,28 +26,27 @@ public class EventCreationActivity extends AppCompatActivity {
 
     }
 
-    public void selectSports(View view){
+    public void sendToSports(View view){
         Intent intent = new Intent(EventCreationActivity.this, SportsEventActivity.class);
         startActivity(intent);
-        finish();
     }
 
-    public void selectStudy(View view){
+    public void sendToStudy(View view){
         Intent intent = new Intent(EventCreationActivity.this, StudyEventActivity.class);
-        startActivity(intent);
-        finish();
+        try {
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void selectEntertainment(View view){
+    public void sendToEnter(View view){
         Intent intent = new Intent(EventCreationActivity.this, EntertainmentEventActivity.class);
         startActivity(intent);
-        finish();
     }
 
-    public void selectOther(View view){
+    public void sendToOther(View view){
         Intent intent = new Intent(EventCreationActivity.this, OtherEventActivity.class);
         startActivity(intent);
-        Toast.makeText(getApplicationContext(), "testhey", Toast.LENGTH_SHORT).show();
-        finish();
     }
 }

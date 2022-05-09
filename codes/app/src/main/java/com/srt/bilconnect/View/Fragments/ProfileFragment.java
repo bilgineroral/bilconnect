@@ -99,7 +99,6 @@ public class ProfileFragment extends Fragment {
                     Picasso.get().load(user.getProfilePhotoURL()).into(binding.profilePicture);
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                    binding.profilePicture.
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
