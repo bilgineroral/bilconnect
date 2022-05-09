@@ -189,16 +189,10 @@ public class User implements Followable{
         registeredEvents.remove(anEvent);
     }
 
-    public void follow(Followable aUser){
+    public void follow(Followable aUser){ followedAccounts.add(aUser); }
 
-    }
+    public void unfollow(Followable aUser){ followedAccounts.remove(aUser); }
 
-    public void unfollow(Followable aUser){
-
-    }
-
-    public void block(Followable aUser){
-
-    }
+    public void block(Followable aUser){ followedAccounts.remove(aUser); }
 
 }
