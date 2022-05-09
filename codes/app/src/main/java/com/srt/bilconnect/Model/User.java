@@ -184,11 +184,12 @@ public class User implements Followable{
     }
 
     public void createEvent(){
-        Event newEvent = new CurrentEvent(
+        Event newEvent = new CurrentEvent(); //bitmedi
+        createdEvents.add(newEvent);
     }
 
     public void unregister(Event anEvent){
-
+        registeredEvents.remove(anEvent);
     }
 
     public void follow(Followable aUser){
