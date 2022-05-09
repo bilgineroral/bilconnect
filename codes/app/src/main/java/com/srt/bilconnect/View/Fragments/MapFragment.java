@@ -10,17 +10,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.srt.bilconnect.databinding.FragmentDashboardBinding;
+import com.srt.bilconnect.databinding.FragmentMapBinding;
 
 public class MapFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentMapBinding binding;
     private Button button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentMapBinding.inflate(inflater, container, false);
         button = binding.button;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
