@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.Event;
+import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class HomeFragment extends Fragment {
         sortItems[1] = "Sort lexicographically.";
 
         spinner = binding.spinner;
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
@@ -59,15 +60,16 @@ public class HomeFragment extends Fragment {
         });
 
         binding.recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         ArrayList<Event> testList = new ArrayList<>();
-        testList.add(new Event("mayfest buluşma", "Ali", 6));
-        testList.add(new Event("basketbol", "Ayşe", 5));
-        testList.add(new Event("kahve içicez", "Fatma", 3));
-        testList.add(new Event("futbol", "Bilginer", 22));
-        testList.add(new Event("ders", "Aslı", 9));
-        testList.add(new Event("deneme", "Deniz", 8));
-        testList.add(new Event("eğlence", "Arda", 6));
-        testList.add(new Event("Tutoring", "Kaan", 5));
+        testList.add(new Event("mayfest buluşma", new User("denem123", "2412req","denem@gmail.com", "12323", "CS"), 6));
+        testList.add(new Event("basketbol", new User("Eren", "2412req","denem@gmail.com", "12323", "CS"), 5));
+        testList.add(new Event("kahve içicez", new User("Deniz", "2412req","denem@gmail.com", "12323", "CS"), 3));
+        testList.add(new Event("futbol", new User("Ali", "2412req","denem@gmail.com", "12323", "CS"), 22));
+        testList.add(new Event("ders", new User("Ayşe", "2412req","denem@gmail.com", "12323", "CS"), 9));
+        testList.add(new Event("deneme", new User("Sinan", "2412req","denem@gmail.com", "12323", "CS"), 8));
+        testList.add(new Event("eğlence", new User("Melis", "2412req","denem@gmail.com", "12323", "CS"), 6));
+        testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"), 5));
         EventAdapter eventAdapter = new EventAdapter(testList);
         binding.recyclerViewHome.setAdapter(eventAdapter);
 

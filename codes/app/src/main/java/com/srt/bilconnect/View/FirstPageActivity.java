@@ -64,7 +64,6 @@ public class FirstPageActivity extends AppCompatActivity {
     }
 
     public void signUpClicked(View view) {
-
         Intent intent = new Intent(FirstPageActivity.this, SignUpActivity.class);
         startActivity(intent);
         finish();

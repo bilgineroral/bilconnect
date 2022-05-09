@@ -40,7 +40,6 @@ public class MainPageActivity extends AppCompatActivity {
     public void addEvent(View view) {
         Intent intent = new Intent(MainPageActivity.this, EventCreationActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override
@@ -58,7 +57,6 @@ public class MainPageActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.settings_menu) {
             Intent intentToSettings = new Intent(MainPageActivity.this, SettingsActivity2.class);
             startActivity(intentToSettings);
-            finish();
         }
         else if(item.getItemId() == R.id.signout) {
             auth.signOut();

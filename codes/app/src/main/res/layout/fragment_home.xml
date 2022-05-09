@@ -7,6 +7,9 @@
     tools:context=".HomeFragment">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHome"
         android:layout_width="392dp"
@@ -14,6 +17,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="5dp"
+<<<<<<< HEAD
 =======
     <TextView
         android:id="@+id/homeTextViewTest"
@@ -23,6 +27,8 @@
         android:text="HOME PAGE TEST FRAG"
         android:textSize="30sp"
 >>>>>>> Settings
+=======
+>>>>>>> main
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

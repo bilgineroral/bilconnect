@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Enter the date of the event."
+            android:text="Enter the date of the event:"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/scrollView2"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
@@ -115,46 +115,57 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
-            android:hint="Time"
             android:inputType="datetime"
             app:layout_constraintStart_toStartOf="@+id/scrollView2"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <Button
-            android:id="@+id/button3"
+            android:backgroundTint="#F44336"
+            android:id="@+id/tutoringButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:onClick="selected"
             android:text="Tutorıng"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/studyEventInterest"
             app:layout_constraintTop_toBottomOf="@+id/studyEventInterest" />
 
         <Button
-            android:id="@+id/button4"
-            android:layout_width="208dp"
-            android:layout_height="48dp"
+            android:backgroundTint="#F44336"
+            android:id="@+id/gettingTutoredButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:onClick="selected"
             android:text="Gettıng Tutored"
-            app:layout_constraintStart_toEndOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="@+id/button3" />
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tutoringButton"
+            app:layout_constraintTop_toTopOf="@+id/tutoringButton" />
 
         <Button
-            android:id="@+id/button7"
+            android:backgroundTint="#F44336"
+            android:id="@+id/quietButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:onClick="selected"
             android:text="quıet studyıng"
-            app:layout_constraintStart_toStartOf="@+id/button8"
-            app:layout_constraintTop_toBottomOf="@+id/button8" />
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/talkingButton"
+            app:layout_constraintTop_toBottomOf="@+id/talkingButton" />
 
         <Button
-            android:id="@+id/button8"
+            android:backgroundTint="#F44336"
+            android:id="@+id/talkingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:onClick="selected"
             android:text="Studyıng wıth talkıng"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tutoringButton"
+            app:layout_constraintTop_toBottomOf="@+id/tutoringButton" />
 
         <TextView
             android:id="@+id/textView20"
@@ -163,8 +174,8 @@
             android:layout_marginTop="25dp"
             android:text="Type the title of your event:"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/button7"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
+            app:layout_constraintStart_toStartOf="@+id/quietButton"
+            app:layout_constraintTop_toBottomOf="@+id/quietButton" />
 
         <EditText
             android:id="@+id/eventTitleText"

@@ -95,14 +95,14 @@
 
         <Button
             android:id="@+id/footballButton6"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="squash"
+            android:text="swımmıng"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -140,7 +140,7 @@
 
         <Button
             android:id="@+id/footballButton3"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
@@ -184,7 +184,7 @@
 
         <Button
             android:id="@+id/footballButton"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
@@ -200,7 +200,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
@@ -245,7 +245,7 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
@@ -295,13 +295,13 @@
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/footballButton6"
             app:layout_constraintTop_toBottomOf="@+id/footballButton6"
-            app:srcCompat="@drawable/sqaa" />
+            app:srcCompat="@drawable/swimming" />
 
         <EditText
             android:id="@+id/editTextTextPersonName4"

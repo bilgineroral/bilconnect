@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.View.EventPageActivity;
-import com.srt.bilconnect.databinding.PastEventsProfileBinding;
+import com.srt.bilconnect.databinding.PastEventsProfileRecyclerViewBinding;
 
 import java.util.ArrayList;
 
 public class EventAdapter extends RecyclerView.Adapter<EventHolder> {
 
     private ArrayList<Event> list;
-    PastEventsProfileBinding binding;
+    PastEventsProfileRecyclerViewBinding binding;
 
     public EventAdapter(ArrayList<Event> events) {
         super();
@@ -27,17 +27,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventHolder> {
     @NonNull
     @Override
     public EventHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-         binding = PastEventsProfileBinding
+         binding = PastEventsProfileRecyclerViewBinding
                 .inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new EventHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull EventHolder holder, int position) {
-        holder.getBinding().eventNameText.setText("Event: " + this.list.get(position).getEventName());
+        holder.getBinding().eventNameText.setText("Event: " + this.list.get(position).getTitle());
         //commented out for test ...
         // holder.getBinding().hostNameText.setText("Host: " + this.list.get(position).getHost().getUsername());
-        holder.getBinding().hostNameText.setText("Host: " + this.list.get(position).getHostTest());
+        holder.getBinding().hostNameText.setText("Host: " + this.list.get(position).getHost());
         holder.getBinding().quotaText.setText("quota: " + this.list.get(position).getQuota());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -58,14 +58,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventHolder> {
 
 class EventHolder extends RecyclerView.ViewHolder {
 
-    private PastEventsProfileBinding binding;
+    private PastEventsProfileRecyclerViewBinding binding;
 
-    public EventHolder(PastEventsProfileBinding binding) {
+    public EventHolder(PastEventsProfileRecyclerViewBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
     }
 
-    public PastEventsProfileBinding getBinding() {
+    public PastEventsProfileRecyclerViewBinding getBinding() {
         return this.binding;
     }
 }

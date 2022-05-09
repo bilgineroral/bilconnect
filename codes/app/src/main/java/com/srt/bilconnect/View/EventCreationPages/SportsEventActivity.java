@@ -7,8 +7,6 @@ import android.widget.Button;
 
 import com.srt.bilconnect.R;
 
-import com.srt.bilconnect.R;
-
 public class SportsEventActivity extends AppCompatActivity {
 
     @Override

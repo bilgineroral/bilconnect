@@ -4,6 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< refs/remotes/origin/Settings
+<<<<<<< refs/remotes/origin/Settings
+=======
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Event creation pages updated
+>>>>>>> main
 
         <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2515" />
         <entry key="..\:/GitHub/bilconnect/codes/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2515" />
@@ -35,9 +45,28 @@
         <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_sign_up.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/fragment_dashboard.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/recycler_view_elements.xml" value="0.17552083333333332" />
+<<<<<<< refs/remotes/origin/Settings
+>>>>>>> Stashed changes
+>>>>>>> changes in the model classes (Comment, User, Place, Review)
+=======
 
+>>>>>>> Event creation pages updated
+
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_additional_info.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_event_creation.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_main_page.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_registered_events.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_reset_password.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/activity_sign_up.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/fragment_dashboard.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/OMER-ONUR-SEFER/Desktop/CS 101-102/CS102 2022 Spring (AD)/Git/bilconnect/codes/app/src/main/res/layout/recycler_view_elements.xml" value="0.17552083333333332" />
+
+<<<<<<< HEAD
 =======
 >>>>>>> Settings
+=======
+>>>>>>> main
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_additional_info.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_change_password.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_event_creation.xml" value="0.36666666666666664" />
@@ -45,17 +74,43 @@
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_main.xml" value="0.3342391304347826" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_main_page.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_main_with_nav.xml" value="0.36666666666666664" />
+        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_other_event.xml" value="0.35104166666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_registered_events.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_reset_password.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+<<<<<<< refs/remotes/origin/Settings
+<<<<<<< refs/remotes/origin/Settings
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Event creation pages updated
 
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_study_event.xml" value="0.36666666666666664" />
 
+>>>>>>> main
+
+        <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_study_event.xml" value="0.36666666666666664" />
+<<<<<<< refs/remotes/origin/Settings
+>>>>>>> Stashed changes
+>>>>>>> changes in the model classes (Comment, User, Place, Review)
+=======
+
+>>>>>>> Event creation pages updated
+
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/activity_study_event.xml" value="0.36666666666666664" />
 
+<<<<<<< HEAD
 =======
 >>>>>>> Settings
+=======
+>>>>>>> main
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/fragment_dashboard.xml" value="0.23822463768115942" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/fragment_event_creation_first.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/fragment_home.xml" value="0.35104166666666664" />
@@ -64,9 +119,18 @@
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/layout/recycler_view_elements.xml" value="0.36666666666666664" />
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Settings
+=======
+
+<<<<<<< refs/remotes/origin/Settings
+=======
+
+>>>>>>> Event creation pages updated
+
+>>>>>>> main
         <entry key="..\:/github/bilconnect/codes/app/src/main/res/menu/option_menu.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_event_creation.xml" value="0.11423505572441743" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
