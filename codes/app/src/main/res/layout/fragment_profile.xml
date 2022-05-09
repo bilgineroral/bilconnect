@@ -19,78 +19,84 @@
 
     <TextView
         android:id="@+id/nickNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="33dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="nickname"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/profilePicture"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/deptText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="66dp"
+        android:layout_height="33dp"
         android:layout_marginTop="7dp"
         android:text="dept"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/nickNameText"
         app:layout_constraintTop_toBottomOf="@+id/nickNameText" />
 
     <TextView
         android:id="@+id/dormText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="61dp"
+        android:layout_height="32dp"
         android:layout_marginTop="7dp"
         android:text="dorm"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/deptText"
         app:layout_constraintTop_toBottomOf="@+id/deptText" />
 
     <TextView
         android:id="@+id/ratingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="101dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
         android:text="rating"
-        app:layout_constraintStart_toEndOf="@+id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/dormText" />
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/bioText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="218dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="8dp"
         android:text="bio"
-        app:layout_constraintStart_toEndOf="@+id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/ratingText" />
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/dormText"
+        tools:layout_editor_absoluteX="168dp" />
 
     <TextView
         android:id="@+id/noOfFollowersText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="4dp"
         android:text="no of followers"
         app:layout_constraintBottom_toTopOf="@+id/interestText"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingText"
+        app:layout_constraintVertical_bias="0.55" />
 
     <TextView
         android:id="@+id/interestText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="176dp"
+        android:layout_width="362dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="18dp"
         android:text="interests:"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="236dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:text="see registered events"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interestText" />
@@ -99,7 +105,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />

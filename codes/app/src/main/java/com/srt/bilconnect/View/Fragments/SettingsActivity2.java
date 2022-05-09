@@ -1,20 +1,16 @@
-package com.srt.bilconnect.View.EventCreationPages;
+package com.srt.bilconnect.View.Fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.Button;
 
 import com.srt.bilconnect.R;
 
-import com.srt.bilconnect.R;
-
-public class SportsEventActivity extends AppCompatActivity {
+public class SettingsActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sports_event);
+        setContentView(R.layout.activity_settings2);
     }
 }

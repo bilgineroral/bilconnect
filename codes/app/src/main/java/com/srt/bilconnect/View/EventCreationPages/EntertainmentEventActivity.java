@@ -12,6 +12,8 @@ import com.srt.bilconnect.databinding.ActivityEntertainmentEventBinding;
 
 import java.util.ArrayList;
 
+import com.srt.bilconnect.R;
+
 public class EntertainmentEventActivity extends AppCompatActivity {
 
     boolean oneInterestSelected;
