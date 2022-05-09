@@ -31,6 +31,7 @@ public class User implements Followable{
 
     public User() {
         // test icin koydum..(Bilginer)
+        /*
         pastEvents = new ArrayList<>();
         pastEvents.add(new Event("takilmaca", new User(), 12));
         pastEvents.add(new Event("ogle yemegi", new User(), 4));

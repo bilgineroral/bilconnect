@@ -95,7 +95,17 @@ public class ProfileFragment extends Fragment {
                 User user = documentSnapshot.toObject(User.class);
                 binding.nickNameText.setText("Username: " + user.getUsername());
                 binding.deptText.setText("Department: " + user.getDepartment());
-                Picasso.get().load(user.getProfilePhotoURL()).into(binding.profilePicture);
+                try {
+                    Picasso.get().load(user.getProfilePhotoURL()).into(binding.profilePicture);
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    binding.profilePicture.
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

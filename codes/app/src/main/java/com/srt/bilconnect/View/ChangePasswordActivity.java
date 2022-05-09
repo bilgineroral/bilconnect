@@ -26,6 +26,4 @@ public class ChangePasswordActivity extends AppCompatActivity {//bu kullanıcı 
         View view = binding.getRoot();
         setContentView(view);
     }
-
-
 }
