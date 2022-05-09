@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ProfileFragment">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profilePicture"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -15,7 +15,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        app:shapeAppearanceOverlay="@style/Circular"/>
 
     <TextView
         android:id="@+id/nickNameText"
@@ -24,13 +25,15 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="nickname"
+        android:textColor="#000000"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profilePicture"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/deptText"
-        android:layout_width="66dp"
+        android:layout_width="101dp"
         android:layout_height="33dp"
         android:layout_marginTop="7dp"
         android:text="dept"
@@ -40,8 +43,8 @@
 
     <TextView
         android:id="@+id/dormText"
-        android:layout_width="61dp"
-        android:layout_height="32dp"
+        android:layout_width="86dp"
+        android:layout_height="34dp"
         android:layout_marginTop="7dp"
         android:text="dorm"
         android:textSize="20sp"
@@ -55,8 +58,9 @@
         android:layout_marginTop="8dp"
         android:text="rating"
         android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/profilePicture"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/bioText"
@@ -65,19 +69,19 @@
         android:layout_marginTop="8dp"
         android:text="bio"
         android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/dormText"
         app:layout_constraintTop_toBottomOf="@+id/dormText"
-        tools:layout_editor_absoluteX="168dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/noOfFollowersText"
         android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="36dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="4dp"
         android:text="no of followers"
         app:layout_constraintBottom_toTopOf="@+id/interestText"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ratingText"
         app:layout_constraintTop_toBottomOf="@+id/ratingText"
         app:layout_constraintVertical_bias="0.55" />
 
@@ -85,20 +89,19 @@
         android:id="@+id/interestText"
         android:layout_width="362dp"
         android:layout_height="46dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginTop="8dp"
         android:text="interests:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="236dp" />
+        app:layout_constraintStart_toStartOf="@+id/noOfFollowersText"
+        app:layout_constraintTop_toBottomOf="@+id/bioText"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="see registered events"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/interestText"
         app:layout_constraintTop_toBottomOf="@+id/interestText" />
 
     <androidx.recyclerview.widget.RecyclerView
