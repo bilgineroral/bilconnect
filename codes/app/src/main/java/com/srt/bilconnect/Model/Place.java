@@ -28,11 +28,11 @@ public class Place implements Followable{
 
     @Override
     public void addFollower(Followable anObject) {
-
+        followers.add((User) anObject);
     }
 
     @Override
     public void removeFollower(Followable anObject) {
-
+        followers.remove(anObject);
     }
 }

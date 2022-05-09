@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.srt.bilconnect.R;
+
 public class EntertainmentEventActivity extends AppCompatActivity {
 
     @Override
