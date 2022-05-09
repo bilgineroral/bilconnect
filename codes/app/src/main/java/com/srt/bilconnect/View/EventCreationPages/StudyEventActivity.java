@@ -1,9 +1,9 @@
 package com.srt.bilconnect.View.EventCreationPages;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Toast;
 

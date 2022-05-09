@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
         sortItems[1] = "Sort lexicographically.";
 
         spinner = binding.spinner;
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
@@ -60,6 +60,7 @@ public class HomeFragment extends Fragment {
         });
 
         binding.recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         ArrayList<Event> testList = new ArrayList<>();
         testList.add(new Event("mayfest buluşma", new User("denem123", "2412req","denem@gmail.com", "12323", "CS"), 6));
         testList.add(new Event("basketbol", new User("Eren", "2412req","denem@gmail.com", "12323", "CS"), 5));
