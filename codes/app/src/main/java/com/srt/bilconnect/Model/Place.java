@@ -4,9 +4,11 @@ import android.graphics.Point;
 
 import java.util.ArrayList;
 
-public class Place{
+public class Place implements Followable{
 
     private String placeName;
+    private ArrayList<User> followers;
+    private ArrayList<Event> upcomingEvents;
     private double rating = 0;
     private Point coordinates;
 
