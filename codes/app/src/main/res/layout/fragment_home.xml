@@ -6,42 +6,111 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="140dp"
+
+        tools:layout_editor_absoluteX="262dp"
+        tools:layout_editor_absoluteY="224dp"<
+        android:id="@+id/65"="@+id/64"="@+id/43" />
+
+    < android:id="@+id/66"="@+id/44" />
+
+    < android:id="@+id/67"="@+id/45" />
+
+    < android:id="@+id/68"="@+id/46" />
+
+    < android:id="@+id/69"="@+id/47" />
+
+    < android:id="@+id/70"="@+id/48" />
+
+    android:id="@+id/49"
+
+        android:id="@+id/71"<
+        HEAD
+
+    < android:id="@+id/72"="@+id/50" />
+
+    < android:id="@+id/73"="@+id/51" />
+
+    < android:id="@+id/74"="@+id/52" />
+
+    < android:id="@+id/75"="@+id/53" />
+
+    < android:id="@+id/76"="@+id/54" />
+
+    < android:id="@+id/77"="@+id/55" />
+
+    android:id="@+id/56"
+
+        android:id="@+id/78"
+    <
+        HEAD
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHome"
-        android:layout_width="392dp"
-        android:layout_height="593dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="5dp"
-<<<<<<< HEAD
-=======
+        android:layout_width="345dp"
+        android:layout_height="481dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    < android:id="@+id/79"="@+id/57" />
+
+    < android:id="@+id/80"="@+id/58" />
+
+    < android:id="@+id/81"="@+id/59" />
+
+    < android:id="@+id/82"="@+id/60" />
+
+    < android:id="@+id/83"="@+id/61" />
+
+    < android:id="@+id/84"="@+id/62" />
+
+    android:id="@+id/63"
+
+        android:id="@+id/85"
+
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="151dp"<
+        HEAD
+
     <TextView
         android:id="@+id/homeTextViewTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="305dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
         android:onClick="whenclicked"
         android:text="HOME PAGE TEST FRAG"
         android:textSize="30sp"
->>>>>>> Settings
-=======
->>>>>>> main
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toTopOf="parent">
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="12dp"
         android:contextClickable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout><![CDATA[=======
+    >>>>>>> main
+
+    ]]><![CDATA[=======
+
+    >>>>>> Settings
+    =======
+    >>>>>>> main
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    ]]>
