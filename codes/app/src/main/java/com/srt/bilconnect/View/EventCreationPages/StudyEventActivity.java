@@ -57,28 +57,15 @@ public class StudyEventActivity extends AppCompatActivity {
                 Event event = new Event(title,user,quota,"Tutoring",null);
                 event.setEventDocumentPlace(userId + id);
                 event.setHost(user);
-                user.addCreatedEvent(event);
 
-                firebaseFirestore.collection("UserData").document(userId).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(StudyEventActivity.this, "User created activity set", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@androidx.annotation.NonNull Exception e) {
-
-                    }
-                });
-
-                firebaseFirestore.collection("UserData").document(userId).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                firebaseFirestore.collection("UserData").document(userId).collection("Events").document(userId + id).set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@androidx.annotation.NonNull Exception e) {
+                    public void onFailure(@NonNull Exception e) {
 
                     }
                 });

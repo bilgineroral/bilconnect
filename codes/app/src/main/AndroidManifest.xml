@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilConnect">
         <activity
+            android:name=".PlaceProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.PlaceActivities.EventsAtSelectedLocation"
             android:exported="false" />
         <activity

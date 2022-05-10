@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/ratingText4"
-        android:layout_width="118dp"
-        android:layout_height="30dp"
+        android:layout_width="122dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:text="rating"
         android:textSize="20sp"
@@ -35,17 +35,8 @@
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:text="interests:"
-        app:layout_constraintStart_toStartOf="@+id/noOfFollowersText3"
         app:layout_constraintTop_toBottomOf="@+id/bioText3"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/noOfFollowersText3"
-        android:layout_width="110dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="6dp"
-        android:text="no of followers"
-        app:layout_constraintTop_toBottomOf="@+id/ratingText4"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />
 
     <TextView
@@ -101,30 +92,5 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profilePicture4"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="84dp"
-        android:layout_height="41dp"
-        android:backgroundTint="#005CE5"
-        android:text="Follow"
-        android:textColor="#FFFFFF"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/nickNameText3"
-        app:layout_constraintTop_toTopOf="@+id/deptText3" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="84dp"
-        android:layout_height="41dp"
-        android:text="Block"
-        android:textColor="#FFFFFF"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
