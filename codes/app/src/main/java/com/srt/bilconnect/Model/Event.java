@@ -10,7 +10,8 @@ public class Event implements Serializable {
     private String description;
     private User host;
     private int quota;
-    private ArrayList<User> attendees;
+    protected ArrayList<Comment> comments;
+    protected ArrayList<User> attendees;
     private Place eventPlace;
     private String interest;
     private String eventDocumentPlace;

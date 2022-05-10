@@ -184,7 +184,7 @@ public class User implements Followable{
     }
 
     public void createEvent(){
-        Event newEvent = new CurrentEvent(); //bitmedi
+        Event newEvent = new CurrentEvent();
         createdEvents.add(newEvent);
     }
 
@@ -193,15 +193,16 @@ public class User implements Followable{
     }
 
     public void follow(Followable aUser){
-
+        followedAccounts.add(aUser);
     }
 
     public void unfollow(Followable aUser){
-
+        followedAccounts.remove(aUser);
     }
 
     public void block(Followable aUser){
-
+        unfollow(aUser);
+        blockedAccounts.add((User) aUser);
     }
 
     public void addCreatedEvent(Event anEvent) {

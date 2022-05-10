@@ -57,7 +57,6 @@ public class MainPageActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.settings_menu) {
             Intent intentToSettings = new Intent(MainPageActivity.this, SettingsActivity2.class);
             startActivity(intentToSettings);
-            finish();
         }
         else if(item.getItemId() == R.id.signout) {
             auth.signOut();
