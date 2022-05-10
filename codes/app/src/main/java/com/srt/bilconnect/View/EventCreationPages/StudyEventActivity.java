@@ -70,6 +70,8 @@ public class StudyEventActivity extends AppCompatActivity {
                     }
                 });
 
+                firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));
+
                 firebaseFirestore.collection("EventData").document(userId + id).set(event);
                 Toast.makeText(StudyEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(StudyEventActivity.this, MainPageActivity.class);

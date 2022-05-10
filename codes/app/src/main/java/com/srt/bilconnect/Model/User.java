@@ -4,7 +4,7 @@ import com.srt.bilconnect.View.AdditionalInfoActivity;
 
 import java.util.ArrayList;
 
-public class User implements Followable{
+public class User{
 
     public String username;
     public String userID;
@@ -16,13 +16,10 @@ public class User implements Followable{
     public String dorm;
     public String password;
     public double rating;
-    public ArrayList<User> followers;
-    public ArrayList<Followable> followedAccounts;
-    public ArrayList<User> blockedAccounts;
-    public ArrayList<String> interests;
-    public ArrayList<Event> pastEvents;
-    public ArrayList<Event> registeredEvents;
     public ArrayList<Event> createdEvents;
+    public ArrayList<User> followers;
+    public ArrayList<User> followedAccounts;
+    public ArrayList<Event> registeredEvents;
 
 //interestleri ekle
 
@@ -45,22 +42,42 @@ public class User implements Followable{
         this.email = email;
         this.bilkentID = bilkentID;
         this.department = department;
+        createdEvents = new ArrayList<>();
         followers = new ArrayList<>();
         followedAccounts = new ArrayList<>();
-        blockedAccounts = new ArrayList<>();
-        interests = new ArrayList<>();
-        pastEvents = new ArrayList<>();
         registeredEvents = new ArrayList<>();
-        createdEvents = new ArrayList<>();
     }
 
-
-    public ArrayList<String> getInterests() {
-        return interests;
+    public ArrayList<User> getFollowers() {
+        return followers;
     }
 
-    public void setInterests(ArrayList<String> interests) {
-        this.interests = interests;
+    public void setFollowers(ArrayList<User> followers) {
+        this.followers = followers;
+    }
+
+    public ArrayList<User> getFollowedAccounts() {
+        return followedAccounts;
+    }
+
+    public void setFollowedAccounts(ArrayList<User> followedAccounts) {
+        this.followedAccounts = followedAccounts;
+    }
+
+    public ArrayList<Event> getRegisteredEvents() {
+        return registeredEvents;
+    }
+
+    public void setRegisteredEvents(ArrayList<Event> registeredEvents) {
+        this.registeredEvents = registeredEvents;
+    }
+
+    public ArrayList<Event> getCreatedEvents() {
+        return createdEvents;
+    }
+
+    public void setCreatedEvents(ArrayList<Event> createdEvents) {
+        this.createdEvents = createdEvents;
     }
 
     public String getUsername() {
@@ -79,36 +96,12 @@ public class User implements Followable{
         return rating;
     }
 
-    public ArrayList<User> getFollowers() {
-        return followers;
-    }
-
     public void setBio(String bio) {
         this.bio = bio;
     }
 
     public void setRating(double rating) {
         this.rating = rating;
-    }
-
-    public void setFollowers(ArrayList<User> followers) {
-        this.followers = followers;
-    }
-
-    public void setFollowedAccounts(ArrayList<Followable> followedAccounts) {
-        this.followedAccounts = followedAccounts;
-    }
-
-    public void setBlockedAccounts(ArrayList<User> blockedAccounts) {
-        this.blockedAccounts = blockedAccounts;
-    }
-
-    public ArrayList<Followable> getFollowedAccounts() {
-        return followedAccounts;
-    }
-
-    public ArrayList<User> getBlockedAccounts() {
-        return blockedAccounts;
     }
 
     public String getUserID() {
@@ -143,6 +136,7 @@ public class User implements Followable{
         this.email = email;
     }
 
+<<<<<<< HEAD
     public ArrayList<Event> getPastEvents() {
 
     public void setQuestionAnswers(ArrayList<String> questionAnswers) {
@@ -153,6 +147,8 @@ public class User implements Followable{
         return pastEvents;
     }
 
+=======
+>>>>>>> main
     public void setDepartment(String department) {
         this.department = department;
     }
@@ -166,45 +162,4 @@ public class User implements Followable{
 
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
-
-    @Override
-    public void addFollower(Followable anObject) {
-        followers.add((User) anObject);
-    }
-
-    @Override
-    public void removeFollower(Followable anObject) {
-        followers.remove((User) anObject);
-    }
-
-    public void register(CurrentEvent anEvent){
-        registeredEvents.add(anEvent);
-    }
-
-    public void createEvent(){
-        CurrentEvent newEvent = new CurrentEvent();
-        createdEvents.add(newEvent);
-    }
-
-    public void unregister(Event anEvent){
-        registeredEvents.remove(anEvent);
-    }
-
-    public void follow(Followable aUser){
-        followedAccounts.add(aUser);
-    }
-
-    public void unfollow(Followable aUser){
-        followedAccounts.remove(aUser);
-    }
-
-    public void block(Followable aUser){
-        unfollow(aUser);
-        blockedAccounts.add((User) aUser);
-    }
-
-    public void addCreatedEvent(Event anEvent) {
-        createdEvents.add(anEvent);
-    }
-
 }
