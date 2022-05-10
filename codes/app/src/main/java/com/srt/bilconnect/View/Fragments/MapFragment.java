@@ -46,11 +46,11 @@ public class MapFragment extends Fragment {
         binding = FragmentMapBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        place1 = new Place();
-        place2 = new Place();
-        place3 = new Place();
-        place4 = new Place();
-        place5 = new Place();
+        place1 = new Place("Bilkent Center");
+        place2 = new Place("Odeon");
+        place3 = new Place("East Campus");
+        place4 = new Place("Mayfest");
+        place5 = new Place("81");
 
         place3.getUpcomingEvents().add(new Event());
         place4.getUpcomingEvents().add(new Event());
