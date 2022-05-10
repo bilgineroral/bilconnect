@@ -190,15 +190,16 @@ public class User implements Followable{
     }
 
     public void follow(Followable aUser){
-
+        followedAccounts.add(aUser);
     }
 
     public void unfollow(Followable aUser){
-
+        followedAccounts.remove(aUser);
     }
 
     public void block(Followable aUser){
-
+        unfollow(aUser);
+        blockedAccounts.add((User) aUser);
     }
 
 }
