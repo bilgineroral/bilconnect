@@ -33,6 +33,6 @@ public class Place implements Followable{
 
     @Override
     public void removeFollower(Followable anObject) {
-        followers.remove(anObject);
+        followers.remove((User) anObject);
     }
 }
