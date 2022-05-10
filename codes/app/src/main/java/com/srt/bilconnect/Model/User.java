@@ -5,28 +5,9 @@ import com.srt.bilconnect.View.AdditionalInfoActivity;
 import java.util.ArrayList;
 
 public class User implements Followable{
-<<<<<<< HEAD
-    private String username;
-    private String userID;    //int olmayacak mı (serhat soruyor)
-    private String bilkentID;
-    private String email;
-    private ArrayList<String> questionAnswers;
-    private String department;
-    private String profilePhotoURL;
-    private String bio = new AdditionalInfoActivity().getBioAfterRegistration();  // oldu mu bi kontrol edin beyler
-    private String dorm;
-    private String password;
-    private double rating;
-    private ArrayList<User> followers;
-    private ArrayList<Followable> followedAccounts;
-    private ArrayList<User> blockedAccounts;
-    private ArrayList<Interest> interests;
-    private ArrayList<PastEvent> pastEvents;
-    private ArrayList<CurrentEvent> registeredEvents;
-    private ArrayList<CurrentEvent> createdEvents;
-=======
+
     public String username;
-    public String userID;    //int olmayacak mı (serhat soruyor)
+    public String userID;
     public String bilkentID;
     public String email;
     public String department;
@@ -42,7 +23,7 @@ public class User implements Followable{
     public ArrayList<Event> pastEvents;
     public ArrayList<Event> registeredEvents;
     public ArrayList<Event> createdEvents;
->>>>>>> main
+
 //interestleri ekle
 
 
@@ -88,10 +69,6 @@ public class User implements Followable{
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public void setPastEvents(ArrayList<PastEvent> pastEvents) {
-        this.pastEvents = pastEvents;
     }
 
     public String getBio() {
@@ -166,15 +143,8 @@ public class User implements Followable{
         this.email = email;
     }
 
-<<<<<<< HEAD
-    public void setQuestionAnswers(ArrayList<String> questionAnswers) {
-        this.questionAnswers = questionAnswers;
-    }
-
-    public ArrayList<PastEvent> getPastEvents() {
-=======
     public ArrayList<Event> getPastEvents() {
->>>>>>> main
+
         return pastEvents;
     }
 
@@ -191,12 +161,6 @@ public class User implements Followable{
 
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
-
-    public ArrayList<CurrentEvent> getRegisteredEvents() {return this.registeredEvents;}
-    public void setRegisteredEvents(ArrayList<CurrentEvent> registeredEvents) {this.registeredEvents = registeredEvents;}
-
-    public ArrayList<CurrentEvent> getCreatedEvents() {return this.createdEvents;}
-    public void setCreatedEvents(ArrayList<CurrentEvent> createdEvents) {this.createdEvents = createdEvents;}
 
     @Override
     public void addFollower(Followable anObject) {
