@@ -181,7 +181,7 @@ public class User implements Followable{
     }
 
     public void createEvent(){
-        Event newEvent = new CurrentEvent(); //bitmedi
+        Event newEvent = new CurrentEvent();
         createdEvents.add(newEvent);
     }
 
