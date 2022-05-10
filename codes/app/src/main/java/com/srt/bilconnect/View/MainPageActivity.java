@@ -63,7 +63,7 @@ public class MainPageActivity extends AppCompatActivity {
                 {
 
                 }else{
-                    getAllUsers();
+
                 }
 
 
@@ -78,8 +78,6 @@ public class MainPageActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
-    public
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
