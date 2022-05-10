@@ -8,10 +8,11 @@ import java.util.ArrayList;
 public class Place{
 
     private String placeName;
-    private double rating = 0;
-    private Point coordinates;
     private ArrayList<User> followers;
     private ArrayList<Event> upcomingEvents;
+    public static String[] placeNames = {"81", "Mayfest", "Odeon", "Bilkent Center", "East Campus"};
+
+    public Place() {}
 
     public Place(String placeName) {
         this.placeName = placeName;
@@ -23,6 +24,17 @@ public class Place{
 
     public String getPlaceName() { return this.placeName; }
 
+    public ArrayList<User> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(ArrayList<User> followers) {
+        this.followers = followers;
+    }
+
+    public void setUpcomingEvents(ArrayList<Event> upcomingEvents) {
+        this.upcomingEvents = upcomingEvents;
+    }
 
     public void addFollower(Followable anObject) {
         followers.add((User) anObject);
