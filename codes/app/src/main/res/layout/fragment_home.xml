@@ -4,21 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".View.Fragments.HomeFragment">
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHome"
         android:layout_width="392dp"
         android:layout_height="593dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="5dp"
-<<<<<<< HEAD
-=======
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="5dp" />
+
     <TextView
         android:id="@+id/homeTextViewTest"
         android:layout_width="wrap_content"
@@ -26,9 +20,6 @@
         android:onClick="whenclicked"
         android:text="HOME PAGE TEST FRAG"
         android:textSize="30sp"
->>>>>>> Settings
-=======
->>>>>>> main
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
