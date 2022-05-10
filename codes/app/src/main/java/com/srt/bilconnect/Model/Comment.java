@@ -1,6 +1,8 @@
 package com.srt.bilconnect.Model;
 
-public class Comment {
+import java.io.Serializable;
+
+public class Comment implements Serializable {
     private User commenter;
     private String comment;
     private Event event;

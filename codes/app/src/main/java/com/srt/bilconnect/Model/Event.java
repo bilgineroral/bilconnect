@@ -28,10 +28,12 @@ public class Event implements Serializable {
         comments = new ArrayList<>();
     }
 
-    public Event(String s, User user, int i) {
-        this.title = s;
-        this.host = user;
-        this.quota = i;
+    // TEST CTOR'U (BILGINER)
+    public Event(String title, User host, int quota, String details) {
+        this.title = title;
+        this.host = host;
+        this.quota = quota;
+        this.description = details;
     }
 
     public ArrayList<User> getAttendees() {

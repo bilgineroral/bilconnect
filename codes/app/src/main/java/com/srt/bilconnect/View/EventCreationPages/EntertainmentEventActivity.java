@@ -29,6 +29,7 @@ import java.util.UUID;
 
 public class EntertainmentEventActivity extends AppCompatActivity {
 
+    int selectedInterest;
     boolean[] selected;
     Button chitchatButton;
     Button eatingButton;
@@ -46,6 +47,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         binding = ActivityEntertainmentEventBinding.inflate(getLayoutInflater());
 
         selected = new boolean[5];
+        selectedInterest = -1;
 
         chitchatButton = binding.chitButton;
         eatingButton = binding.eatingButton;
@@ -75,6 +77,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         if (selected[i]) {
             selectedButton.setBackgroundColor(Color.argb(100,103,58,183));
             selected[i] = false;
+            selectedInterest = -1;
         }
         else {
             for (int j = 0; j < buttons.size(); j++) {
@@ -84,6 +87,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
             }
             selectedButton.setBackgroundColor(Color.parseColor("#ffb8a6da"));
             selected[i] = true;
+            selectedInterest = i;
         }
 
     }

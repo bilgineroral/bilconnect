@@ -3,9 +3,10 @@ package com.srt.bilconnect.Model;
 import android.graphics.Point;
 import android.widget.ExpandableListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Place{
+public class Place implements Serializable {
 
     private String placeName;
     private double rating = 0;
