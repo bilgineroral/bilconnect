@@ -49,17 +49,10 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this, "You need to enter all of the information above!", Toast.LENGTH_LONG).show();
         }
         else{
-            auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {//creates user and then advances to the next page
                 @Override
                 public void onSuccess(AuthResult authResult) {
-
                     String userID = auth.getCurrentUser().getUid();
-
-                    ArrayList<String> questionsAnswered = new ArrayList<>();
-                    questionsAnswered.add(binding.teacherNameText.getText().toString());
-                    questionsAnswered.add(binding.favColorText.getText().toString());
-                    questionsAnswered.add(binding.petNameText.getText().toString());
-
                     User newUser = new User(username,userID,email,bilkentId,department);
 
                     firebaseFirestore.collection("UserData").document(userID).set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -74,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     });
 
-                    Intent intent = new Intent(SignUpActivity.this, AdditionalInfoActivity.class/* nereye gideceğimizi yazacağız bittikten sonra koy!! */);//ekle
+                    Intent intent = new Intent(SignUpActivity.this, AdditionalInfoActivity.class);
                     startActivity(intent);
                     finish();
                 }

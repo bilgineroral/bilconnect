@@ -12,15 +12,18 @@ public class Event implements Serializable {
     private int quota;
     private ArrayList<User> attendees;
     private Place eventPlace;
-    private ArrayList<Interest> interests;
+    private String interest;
+    private String eventDocumentPlace;
 
     public Event() {}
-    public Event(String title, User host, int quota, ArrayList<Interest> interests, Place eventPlace) {
-        this.interests = interests;
+
+    public Event(String title, User host, int quota, String interest, Place eventPlace) {
+        this.interest = interest;
         this.eventPlace = eventPlace;
         this.title = title;
         this.host = host;
         this.quota = quota;
+        attendees = new ArrayList<>();
     }
 
     public Event(String s, User user, int i) {
@@ -29,20 +32,28 @@ public class Event implements Serializable {
         this.quota = i;
     }
 
+    public String getEventDocumentPlace() {
+        return eventDocumentPlace;
+    }
+
+    public void setEventDocumentPlace(String eventDocumentPlace) {
+        this.eventDocumentPlace = eventDocumentPlace;
+    }
+
+    public String getInterest() {
+        return interest;
+    }
+
+    public void setInterest(String interest) {
+        this.interest = interest;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public ArrayList<Interest> getInterests() {
-        return interests;
-    }
-
-    public void setInterests(ArrayList<Interest> interests) {
-        this.interests = interests;
     }
 
     public void setDescription(String description) {

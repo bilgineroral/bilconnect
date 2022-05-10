@@ -95,6 +95,7 @@ public class ProfileFragment extends Fragment {
                 User user = documentSnapshot.toObject(User.class);
                 binding.nickNameText.setText("Username: " + user.getUsername());
                 binding.deptText.setText("Department: " + user.getDepartment());
+                binding.bioText.setText("Bio: " + user.getBio());
                 try {
                     Picasso.get().load(user.getProfilePhotoURL()).into(binding.profilePicture);
                 } catch (Exception e) {

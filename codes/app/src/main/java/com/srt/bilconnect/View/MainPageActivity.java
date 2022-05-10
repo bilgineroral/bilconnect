@@ -40,7 +40,6 @@ public class MainPageActivity extends AppCompatActivity {
     public void addEvent(View view) {
         Intent intent = new Intent(MainPageActivity.this, EventCreationActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override

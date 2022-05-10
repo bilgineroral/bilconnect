@@ -2,6 +2,7 @@ package com.srt.bilconnect.View.EventCreationPages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.srt.bilconnect.Model.Event;
@@ -28,10 +30,7 @@ public class StudyEventActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private FirebaseFirestore firebaseFirestore;
-    private FirebaseStorage firebaseStorage;
     private ActivityStudyEventBinding binding;
-    private ArrayList<Interest> interests;//can be implemented in an arraylist
-    private static User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,37 +44,56 @@ public class StudyEventActivity extends AppCompatActivity {
     }
 
     public void publishEvent(View view) {
-        System.err.println("hello");
-        String title = binding.eventTitleText.getText().toString();
-        //get user and add this event to the user
+
         firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                System.out.println(documentSnapshot);
-                user = documentSnapshot.toObject(User.class);
-            }
-        });
-        //
-        //Toast.makeText(this, user.getUsername(), Toast.LENGTH_LONG).show();
-        int quota = Integer.parseInt(binding.quotaNumberText.getText().toString());
+                String title = binding.eventTitleText.getText().toString();
+                int quota = Integer.parseInt(binding.quotaNumberText.getText().toString());
+                String id = UUID.randomUUID().toString();
+                String userId = auth.getCurrentUser().getUid();
 
-        Event event = new Event(title,user,quota,null,null);
-        String id = UUID.randomUUID().toString();
-        //user.addCreatedEvent(event);
-        //Toast.makeText(this, user.getUsername(), Toast.LENGTH_LONG).show();
-        //firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).set(user);
-        firebaseFirestore.collection("EventData").document(auth.getCurrentUser().getUid() + id).set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(StudyEventActivity.this, "Event Created!", Toast.LENGTH_SHORT).show();
-                //Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-                //startActivity(intent);
-                //finish();
+                User user = documentSnapshot.toObject(User.class);
+                Event event = new Event(title,user,quota,"Tutoring",null);
+                event.setEventDocumentPlace(userId + id);
+                event.setHost(user);
+                user.addCreatedEvent(event);
+
+                firebaseFirestore.collection("UserData").document(userId).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(StudyEventActivity.this, "User created activity set", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@androidx.annotation.NonNull Exception e) {
+
+                    }
+                });
+
+                firebaseFirestore.collection("UserData").document(userId).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@androidx.annotation.NonNull Exception e) {
+
+                    }
+                });
+
+                firebaseFirestore.collection("EventData").document(userId + id).set(event);
+                Toast.makeText(StudyEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(StudyEventActivity.this, MainPageActivity.class);
+                startActivity(intent);
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(StudyEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                System.out.println(e.getLocalizedMessage());
+                Toast.makeText(StudyEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
