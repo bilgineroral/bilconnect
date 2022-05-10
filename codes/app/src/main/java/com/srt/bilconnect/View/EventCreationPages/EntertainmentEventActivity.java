@@ -18,6 +18,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.View.MainPageActivity;
+import com.srt.bilconnect.Model.Event;
+import com.srt.bilconnect.Model.Place;
+import com.srt.bilconnect.View.Fragments.MapFragment;
 import com.srt.bilconnect.databinding.ActivityEntertainmentEventBinding;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
@@ -35,6 +38,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
     ActivityEntertainmentEventBinding binding;
     Button selectedButton;
     ArrayList<Button> buttons;
+    MapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         buttons.add(chitchatButton); buttons.add(eatingButton);
         buttons.add(coffeeButton); buttons.add(partyingButton);
         buttons.add(concertButton);
+        mapFragment = new MapFragment();
 
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
@@ -81,6 +86,11 @@ public class EntertainmentEventActivity extends AppCompatActivity {
             selected[i] = true;
         }
 
+    }
+
+    public void done(View view){
+        Event event = new Event();
+        mapFragment.getPlace1().getUpcomingEvents().add(event);
     }
 
     private FirebaseAuth auth;

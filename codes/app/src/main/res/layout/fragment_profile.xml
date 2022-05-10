@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/deptText"
-        android:layout_width="213dp"
-        android:layout_height="28dp"
+        android:layout_width="170dp"
+        android:layout_height="29dp"
         android:layout_marginTop="7dp"
         android:text="dept"
         android:textSize="18sp"
@@ -42,14 +42,26 @@
 
     <TextView
         android:id="@+id/ratingText"
-        android:layout_width="120dp"
-        android:layout_height="45dp"
+        android:layout_width="115dp"
+        android:layout_height="31dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="rating"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ratingText3"
+        android:layout_width="115dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="3dp"
+        android:text="followers"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingText"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -69,6 +81,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:text="interests:"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/bioText"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />

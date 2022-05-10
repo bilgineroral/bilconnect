@@ -27,6 +27,7 @@ public class HomeFragment extends Fragment {
     Spinner spinner;
     String[] sortItems;
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

@@ -19,4 +19,17 @@ public class Place{
     public String getPlaceName() { return this.placeName; }
 
 
+    @Override
+    public void addFollower(Followable anObject) {
+        followers.add((User) anObject);
+    }
+
+    @Override
+    public void removeFollower(Followable anObject) {
+        followers.remove((User) anObject);
+    }
+
+    public ArrayList<Event> getUpcomingEvents() {
+        return upcomingEvents;
+    }
 }
