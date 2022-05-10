@@ -23,7 +23,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private ActivitySignUpBinding binding;
     private FirebaseAuth auth;
-    private FirebaseStorage firebaseStorage;
     private FirebaseFirestore firebaseFirestore;
 
     @Override
@@ -34,7 +33,6 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(view);
 
         auth = FirebaseAuth.getInstance();
-        firebaseStorage = FirebaseStorage.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
