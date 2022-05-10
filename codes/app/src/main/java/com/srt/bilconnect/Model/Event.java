@@ -10,11 +10,11 @@ public class Event implements Serializable {
     private String description;
     private User host;
     private int quota;
-    protected ArrayList<Comment> comments;
-    protected ArrayList<User> attendees;
     private Place eventPlace;
     private String interest;
     private String eventDocumentPlace;
+    private ArrayList<User> attendees;
+    private ArrayList<Comment> comments;
 
     public Event() {}
 
@@ -25,12 +25,29 @@ public class Event implements Serializable {
         this.host = host;
         this.quota = quota;
         attendees = new ArrayList<>();
+        comments = new ArrayList<>();
     }
 
     public Event(String s, User user, int i) {
         this.title = s;
         this.host = user;
         this.quota = i;
+    }
+
+    public ArrayList<User> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(ArrayList<User> attendees) {
+        this.attendees = attendees;
+    }
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
     }
 
     public String getEventDocumentPlace() {
@@ -61,20 +78,12 @@ public class Event implements Serializable {
         this.description = description;
     }
 
-    public void setAttendees(ArrayList<User> attendees) {
-        this.attendees = attendees;
-    }
-
     public void setEventPlace(Place eventPlace) {
         this.eventPlace = eventPlace;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public ArrayList<User> getAttendees() {
-        return attendees;
     }
 
     public Place getEventPlace() {
