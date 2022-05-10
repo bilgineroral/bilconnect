@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
     android:orientation="vertical"
     tools:context=".View.Fragments.ProfileFragment">
 
@@ -79,20 +80,23 @@
         android:id="@+id/interestText"
         android:layout_width="362dp"
         android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="interests:"
         android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bioText"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
+        android:onClick="seeRegisteredEventsClicked"
         android:text="SEE REGISTERED EVENTS"
-        app:layout_constraintStart_toStartOf="@+id/interestText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interestText" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -114,5 +118,15 @@
         android:src="@drawable/ic_baseline_person_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/editProfileIcon"
+        app:layout_constraintStart_toEndOf="@+id/deptText"
+        app:layout_constraintTop_toBottomOf="@+id/nickNameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

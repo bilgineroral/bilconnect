@@ -92,11 +92,6 @@ public class EntertainmentEventActivity extends AppCompatActivity {
 
     }
 
-    public void done(View view){
-        Event event = new Event();
-        mapFragment.getPlace1().getUpcomingEvents().add(event);
-    }
-
     private FirebaseAuth auth;
     private FirebaseFirestore firebaseFirestore;
 
