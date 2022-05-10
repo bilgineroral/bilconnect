@@ -143,8 +143,16 @@ public class User implements Followable{
         this.email = email;
     }
 
+<<<<<<< Updated upstream
     public ArrayList<Event> getPastEvents() {
 
+=======
+    public void setQuestionAnswers(ArrayList<String> questionAnswers) {
+        this.questionAnswers = questionAnswers;
+    }
+
+    public ArrayList<PastEvent> getPastEvents() {
+>>>>>>> Stashed changes
         return pastEvents;
     }
 
