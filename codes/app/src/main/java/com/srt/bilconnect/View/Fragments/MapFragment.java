@@ -13,14 +13,25 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Place;
 import com.srt.bilconnect.View.PlaceActivities.EventsAtSelectedLocation;
 import com.srt.bilconnect.databinding.FragmentMapBinding;
 
+import java.util.ArrayList;
+
 public class MapFragment extends Fragment {
 
     private FragmentMapBinding binding;
+    private FirebaseFirestore firebaseFirestore;
 
     TextView textViewFirst;
     TextView textViewSecond;
@@ -38,6 +49,7 @@ public class MapFragment extends Fragment {
     public Place place3;
     public Place place4;
     public Place place5;
+    public ArrayList<Place> places;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,20 +58,24 @@ public class MapFragment extends Fragment {
         binding = FragmentMapBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        place1 = new Place("Bilkent Center");
-        place2 = new Place("Odeon");
-        place3 = new Place("East Campus");
-        place4 = new Place("Mayfest");
-        place5 = new Place("81");
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
-        place3.getUpcomingEvents().add(new Event());
-        place4.getUpcomingEvents().add(new Event());
+        places = new ArrayList<>();
+        places.add(place1);
+        places.add(place2);
+        places.add(place3);
+        places.add(place4);
+        places.add(place5);
 
-        textViewFirst = binding.textView29;
-        textViewSecond = binding.textView6;
-        textViewThird = binding.textView31;
-        textViewFourth = binding.textView30;
-        textViewFifth = binding.textView32;
+
+
+        //setPlaces();
+
+        textViewFirst = binding.textFirst;
+        textViewSecond = binding.textSecond;
+        textViewThird = binding.textthird;
+        textViewFourth = binding.textFourth;
+        textViewFifth = binding.textFifth;
 
         imageView1 = binding.imageView10;
         imageView2 = binding.imageView15;
@@ -67,38 +83,60 @@ public class MapFragment extends Fragment {
         imageView4 = binding.imageView18;
         imageView5 = binding.imageView17;
 
-        textViewThird.setText("" + place3.getUpcomingEvents().size());
-        textViewFourth.setText("" + place4.getUpcomingEvents().size());
+        firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                place5 = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                    imageView5.setVisibility(View.VISIBLE);
+                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setVisibility(View.VISIBLE);}
+            }
+        });
 
-        imageView1.setVisibility(View.INVISIBLE);
-        imageView2.setVisibility(View.INVISIBLE);
-        imageView3.setVisibility(View.INVISIBLE);
-        imageView4.setVisibility(View.INVISIBLE);
-        imageView5.setVisibility(View.INVISIBLE);
+        firebaseFirestore.collection("PlaceData").document("Bilkent Center").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                place5 = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                    imageView5.setVisibility(View.VISIBLE);
+                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setVisibility(View.VISIBLE);}
+            }
+        });
 
-        textViewFirst.setVisibility(View.INVISIBLE);
-        textViewSecond.setVisibility(View.INVISIBLE);
-        textViewThird.setVisibility(View.INVISIBLE);
-        textViewFourth.setVisibility(View.INVISIBLE);
-        textViewFifth.setVisibility(View.INVISIBLE);
+        firebaseFirestore.collection("PlaceData").document("81").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                place5 = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                    imageView5.setVisibility(View.VISIBLE);
+                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setVisibility(View.VISIBLE);}
+            }
+        });
 
+        firebaseFirestore.collection("PlaceData").document("Mayfest").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                place5 = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                    imageView5.setVisibility(View.VISIBLE);
+                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setVisibility(View.VISIBLE);}
+            }
+        });
 
-        if(Integer.parseInt(textViewFirst.getText().toString()) != 0 || place1.getUpcomingEvents().size() != 0) {
-            imageView1.setVisibility(View.VISIBLE);
-            textViewFirst.setVisibility(View.VISIBLE); }
-        if(Integer.parseInt(textViewSecond.getText().toString()) != 0 || place2.getUpcomingEvents().size() != 0) {
-            imageView2.setVisibility(View.VISIBLE);
-            textViewSecond.setVisibility(View.VISIBLE);}
-        if(Integer.parseInt(textViewThird.getText().toString()) != 0 || place3.getUpcomingEvents().size() != 0) {
-            imageView3.setVisibility(View.VISIBLE);
-            textViewThird.setVisibility(View.VISIBLE);}
-        if(Integer.parseInt(textViewFourth.getText().toString()) != 0 || place4.getUpcomingEvents().size() != 0) {
-            imageView4.setVisibility(View.VISIBLE);
-            textViewFourth.setVisibility(View.VISIBLE);}
-        if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
-            imageView5.setVisibility(View.VISIBLE);
-            textViewFifth.setVisibility(View.VISIBLE);}
-
+        firebaseFirestore.collection("PlaceData").document("East Campus").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                place5 = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                    imageView5.setVisibility(View.VISIBLE);
+                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setVisibility(View.VISIBLE);}
+            }
+        });
 
 
         imageView1.setOnClickListener(new View.OnClickListener(){
@@ -146,15 +184,43 @@ public class MapFragment extends Fragment {
         binding = null;
     }
 
-    public Place getPlace1() { return place1; }
+    public void setPlaces() {
+        firebaseFirestore.collection("PlaceData").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    int i = 0;
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                        Place place;
+                        place = documentSnapshot.toObject(Place.class);
+                        places.set(i, place);
+                        i++;
+                    }
+                }
+                else {
+                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    public Place getPlace2() { return place2; }
+        firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Place place;
+                place = documentSnapshot.toObject(Place.class);
+                places.set(4, place);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    public Place getPlace3() { return place3; }
-
-    public Place getPlace4() { return place4; }
-
-    public Place getPlace5() { return place5; }
-
-
+    }
 }

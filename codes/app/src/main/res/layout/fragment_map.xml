@@ -68,65 +68,70 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textSecond"
         android:layout_width="37dp"
         android:layout_height="30dp"
         android:layout_marginEnd="108dp"
         android:layout_marginBottom="165dp"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/textFifth"
         android:layout_width="37dp"
         android:layout_height="30dp"
         android:layout_marginTop="450dp"
         android:layout_marginEnd="251dp"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/textthird"
         android:layout_width="37dp"
         android:layout_height="30dp"
         android:layout_marginStart="308dp"
         android:layout_marginTop="94dp"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/textFourth"
         android:layout_width="37dp"
         android:layout_height="30dp"
         android:layout_marginTop="231dp"
         android:layout_marginEnd="70dp"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/textFirst"
         android:layout_width="37dp"
         android:layout_height="30dp"
         android:layout_marginStart="236dp"
         android:layout_marginBottom="487dp"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
