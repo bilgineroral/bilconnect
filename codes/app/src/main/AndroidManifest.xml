@@ -15,6 +15,12 @@
             android:name=".View.PlaceActivities.EventsAtSelectedLocation"
             android:exported="false" />
         <activity
+            android:name=".View.Fragments.OtherUserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Fragments.BlockedUsersActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.Fragments.SettingsActivity2"
             android:exported="false" />
         <activity

@@ -35,8 +35,8 @@ public class HomeFragment extends Fragment {
         sortItems = new String[2];
         sortItems[0] = "Sort by date.";
         sortItems[1] = "Sort lexicographically.";
-
-        spinner = binding.spinner;
+        /*
+        //spinner = binding.spinner;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
         testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"), 5));
         EventAdapter eventAdapter = new EventAdapter(testList);
         binding.recyclerViewHome.setAdapter(eventAdapter);
-
+*/
         return root;
     }
 
