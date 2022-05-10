@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.databinding.ActivitySportsEventBinding;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class SportsEventActivity extends AppCompatActivity {
@@ -28,12 +30,43 @@ public class SportsEventActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private ActivitySportsEventBinding binding;
 
+    Button football;
+    Button basketball;
+    Button volleyball;
+    Button tennis;
+    Button fitness;
+    Button walking;
+    Button swimming;
+    Button tableTennis;
+    Button american;
+    ArrayList<Button> buttons;
+    Button selectedButton;
+
+    int selectedInterest;
+    boolean[] selected;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySportsEventBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        buttons = new ArrayList<>();
+
+        buttons.add(football = binding.footballButton);
+        buttons.add(basketball = binding.basketballButton);
+        buttons.add(volleyball = binding.volleyballButton);
+        buttons.add(tennis = binding.tennisButton);
+        buttons.add(fitness = binding.fitnessButton);
+        buttons.add(walking = binding.walkingButton);
+        buttons.add(swimming = binding.swimmingButton);
+        buttons.add(tableTennis = binding.tableTennisButton);
+        buttons.add(american = binding.americanButton);
+
+        selected = new boolean[buttons.size()];
+        selectedInterest = -1;
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -79,5 +112,31 @@ public class SportsEventActivity extends AppCompatActivity {
                 Toast.makeText(SportsEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void selected(View view) {
+        selectedButton = findViewById(view.getId());
+        int i = 0;
+
+        for (i = 0; i < buttons.size(); i++) {
+            if (selectedButton == buttons.get(i)) break;
+        }
+
+        if (selected[i]) {
+            selectedButton.setBackgroundColor(Color.argb(100,76,175,80));
+            selected[i] = false;
+            selectedInterest = -1;
+        }
+        else {
+            for (int j = 0; j < buttons.size(); j++) {
+                if (j == i) continue;
+                buttons.get(j).setBackgroundColor(Color.argb(100,76,175,80));
+                selected[j] = false;
+            }
+            selectedButton.setBackgroundColor(Color.parseColor("#ff99cc9b"));
+            selected[i] = true;
+            selectedInterest = i;
+        }
+
     }
 }

@@ -79,7 +79,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/footballButton7"
+            android:id="@+id/americanButton"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
@@ -87,6 +87,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="amerıcan football"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -94,7 +95,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
         <Button
-            android:id="@+id/footballButton6"
+            android:id="@+id/swimmingButton"
             android:layout_width="105dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
@@ -102,6 +103,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="swımmıng"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -109,7 +111,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <Button
-            android:id="@+id/footballButton5"
+            android:id="@+id/tableTennisButton"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
@@ -117,6 +119,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="table tennıs"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -124,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <Button
-            android:id="@+id/footballButton4"
+            android:id="@+id/fitnessButton"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
@@ -132,6 +135,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="fıtness"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -139,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <Button
-            android:id="@+id/footballButton3"
+            android:id="@+id/tennisButton"
             android:layout_width="105dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
@@ -147,6 +151,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="tennıs"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -154,7 +159,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
-            android:id="@+id/footballButton2"
+            android:id="@+id/walkingButton"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
@@ -162,6 +167,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="walkıng"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -169,18 +175,19 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/volleyballButton"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_marginStart="3dp"
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="Volleyball"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/button9"
-            app:layout_constraintStart_toEndOf="@+id/button9" />
+            app:layout_constraintBottom_toBottomOf="@+id/basketballButton"
+            app:layout_constraintStart_toEndOf="@+id/basketballButton" />
 
         <Button
             android:id="@+id/footballButton"
@@ -192,6 +199,7 @@
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="football"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -210,13 +218,14 @@
             app:srcCompat="@drawable/football" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/basketballButton"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_marginStart="3dp"
             android:backgroundTint="#4CAF50"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="selected"
             android:text="Basketball"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -229,8 +238,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/button9"
-            app:layout_constraintTop_toBottomOf="@+id/button9"
+            app:layout_constraintStart_toStartOf="@+id/basketballButton"
+            app:layout_constraintTop_toBottomOf="@+id/basketballButton"
             app:srcCompat="@drawable/basketball" />
 
         <ImageView
@@ -239,8 +248,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/button11"
-            app:layout_constraintTop_toBottomOf="@+id/button11"
+            app:layout_constraintStart_toStartOf="@+id/volleyballButton"
+            app:layout_constraintTop_toBottomOf="@+id/volleyballButton"
             app:srcCompat="@drawable/volleyball" />
 
         <ImageView
@@ -249,8 +258,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/footballButton3"
-            app:layout_constraintTop_toBottomOf="@+id/footballButton3"
+            app:layout_constraintStart_toStartOf="@+id/tennisButton"
+            app:layout_constraintTop_toBottomOf="@+id/tennisButton"
             app:srcCompat="@drawable/tennis" />
 
         <ImageView
@@ -259,8 +268,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/footballButton4"
-            app:layout_constraintTop_toBottomOf="@+id/footballButton4"
+            app:layout_constraintStart_toStartOf="@+id/fitnessButton"
+            app:layout_constraintTop_toBottomOf="@+id/fitnessButton"
             app:srcCompat="@drawable/fitness" />
 
         <ImageView
@@ -269,8 +278,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/footballButton2"
-            app:layout_constraintTop_toBottomOf="@+id/footballButton2"
+            app:layout_constraintStart_toStartOf="@+id/walkingButton"
+            app:layout_constraintTop_toBottomOf="@+id/walkingButton"
             app:srcCompat="@drawable/walk" />
 
         <ImageView
@@ -279,8 +288,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/footballButton7"
-            app:layout_constraintTop_toBottomOf="@+id/footballButton7"
+            app:layout_constraintStart_toStartOf="@+id/americanButton"
+            app:layout_constraintTop_toBottomOf="@+id/americanButton"
             app:srcCompat="@drawable/american" />
 
         <ImageView
@@ -289,8 +298,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/footballButton5"
-            app:layout_constraintTop_toBottomOf="@+id/footballButton5"
+            app:layout_constraintStart_toStartOf="@+id/tableTennisButton"
+            app:layout_constraintTop_toBottomOf="@+id/tableTennisButton"
             app:srcCompat="@drawable/tabletennis" />
 
         <ImageView
@@ -299,8 +308,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/footballButton6"
-            app:layout_constraintTop_toBottomOf="@+id/footballButton6"
+            app:layout_constraintStart_toStartOf="@+id/swimmingButton"
+            app:layout_constraintTop_toBottomOf="@+id/swimmingButton"
             app:srcCompat="@drawable/swimming" />
 
         <EditText
@@ -374,14 +383,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/editTextDate3"
             app:layout_constraintTop_toBottomOf="@+id/editTextDate3" />
-
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/button12"
-            tools:layout_editor_absoluteX="290dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

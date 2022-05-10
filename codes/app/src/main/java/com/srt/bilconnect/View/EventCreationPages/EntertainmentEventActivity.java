@@ -46,7 +46,6 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityEntertainmentEventBinding.inflate(getLayoutInflater());
 
-        selected = new boolean[5];
         selectedInterest = -1;
 
         chitchatButton = binding.chitButton;
@@ -59,6 +58,8 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         buttons.add(chitchatButton); buttons.add(eatingButton);
         buttons.add(coffeeButton); buttons.add(partyingButton);
         buttons.add(concertButton);
+        selected = new boolean[this.buttons.size()];
+
         mapFragment = new MapFragment();
 
         setContentView(binding.getRoot());

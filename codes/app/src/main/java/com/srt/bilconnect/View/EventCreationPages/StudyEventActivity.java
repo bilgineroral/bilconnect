@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +23,7 @@ import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Interest;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.View.MainPageActivity;
+import com.srt.bilconnect.databinding.ActivityEntertainmentEventBinding;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
 import java.util.ArrayList;
@@ -32,11 +35,30 @@ public class StudyEventActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private ActivityStudyEventBinding binding;
 
+    int selectedInterest;
+    boolean[] selected;
+
+    Button tutoringButton;
+    Button gettingTutoredButton;
+    Button talkingButton;
+    Button quietButton;
+    Button selectedButton;
+    ArrayList<Button> buttons;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityStudyEventBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+
+        selectedInterest = -1;
+
+        buttons = new ArrayList<>();
+        buttons.add(talkingButton = binding.talkingButton); buttons.add(gettingTutoredButton = binding.gettingTutoredButton);
+        buttons.add(quietButton = binding.quietButton); buttons.add(tutoringButton = binding.tutoringButton);
+
+        selected = new boolean[this.buttons.size()];
+
         setContentView(view);
 
         auth = FirebaseAuth.getInstance();
@@ -87,5 +109,31 @@ public class StudyEventActivity extends AppCompatActivity {
                 Toast.makeText(StudyEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void selected(View view) {
+        selectedButton = findViewById(view.getId());
+        int i = 0;
+
+        for (i = 0; i < buttons.size(); i++) {
+            if (selectedButton == buttons.get(i)) break;
+        }
+
+        if (selected[i]) {
+            selectedButton.setBackgroundColor(Color.argb(100,244,67,54));
+            selected[i] = false;
+            selectedInterest = -1;
+        }
+        else {
+            for (int j = 0; j < buttons.size(); j++) {
+                if (j == i) continue;
+                buttons.get(j).setBackgroundColor(Color.argb(100,244,67,54));
+                selected[j] = false;
+            }
+            selectedButton.setBackgroundColor(Color.parseColor("#ffe39994"));
+            selected[i] = true;
+            selectedInterest = i;
+        }
+
     }
 }
