@@ -20,9 +20,9 @@ public class User implements Followable{
     private ArrayList<Followable> followedAccounts;
     private ArrayList<User> blockedAccounts;
     private ArrayList<Interest> interests;
-    private ArrayList<Event> pastEvents;
-    private ArrayList<Event> registeredEvents;
-    private ArrayList<Event> createdEvents;
+    private ArrayList<PastEvent> pastEvents;
+    private ArrayList<CurrentEvent> registeredEvents;
+    private ArrayList<CurrentEvent> createdEvents;
 //interestleri ekle
 
 
@@ -50,7 +50,7 @@ public class User implements Followable{
         this.username = username;
     }
 
-    public void setPastEvents(ArrayList<Event> pastEvents) {
+    public void setPastEvents(ArrayList<PastEvent> pastEvents) {
         this.pastEvents = pastEvents;
     }
 
@@ -142,7 +142,7 @@ public class User implements Followable{
         this.questionAnswers = questionAnswers;
     }
 
-    public ArrayList<Event> getPastEvents() {
+    public ArrayList<PastEvent> getPastEvents() {
         return pastEvents;
     }
 
@@ -160,11 +160,11 @@ public class User implements Followable{
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
 
-    public ArrayList<Event> getRegisteredEvents() {return this.registeredEvents;}
-    public void setRegisteredEvents(ArrayList<Event> registeredEvents) {this.registeredEvents = registeredEvents;}
+    public ArrayList<CurrentEvent> getRegisteredEvents() {return this.registeredEvents;}
+    public void setRegisteredEvents(ArrayList<CurrentEvent> registeredEvents) {this.registeredEvents = registeredEvents;}
 
-    public ArrayList<Event> getCreatedEvents() {return this.createdEvents;}
-    public void setCreatedEvents(ArrayList<Event> createdEvents) {this.createdEvents = createdEvents;}
+    public ArrayList<CurrentEvent> getCreatedEvents() {return this.createdEvents;}
+    public void setCreatedEvents(ArrayList<CurrentEvent> createdEvents) {this.createdEvents = createdEvents;}
 
     @Override
     public void addFollower(Followable anObject) {
@@ -173,7 +173,7 @@ public class User implements Followable{
 
     @Override
     public void removeFollower(Followable anObject) {
-        followers.remove(anObject);
+        followers.remove((User) anObject);
     }
 
     public void register(CurrentEvent anEvent){
@@ -181,7 +181,7 @@ public class User implements Followable{
     }
 
     public void createEvent(){
-        Event newEvent = new CurrentEvent();
+        CurrentEvent newEvent = new CurrentEvent();
         createdEvents.add(newEvent);
     }
 
