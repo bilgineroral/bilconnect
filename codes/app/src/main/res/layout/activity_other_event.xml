@@ -100,7 +100,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/eventTitleText"
         android:layout_width="135dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/quotaNumberText"
         android:layout_width="54dp"
         android:layout_height="44dp"
         android:layout_marginStart="5dp"
