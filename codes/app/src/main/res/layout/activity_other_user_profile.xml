@@ -20,13 +20,24 @@
 
     <TextView
         android:id="@+id/ratingText4"
-        android:layout_width="122dp"
-        android:layout_height="50dp"
+        android:layout_width="116dp"
+        android:layout_height="30dp"
         android:layout_marginTop="12dp"
         android:text="rating"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/profilePicture4"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture4"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ratingText5"
+        android:layout_width="116dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:text="followers"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/profilePicture4"
+        app:layout_constraintTop_toBottomOf="@+id/ratingText4"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -92,5 +103,25 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profilePicture4"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#005CE5"
+        android:text="Follow"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/nickNameText3"
+        tools:layout_editor_absoluteX="278dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="44dp"
+        android:text="Block"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/nickNameText3"
+        tools:layout_editor_absoluteX="278dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
