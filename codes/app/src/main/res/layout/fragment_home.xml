@@ -9,11 +9,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHome"
-        android:layout_width="392dp"
-        android:layout_height="593dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="5dp">
+        android:layout_width="357dp"
+        android:layout_height="358dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeTextViewTest">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -21,16 +22,21 @@
         android:id="@+id/homeTextViewTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:onClick="whenclicked"
         android:text="HOME PAGE TEST FRAG"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.804"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:contextClickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
