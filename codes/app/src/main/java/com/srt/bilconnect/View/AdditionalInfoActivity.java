@@ -40,7 +40,6 @@ public class AdditionalInfoActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private ActivityResultLauncher<String> permissionLauncher;
-    private String bio = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,15 +133,14 @@ public class AdditionalInfoActivity extends AppCompatActivity {
     }
 
     public void finishRegistration(View view){
-
-        bio = binding.bioText.getText().toString();
+        setBio();
         Intent intent = new Intent(AdditionalInfoActivity.this, MainPageActivity.class);
         startActivity(intent);
         finish();
     }
 
-    public String getBioAfterRegistration()
+    public void setBio()
     {
-        return this.bio;
+        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("bio", binding.bioText.getText().toString());
     }
 }

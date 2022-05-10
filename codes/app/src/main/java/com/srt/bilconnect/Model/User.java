@@ -5,47 +5,66 @@ import com.srt.bilconnect.View.AdditionalInfoActivity;
 import java.util.ArrayList;
 
 public class User implements Followable{
-    private String username;
-    private String userID;    //int olmayacak mı (serhat soruyor)
-    private String bilkentID;
-    private String email;
-    private ArrayList<String> questionAnswers;
-    private String department;
-    private String profilePhotoURL;
-    private String bio = new AdditionalInfoActivity().getBioAfterRegistration();  // oldu mu bi kontrol edin beyler
-    private String dorm;
-    private String password;
-    private double rating;
-    private ArrayList<User> followers;
-    private ArrayList<Followable> followedAccounts;
-    private ArrayList<User> blockedAccounts;
-    private ArrayList<Interest> interests;
-    private ArrayList<Event> pastEvents;
-    private ArrayList<Event> registeredEvents;
-    private ArrayList<Event> createdEvents;
+    public String username;
+    public String userID;    //int olmayacak mı (serhat soruyor)
+    public String bilkentID;
+    public String email;
+    public String department;
+    public String profilePhotoURL;
+    public String bio;
+    public String dorm;
+    public String password;
+    public double rating;
+    public ArrayList<User> followers;
+    public ArrayList<Followable> followedAccounts;
+    public ArrayList<User> blockedAccounts;
+    public ArrayList<String> interests;
+    public ArrayList<Event> pastEvents;
+    public ArrayList<Event> registeredEvents;
+    public ArrayList<Event> createdEvents;
 //interestleri ekle
 
 
 //eventleri ekle
+    /*
+    public User() {//boş user constructoru firebase için gerekli
+        // test icin koydum..(Bilginer)
 
-    public User() {
-        /*pastEvents = new ArrayList<>();
+        pastEvents = new ArrayList<>();
         pastEvents.add(new Event("takilmaca", new User(), 12));
         pastEvents.add(new Event("ogle yemegi", new User(), 4));
-        pastEvents.add(new Event("kodlama eventi", new User(), 6));*/
-    }
+        pastEvents.add(new Event("kodlama eventi", new User(), 6));
 
+    }*/
+    public User() {}
     public User(String username, String userID, String email, String bilkentID, String department) {
         this.username = username;
         this.userID = userID;
         this.email = email;
         this.bilkentID = bilkentID;
         this.department = department;
+        followers = new ArrayList<>();
+        followedAccounts = new ArrayList<>();
+        blockedAccounts = new ArrayList<>();
+        interests = new ArrayList<>();
+        pastEvents = new ArrayList<>();
+        registeredEvents = new ArrayList<>();
+        createdEvents = new ArrayList<>();
+    }
+
+
+    public ArrayList<String> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(ArrayList<String> interests) {
+        this.interests = interests;
     }
 
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -86,10 +105,6 @@ public class User implements Followable{
         this.blockedAccounts = blockedAccounts;
     }
 
-    public void setInterests(ArrayList<Interest> interests) {
-        this.interests = interests;
-    }
-
     public ArrayList<Followable> getFollowedAccounts() {
         return followedAccounts;
     }
@@ -98,20 +113,12 @@ public class User implements Followable{
         return blockedAccounts;
     }
 
-    public ArrayList<Interest> getInterests() {
-        return interests;
-    }
-
     public String getUserID() {
         return userID;
     }
 
     public String getEmail() {
         return email;
-    }
-
-    public ArrayList<String> getQuestionAnswers() {
-        return questionAnswers;
     }
 
     public String getDepartment() {
@@ -136,10 +143,6 @@ public class User implements Followable{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setQuestionAnswers(ArrayList<String> questionAnswers) {
-        this.questionAnswers = questionAnswers;
     }
 
     public ArrayList<Event> getPastEvents() {
@@ -200,6 +203,10 @@ public class User implements Followable{
     public void block(Followable aUser){
         unfollow(aUser);
         blockedAccounts.add((User) aUser);
+    }
+
+    public void addCreatedEvent(Event anEvent) {
+        createdEvents.add(anEvent);
     }
 
 }
