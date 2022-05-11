@@ -31,7 +31,7 @@ public class FirstPageActivity extends AppCompatActivity {
 
         FirebaseUser user = auth.getCurrentUser();
         if(user != null) {
-            Intent intent = new Intent(FirstPageActivity.this,/* buraya main pagein adresini koy */ MainPageActivity.class);//ekle
+            Intent intent = new Intent(FirstPageActivity.this, MainPageActivity.class);
             startActivity(intent);
             finish();
         }
@@ -66,14 +66,12 @@ public class FirstPageActivity extends AppCompatActivity {
     public void signUpClicked(View view) {
         Intent intent = new Intent(FirstPageActivity.this, SignUpActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void forgotPasswordClicked(View view) {
     //send to forgot password page uses email to find the users questions
         Intent intent = new Intent(FirstPageActivity.this, ResetPasswordActivity.class);
         startActivity(intent);
-        finish();
     }
 
 }
