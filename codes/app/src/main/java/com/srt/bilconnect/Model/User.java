@@ -48,6 +48,10 @@ public class User implements Serializable {
         registeredEvents = new ArrayList<>();
     }
 
+    public void registerToEvent(Event anEvent) {
+        this.registeredEvents.add(anEvent);
+    }
+
     public ArrayList<User> getFollowers() {
         return followers;
     }

@@ -8,6 +8,7 @@ public class Event implements Serializable {
     // TEST VARIABLES
     private String title;//done
     private String description;//done
+    private String uuid;
     private User host;//done
     private int quota;//done
     private Place eventPlace;//not done
@@ -36,6 +37,14 @@ public class Event implements Serializable {
         this.description = details;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public ArrayList<User> getAttendees() {
         return attendees;
     }
@@ -58,6 +67,10 @@ public class Event implements Serializable {
 
     public void setEventDocumentPlace(String eventDocumentPlace) {
         this.eventDocumentPlace = eventDocumentPlace;
+    }
+
+    public void registerUser(User anUser) {
+        this.attendees.add(anUser);
     }
 
     public String getInterest() {
