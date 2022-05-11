@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Interest;
+import com.srt.bilconnect.Model.Place;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.databinding.ActivityEntertainmentEventBinding;
@@ -44,6 +47,7 @@ public class StudyEventActivity extends AppCompatActivity {
     Button quietButton;
     Button selectedButton;
     Button[] buttons;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,12 @@ public class StudyEventActivity extends AppCompatActivity {
         selected = new boolean[this.buttons.length];
 
         setContentView(view);
+
+        spinner = binding.spinner3;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_item, Place.placeNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
