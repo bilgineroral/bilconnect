@@ -123,8 +123,9 @@
         android:id="@+id/imageView14"
         android:layout_width="39dp"
         android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:onClick="editProfileClicked"
         android:src="@drawable/edit_profile_icon"
         app:layout_constraintStart_toEndOf="@+id/deptText"
         app:layout_constraintTop_toBottomOf="@+id/nickNameText" />
