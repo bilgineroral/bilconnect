@@ -22,22 +22,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/deptText"
-<<<<<<< Updated upstream
-        android:layout_width="227dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="20dp"
-=======
-        android:layout_width="170dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="18dp"
->>>>>>> Stashed changes
-        android:text="dept"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/nickNameText"
-        app:layout_constraintTop_toBottomOf="@+id/nickNameText" />
-
-    <TextView
         android:id="@+id/ratingText"
         android:layout_width="115dp"
         android:layout_height="31dp"
@@ -65,19 +49,18 @@
         android:id="@+id/bioText"
         android:layout_width="218dp"
         android:layout_height="76dp"
-        android:layout_marginTop="16dp"
         android:text="bio"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/deptText"
-        app:layout_constraintTop_toBottomOf="@+id/deptText"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="71dp" />
 
     <TextView
         android:id="@+id/interestText"
         android:layout_width="362dp"
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="72dp"
         android:text="interests:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,13 +102,10 @@
         android:id="@+id/imageView14"
         android:layout_width="30dp"
         android:layout_height="32dp"
-        android:layout_marginStart="8dp"
         android:background="#FFFFFF"
         android:onClick="editProfileClicked"
         android:src="@drawable/edit_profile_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
-        app:layout_constraintStart_toEndOf="@+id/deptText"
         app:layout_constraintTop_toTopOf="@+id/nickNameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
