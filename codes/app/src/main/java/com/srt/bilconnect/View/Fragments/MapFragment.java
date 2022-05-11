@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +20,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Place;
 import com.srt.bilconnect.View.PlaceActivities.EventsAtSelectedLocation;
 import com.srt.bilconnect.databinding.FragmentMapBinding;
@@ -44,11 +42,11 @@ public class MapFragment extends Fragment {
     ImageView imageView4;
     ImageView imageView5;
 
-    public Place place1;
+    /*public Place place1;
     public Place place2;
     public Place place3;
-    public Place place4;
-    public Place place5;
+    public Place place4;*/
+    public Place place;
     public ArrayList<Place> places;
 
 
@@ -83,10 +81,10 @@ public class MapFragment extends Fragment {
         firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                place5 = documentSnapshot.toObject(Place.class);
-                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                place = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place.getUpcomingEvents().size() != 0) {
                     imageView5.setVisibility(View.VISIBLE);
-                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setText(Integer.toString(place.getUpcomingEvents().size()));
                     binding.textSecond.setVisibility(View.VISIBLE);}
             }
         });
@@ -94,10 +92,10 @@ public class MapFragment extends Fragment {
         firebaseFirestore.collection("PlaceData").document("Bilkent Center").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                place5 = documentSnapshot.toObject(Place.class);
-                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                place = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place.getUpcomingEvents().size() != 0) {
                     imageView5.setVisibility(View.VISIBLE);
-                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setText(Integer.toString(place.getUpcomingEvents().size()));
                     binding.textSecond.setVisibility(View.VISIBLE);}
             }
         });
@@ -105,10 +103,10 @@ public class MapFragment extends Fragment {
         firebaseFirestore.collection("PlaceData").document("81").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                place5 = documentSnapshot.toObject(Place.class);
-                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                place = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place.getUpcomingEvents().size() != 0) {
                     imageView5.setVisibility(View.VISIBLE);
-                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setText(Integer.toString(place.getUpcomingEvents().size()));
                     binding.textSecond.setVisibility(View.VISIBLE);}
             }
         });
@@ -116,10 +114,10 @@ public class MapFragment extends Fragment {
         firebaseFirestore.collection("PlaceData").document("Mayfest").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                place5 = documentSnapshot.toObject(Place.class);
-                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                place = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place.getUpcomingEvents().size() != 0) {
                     imageView5.setVisibility(View.VISIBLE);
-                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setText(Integer.toString(place.getUpcomingEvents().size()));
                     binding.textSecond.setVisibility(View.VISIBLE);}
             }
         });
@@ -127,10 +125,10 @@ public class MapFragment extends Fragment {
         firebaseFirestore.collection("PlaceData").document("East Campus").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                place5 = documentSnapshot.toObject(Place.class);
-                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place5.getUpcomingEvents().size() != 0) {
+                place = documentSnapshot.toObject(Place.class);
+                if(Integer.parseInt(textViewFifth.getText().toString()) != 0 || place.getUpcomingEvents().size() != 0) {
                     imageView5.setVisibility(View.VISIBLE);
-                    binding.textSecond.setText(Integer.toString(place5.getUpcomingEvents().size()));
+                    binding.textSecond.setText(Integer.toString(place.getUpcomingEvents().size()));
                     binding.textSecond.setVisibility(View.VISIBLE);}
             }
         });
@@ -181,7 +179,7 @@ public class MapFragment extends Fragment {
         binding = null;
     }
 
-    public void setPlaces() {
+   /* public void setPlaces() {
         firebaseFirestore.collection("PlaceData").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -219,5 +217,5 @@ public class MapFragment extends Fragment {
             }
         });
 
-    }
+    }*/
 }

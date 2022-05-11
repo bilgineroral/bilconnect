@@ -83,10 +83,14 @@ public class HomeFragment extends Fragment {
                         testList.add(documentSnapshot.toObject(Event.class));
                     }
                 }
+                EventAdapter eventAdapter = new EventAdapter(testList);
+                binding.recyclerViewHome.setAdapter(eventAdapter);
+
+
             }
         });
 
-
+        return binding.getRoot();
 
        /* testList.add(new Event("mayfest buluşma",
                 new User("deneme123", "2412req","denem@gmail.com", "12323", "CS"),
@@ -107,11 +111,12 @@ public class HomeFragment extends Fragment {
         testList.add(new Event("eğlence", new User("Melis", "2412req","denem@gmail.com", "12323", "CS"),
                 6, "eğlence details'i"));
         testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"),
-                5, "Math tutoring"));*/
+                5, "Math tutoring"));
+
         EventAdapter eventAdapter = new EventAdapter(testList);
         binding.recyclerViewHome.setAdapter(eventAdapter);
 
-        return root;
+        return root;*/
     }
 
     @Override

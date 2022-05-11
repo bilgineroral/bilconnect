@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Place;
@@ -125,11 +126,25 @@ public class SportsEventActivity extends AppCompatActivity {
 
                 User user = documentSnapshot.toObject(User.class);
                 Event event = new Event(title,user,quota,"Tutoring",null);
+                //sets interest
+                String interestString = "";
+                if(selectedInterest == 0) { interestString = "Football"; }
+                else if(selectedInterest == 1) { interestString = "Basketball"; }
+                else if(selectedInterest == 2) { interestString = "Volleyball"; }
+                else if(selectedInterest == 3) { interestString = "Tennis"; }
+                else if(selectedInterest == 4) { interestString = "Fitness"; }
+                else if(selectedInterest == 5) { interestString = "Walking"; }
+                else if(selectedInterest == 6) { interestString = "Swimming"; }
+                else if(selectedInterest == 7) { interestString = "Table Tennis"; }
+                else if(selectedInterest == 8) { interestString = "American Football"; }
+                event.setInterest(interestString);
+                event.setUuid(userId + id);
+                //sets description and other stuffs
                 event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);
                 event.setHost(user);
 
-                firebaseFirestore.collection("UserData").document(userId).collection("Events").document(userId + id).set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
+                /*firebaseFirestore.collection("UserData").document(userId).collection("Events").document(userId + id).set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
 
@@ -139,9 +154,28 @@ public class SportsEventActivity extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
 
                     }
-                });
+                });*/
+                //adds the event to users createdEvents
+                //firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));
+                //adds the event to placeData and gets event class to add to the event
+                //firebaseFirestore.collection("PlaceData").document("Odeon").update("upcomingEvents", FieldValue.arrayUnion(event));
 
                 firebaseFirestore.collection("EventData").document(userId + id).set(event);
+
+                firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        Place place = documentSnapshot.toObject(Place.class);
+                        event.setEventPlace(place);
+                        //sets the event for the page
+                        firebaseFirestore.collection("EventData").document(userId + id).update("eventPlace", place);
+                        //adds the event to users createdEvents
+                        firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));
+                        //adds the event to places
+                        firebaseFirestore.collection("PlaceData").document("Odeon").update("upcomingEvents", FieldValue.arrayUnion(event));
+                    }
+                });
+
                 Toast.makeText(SportsEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SportsEventActivity.this, MainPageActivity.class);
                 startActivity(intent);

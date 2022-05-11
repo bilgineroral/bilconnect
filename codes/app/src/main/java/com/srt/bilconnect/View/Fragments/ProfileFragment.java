@@ -95,8 +95,8 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user = documentSnapshot.toObject(User.class);
-                binding.nickNameText.setText("Username: " + user.getUsername());
-                binding.deptText.setText("Department: " + user.getDepartment());
+                binding.nickNameText.setText(user.getUsername());
+                binding.deptText.setText(user.getDepartment());
                 binding.bioText.setText("Bio: " + user.getBio());
                 try {
                     Picasso.get().load(user.getProfilePhotoURL()).into(binding.profilePicture);
@@ -116,8 +116,4 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
-
-
 }
