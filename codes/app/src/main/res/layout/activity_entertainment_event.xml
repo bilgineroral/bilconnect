@@ -6,27 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".View.EventCreationPages.EntertainmentEventActivity">
 
-    <TextView
-        android:id="@+id/dateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Enter the date of your event:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
     <Button
         android:id="@+id/eating_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:onClick="publishEvent"
         android:text="Done"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/selectDateText" />
 
     <TextView
         android:id="@+id/textView12"
@@ -160,16 +150,6 @@
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/dateText"
-        app:layout_constraintTop_toBottomOf="@+id/dateText" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="300dp"
@@ -204,5 +184,20 @@
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/eating_button"
         app:layout_constraintTop_toTopOf="@+id/eating_button" />
+
+    <TextView
+
+        android:id="@+id/selectDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="selectDate"
+        android:text="select date"
+        android:textColor="#2196F3"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

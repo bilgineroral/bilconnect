@@ -364,35 +364,30 @@
             app:layout_constraintStart_toStartOf="@+id/spinner5"
             app:layout_constraintTop_toBottomOf="@+id/spinner5" />
 
-        <TextView
-            android:id="@+id/textView27"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Enter the date of your event:"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/scrollView2"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-        <EditText
-            android:id="@+id/editTextDate3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:inputType="date"
-            app:layout_constraintStart_toStartOf="@+id/textView27"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
         <Button
             android:id="@+id/button12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:onClick="publishEvent"
             android:text="Done"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextDate3"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDate3" />
+            app:layout_constraintTop_toBottomOf="@+id/date_text" />
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:onClick="selectDate"
+            android:text="select date"
+            android:textColor="#2196F3"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="@+id/scrollView2"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
