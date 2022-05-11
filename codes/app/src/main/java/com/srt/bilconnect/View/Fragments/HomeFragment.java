@@ -14,6 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.User;
@@ -26,6 +33,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     Spinner spinner;
     String[] sortItems;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth auth;
 
 
     @Override
@@ -36,6 +45,8 @@ public class HomeFragment extends Fragment {
         sortItems = new String[2];
         sortItems[0] = "Sort by date.";
         sortItems[1] = "Sort lexicographically.";
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         spinner = binding.spinner;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
@@ -63,7 +74,21 @@ public class HomeFragment extends Fragment {
         binding.recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ArrayList<Event> testList = new ArrayList<>();
-        testList.add(new Event("mayfest buluşma",
+        //gets event data from database
+        firebaseFirestore.collection("EventData").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        testList.add(documentSnapshot.toObject(Event.class));
+                    }
+                }
+            }
+        });
+
+
+
+       /* testList.add(new Event("mayfest buluşma",
                 new User("deneme123", "2412req","denem@gmail.com", "12323", "CS"),
                 6, "details test"));
         testList.add(new Event("basketbol",
@@ -82,7 +107,7 @@ public class HomeFragment extends Fragment {
         testList.add(new Event("eğlence", new User("Melis", "2412req","denem@gmail.com", "12323", "CS"),
                 6, "eğlence details'i"));
         testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"),
-                5, "Math tutoring"));
+                5, "Math tutoring"));*/
         EventAdapter eventAdapter = new EventAdapter(testList);
         binding.recyclerViewHome.setAdapter(eventAdapter);
 

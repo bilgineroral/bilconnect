@@ -6,15 +6,15 @@ import java.util.ArrayList;
 public class Event implements Serializable {
 
     // TEST VARIABLES
-    private String title;
-    private String description;
-    private User host;
-    private int quota;
-    private Place eventPlace;
-    private String interest;
-    private String eventDocumentPlace;
-    private ArrayList<User> attendees;
-    private ArrayList<Comment> comments;
+    private String title;//done
+    private String description;//done
+    private User host;//done
+    private int quota;//done
+    private Place eventPlace;//not done
+    private String interest;//not done
+    private String eventDocumentPlace;//done
+    private ArrayList<User> attendees;//done
+    private ArrayList<Comment> comments;//not done
 
     public Event() {}
 
