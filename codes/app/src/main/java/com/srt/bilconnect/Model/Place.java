@@ -23,34 +23,15 @@ public class Place implements Serializable {
 
     public static String[] getPlaceNames() {return placeNames;}
 
-    //public static void setPlaceNames(String[] placeNames) {Place.placeNames = placeNames;}
-
     public void setPlaceName(String placeName) { this.placeName = placeName; }
 
     public String getPlaceName() { return this.placeName; }
 
-    /*public ArrayList<User> getFollowers() {
-        return followers;
-    }*/
-
-    /*
-    public void setFollowers(ArrayList<User> followers) {
-        this.followers = followers;
-    }*/
-
     public void setUpcomingEvents(ArrayList<Event> upcomingEvents) {
         this.upcomingEvents = upcomingEvents;
     }
-/*
-    public void addFollower(Followable anObject) {
-        followers.add((User) anObject);
-    }*/
 
     public ArrayList<Event> getUpcomingEvents() {
         return this.upcomingEvents;
     }
-/*
-    public void removeFollower(Followable anObject) {
-        followers.remove((User) anObject);
-    }*/
 }

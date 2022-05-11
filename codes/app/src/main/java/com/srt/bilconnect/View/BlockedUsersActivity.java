@@ -1,4 +1,4 @@
-package com.srt.bilconnect.View.Fragments;
+package com.srt.bilconnect.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 

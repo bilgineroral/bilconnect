@@ -117,6 +117,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
 
                 User user = documentSnapshot.toObject(User.class);
                 Event event = new Event(title,user,quota,"Tutoring",null);
+                event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);
                 event.setHost(user);
 

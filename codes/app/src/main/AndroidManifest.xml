@@ -24,7 +24,7 @@
             android:name=".View.Fragments.OtherUserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".View.Fragments.BlockedUsersActivity"
+            android:name=".View.BlockedUsersActivity"
             android:exported="false" />
         <activity
             android:name=".View.Fragments.SettingsActivity2"
