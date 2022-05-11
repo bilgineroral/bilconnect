@@ -8,18 +8,18 @@
     tools:context=".MapFragment">
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageViewBilkentCenter"
         android:layout_width="73dp"
         android:layout_height="69dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_baseline_location_on_24"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/textView245"
         app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/textView245"
+        app:layout_constraintTop_toTopOf="@+id/textView245" />
 
     <TextView
-        android:id="@+id/textFirst"
+        android:id="@+id/textBilkentCenter"
         android:layout_width="73dp"
         android:layout_height="30dp"
         android:layout_marginTop="32dp"
@@ -27,15 +27,15 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewBilkentCenter"
+        app:layout_constraintEnd_toEndOf="@+id/textView245"
         app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView245"
+        app:layout_constraintTop_toTopOf="@+id/textView245"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/imageViewMayfest"
         android:layout_width="73dp"
         android:layout_height="69dp"
         android:layout_marginTop="241dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/imageViewDorm81"
         android:layout_width="73dp"
         android:layout_height="69dp"
         android:layout_marginTop="460dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/imageViewOdeon"
         android:layout_width="73dp"
         android:layout_height="69dp"
         android:layout_marginEnd="108dp"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/imageViewEastCampus"
         android:layout_width="73dp"
         android:layout_height="69dp"
         android:layout_marginStart="308dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textSecond"
+        android:id="@+id/textOdeon"
         android:layout_width="73dp"
         android:layout_height="35dp"
         android:layout_marginEnd="108dp"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0.509" />
 
     <TextView
-        android:id="@+id/textFifth"
+        android:id="@+id/textDorm81"
         android:layout_width="73dp"
         android:layout_height="32dp"
         android:layout_marginTop="450dp"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.517" />
 
     <TextView
-        android:id="@+id/textthird"
+        android:id="@+id/textEastCampus"
         android:layout_width="73dp"
         android:layout_height="25dp"
         android:layout_marginStart="308dp"
@@ -132,7 +132,7 @@
         app:layout_constraintVertical_bias="0.497" />
 
     <TextView
-        android:id="@+id/textFourth"
+        android:id="@+id/textMayfest"
         android:layout_width="73dp"
         android:layout_height="28dp"
         android:layout_marginTop="231dp"
@@ -147,7 +147,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView243"
         android:layout_width="74dp"
         android:layout_height="21dp"
         android:layout_marginEnd="108dp"
@@ -164,7 +164,7 @@
         app:layout_constraintVertical_bias="0.53" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView245"
         android:layout_width="98dp"
         android:layout_height="25dp"
         android:layout_marginStart="50dp"
@@ -180,7 +180,7 @@
         app:layout_constraintVertical_bias="0.055" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView1873"
         android:layout_width="107dp"
         android:layout_height="22dp"
         android:layout_marginStart="308dp"
@@ -195,7 +195,7 @@
         app:layout_constraintVertical_bias="0.523" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/textView3528"
         android:layout_width="73dp"
         android:layout_height="22dp"
         android:layout_marginTop="140dp"
@@ -211,7 +211,7 @@
         app:layout_constraintVertical_bias="0.528" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/textView192"
         android:layout_width="71dp"
         android:layout_height="22dp"
         android:layout_marginTop="360dp"

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -68,17 +69,24 @@ public class EventPageActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user = documentSnapshot.toObject(User.class);
-                user.registerToEvent(ourEvent);
-                ourEvent.registerUser(user);
-                ourEvent.setQuota(ourEvent.getQuota() - 1);
-                if(ourEvent.getQuota() < ourEvent.getAttendees().size() /*datele alakalı yeri ekle*/) {
-                    firebaseFirestore.collection("EventData").document(ourEvent.getUuid()).update("attendees", FieldValue.arrayUnion(user));
-                    firebaseFirestore.collection("EventData").document(ourEvent.getUuid()).update("quota", ourEvent.getQuota());
-                    firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("registeredEvents", FieldValue.arrayUnion(ourEvent));
-                    firebaseFirestore.collection("PlaceData").document(ourEvent.getEventPlace().getPlaceName()).update("attendees", FieldValue.arrayUnion(user));
+                if(!user.getEmail().equals(ourEvent.getHost().getEmail())) {
+                    user.registerToEvent(ourEvent);
+                    ourEvent.registerUser(user);
+                    ourEvent.setQuota(ourEvent.getQuota() - 1);
+                    if(ourEvent.getQuota() > ourEvent.getAttendees().size() /*datele alakalı yeri ekle*/) {
+                        firebaseFirestore.collection("EventData").document(ourEvent.getEventDocumentPlace()).update("attendees", FieldValue.arrayUnion(user));
+                        firebaseFirestore.collection("EventData").document(ourEvent.getEventDocumentPlace()).update("quota", ourEvent.getQuota());
+                        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("registeredEvents", FieldValue.arrayUnion(ourEvent));
+                        firebaseFirestore.collection("PlaceData").document(ourEvent.getEventPlace().getPlaceName()).update("attendees", FieldValue.arrayUnion(user));
+                    }
                 }
-
+                else {
+                    Toast.makeText(EventPageActivity.this, "Unable to Register Becuase You are the Event Host", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        Intent intent = new Intent(EventPageActivity.this, MainPageActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

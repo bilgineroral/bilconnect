@@ -107,7 +107,6 @@ public class StudyEventActivity extends AppCompatActivity {
                 else if(selectedInterest == 2) { interestString = "Studying With Talking"; }
                 else if(selectedInterest == 3) { interestString = "Quiet Studying"; }
                 event.setInterest(interestString);
-                event.setUuid(userId + id);
                 //sets description and other stuffs
                 event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);

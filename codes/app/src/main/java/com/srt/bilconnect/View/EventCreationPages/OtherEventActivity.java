@@ -84,7 +84,6 @@ public class OtherEventActivity extends AppCompatActivity {
                 //sets interest
                 String interestString = "";
                 event.setInterest(interestString);
-                event.setUuid(userId + id);
                 //sets description and other stuffs
                 event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);

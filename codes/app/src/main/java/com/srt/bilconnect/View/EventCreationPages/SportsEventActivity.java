@@ -141,7 +141,6 @@ public class SportsEventActivity extends AppCompatActivity {
                 else if(selectedInterest == 7) { interestString = "Table Tennis"; }
                 else if(selectedInterest == 8) { interestString = "American Football"; }
                 event.setInterest(interestString);
-                event.setUuid(userId + id);
                 //sets description and other stuffs
                 event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);

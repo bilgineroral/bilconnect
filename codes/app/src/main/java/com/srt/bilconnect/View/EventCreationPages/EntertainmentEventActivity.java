@@ -145,7 +145,6 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                 else if(selectedInterest == 3) { interestString = "Eating"; }
                 else if(selectedInterest == 4) { interestString = "Concert"; }
                 event.setInterest(interestString);
-                event.setUuid(userId + id);
                 //sets description and other stuffs
                 event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);
