@@ -21,6 +21,8 @@ import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.databinding.ActivityEventPageBinding;
 
+import java.util.Calendar;
+
 public class EventPageActivity extends AppCompatActivity {
 
     ActivityEventPageBinding binding;
@@ -28,6 +30,7 @@ public class EventPageActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private User user;
     private Event ourEvent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +78,7 @@ public class EventPageActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             Event event = documentSnapshot.toObject(Event.class);
-                            if(event.getQuota() > event.getAttendees().size() /*datele alakalı yeri ekle*/) {
+                            if(event.getQuota() > event.getAttendees().size() && Calendar.getInstance().getTime().compareTo(event.getZaman()) < 0) {
                                 firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).update("attendees", FieldValue.arrayUnion(user));
                                 firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).update("quota", event.getQuota() - 1);
                                 firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("registeredEvents", FieldValue.arrayUnion(event));

@@ -32,6 +32,7 @@ import com.srt.bilconnect.databinding.ActivityOtherEventBinding;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class OtherEventActivity extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class OtherEventActivity extends AppCompatActivity {
 
     String time;
     String date;
+    Date zaman;
     String selectedPlace;
     Spinner spinner;
     Event event;
@@ -91,38 +93,45 @@ public class OtherEventActivity extends AppCompatActivity {
                     String id = UUID.randomUUID().toString();
                     String userId = auth.getCurrentUser().getUid();
 
-                User user = documentSnapshot.toObject(User.class);
-                event = new Event(title,user,quota,"Tutoring",null);
-                //sets interest
-                String interestString = "";
-                event.setInterest(interestString);
-                //sets description and other stuffs
-                event.setDescription(binding.eventDescriptionText.getText().toString());
-                event.setEventDocumentPlace(userId + id);
-                event.setHost(user);
-                //get event place
-                firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if(task.isSuccessful()) {
-                            DocumentSnapshot snapshot = task.getResult();
-                            Place place = snapshot.toObject(Place.class);
-                            event.setEventPlace(place);
-                            firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
+                    User user = documentSnapshot.toObject(User.class);
+                    event = new Event(title, user, quota, "Tutoring", null);
+                    //sets time and date
+                    event.setDate(date);
+                    event.setTime(time);
+                    event.setZaman(zaman);
+                    //sets interest
+                    String interestString = "";
+                    event.setInterest(interestString);
+                    //sets description and other stuffs
+                    event.setDescription(binding.eventDescriptionText.getText().toString());
+                    event.setEventDocumentPlace(userId + id);
+                    event.setHost(user);
+                    //get event place
+                    firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot snapshot = task.getResult();
+                                Place place = snapshot.toObject(Place.class);
+                                event.setEventPlace(place);
+                                firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
 
-                            //adds the event to users createdEvents
-                            firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
-                            //adds the event to places
-                            firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
+                                //adds the event to users createdEvents
+                                firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
+                                //adds the event to places
+                                firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
 
-                            Toast.makeText(OtherEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(OtherEventActivity.this, MainPageActivity.class);
-                            startActivity(intent);
-                            finish();
+                                Toast.makeText(OtherEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(OtherEventActivity.this, MainPageActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
-                    }
-                });
-
+                    });
+                }
+            });
+        }
+    }
 
 
     public void selectDate(View view) {
@@ -142,6 +151,11 @@ public class OtherEventActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                 date = i2 + "/" + i1 + "/" + i;
+                Calendar c1 = Calendar.getInstance();
+                c1.set(Calendar.DAY_OF_MONTH, i2);
+                c1.set(Calendar.MONTH, i1);
+                c1.set(Calendar.YEAR, i);
+                zaman = c1.getTime();
             }
         }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
 

@@ -32,6 +32,7 @@ import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class StudyEventActivity extends AppCompatActivity {
@@ -45,8 +46,10 @@ public class StudyEventActivity extends AppCompatActivity {
 
     String time;
     String date;
+    Date zaman;
     String selectedPlace;
     Event event;
+    Calendar calendar;
 
     Button tutoringButton;
     Button gettingTutoredButton;
@@ -112,6 +115,10 @@ public class StudyEventActivity extends AppCompatActivity {
 
                 User user = documentSnapshot.toObject(User.class);
                 event = new Event(title,user,quota,"Tutoring",null);
+                    //sets time and date
+                    event.setDate(date);
+                    event.setTime(time);
+                    event.setZaman(zaman);
                 //sets interest
                 String interestString = "";
                 if(selectedInterest == 0) { interestString = "Tutoring"; }
@@ -146,8 +153,6 @@ public class StudyEventActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -156,7 +161,9 @@ public class StudyEventActivity extends AppCompatActivity {
                 Toast.makeText(StudyEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        }
     }
+
 
     public void selected(View view) {
         selectedButton = findViewById(view.getId());
@@ -181,7 +188,6 @@ public class StudyEventActivity extends AppCompatActivity {
             selected[i] = true;
             selectedInterest = i;
         }
-
     }
     public void selectDate(View view) {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
@@ -200,11 +206,17 @@ public class StudyEventActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                 date = i2 + "/" + i1 + "/" + i;
+                Calendar c1 = Calendar.getInstance();
+                c1.set(Calendar.DAY_OF_MONTH, i2);
+                c1.set(Calendar.MONTH, i1);
+                c1.set(Calendar.YEAR, i);
+                zaman = c1.getTime();
             }
         }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
 
         datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis());
         datePickerDialog.show();
+
     }
 
 }

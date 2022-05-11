@@ -72,7 +72,7 @@ public class OtherUserProfileActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
                     for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                        
+
                     }
                 }
             }

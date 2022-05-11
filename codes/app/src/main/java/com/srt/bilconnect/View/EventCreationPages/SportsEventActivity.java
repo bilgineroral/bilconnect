@@ -36,6 +36,7 @@ import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class SportsEventActivity extends AppCompatActivity {
@@ -45,6 +46,7 @@ public class SportsEventActivity extends AppCompatActivity {
 
     String date;
     String time;
+    Date zaman;
 
     Button football;
     Button basketball;
@@ -140,6 +142,10 @@ public class SportsEventActivity extends AppCompatActivity {
 
                 User user = documentSnapshot.toObject(User.class);
                 event = new Event(title,user,quota,"Tutoring",null);
+                //sets time and date
+                    event.setDate(date);
+                    event.setTime(time);
+                    event.setZaman(zaman);
                 //sets interest
                 String interestString = "";
                 if(selectedInterest == 0) { interestString = "Football"; }
@@ -188,7 +194,7 @@ public class SportsEventActivity extends AppCompatActivity {
                 Toast.makeText(SportsEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
+    }}
 
     public void imageSelected(View view) {
         selectedImage = findViewById(view.getId());
@@ -243,6 +249,11 @@ public class SportsEventActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                 date = i2 + "/" + i1 + "/" + i;
+                Calendar c1 = Calendar.getInstance();
+                c1.set(Calendar.DAY_OF_MONTH, i2);
+                c1.set(Calendar.MONTH, i1);
+                c1.set(Calendar.YEAR, i);
+                zaman = c1.getTime();
             }
         }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
 

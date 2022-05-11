@@ -1,5 +1,6 @@
 package com.srt.bilconnect.View.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +19,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.User;
+import com.srt.bilconnect.View.EventPageActivity;
+import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;

@@ -2,6 +2,7 @@ package com.srt.bilconnect.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Event implements Serializable {
 
@@ -15,6 +16,9 @@ public class Event implements Serializable {
     private String eventDocumentPlace;//done
     private ArrayList<User> attendees;//done
     private ArrayList<Comment> comments;//not done
+    private String date;
+    private String time;
+    private Date zaman;
 
     public Event() {}
 
@@ -34,6 +38,30 @@ public class Event implements Serializable {
         this.host = host;
         this.quota = quota;
         this.description = details;
+    }
+
+    public Date getZaman() {
+        return zaman;
+    }
+
+    public void setZaman(Date zaman) {
+        this.zaman = zaman;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public ArrayList<User> getAttendees() {

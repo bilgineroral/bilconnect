@@ -44,6 +44,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
 
     String time;
     String date;
+    Date zaman;
     int selectedInterest;
     boolean[] selected;
     Button chitchatButton;
@@ -137,53 +138,60 @@ public class EntertainmentEventActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseFirestore firebaseFirestore;
 
-    public void publishEvent(View view) {
+        public void publishEvent(View view) {
+            if (selectedInterest >= 0 && !binding.eventTitleText.getText().toString().equals("") &&
+                    !binding.quotaNumberText.getText().toString().equals("") && !binding.eventDescriptionText.
+                    getText().toString().equals("") && !date.equals("")) {
+            firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    String title = binding.eventTitleText.getText().toString();
+                    int quota = Integer.parseInt(binding.quotaNumberText.getText().toString());
+                    String id = UUID.randomUUID().toString();
+                    String userId = auth.getCurrentUser().getUid();
 
-        if (selectedInterest >= 0 && !binding.eventTitleText.getText().toString().equals("") &&
-                !binding.quotaNumberText.getText().toString().equals("") && !binding.eventDescriptionText.
-                getText().toString().equals("") && !date.equals("")) {
+                    User user = documentSnapshot.toObject(User.class);
+                    event = new Event(title,user,quota,"Tutoring",null);
+                    //sets time and date
+                    event.setDate(date);
+                    event.setTime(time);
+                    event.setZaman(zaman);
+                    //sets interest
+                    String interestString = "";
+                    if(selectedInterest == 0) { interestString = "Chit-Chat"; }
+                    else if(selectedInterest == 1) { interestString = "Partying"; }
+                    else if(selectedInterest == 2) { interestString = "Coffee Date"; }
+                    else if(selectedInterest == 3) { interestString = "Eating"; }
+                    else if(selectedInterest == 4) { interestString = "Concert"; }
+                    event.setInterest(interestString);
+                    //sets description and other stuffs
+                    event.setDescription(binding.eventDescriptionText.getText().toString());
+                    event.setEventDocumentPlace(userId + id);
+                    event.setHost(user);
+                    //get event place
+                    firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if(task.isSuccessful()) {
+                                DocumentSnapshot snapshot = task.getResult();
+                                Place place = snapshot.toObject(Place.class);
+                                event.setEventPlace(place);
+                                firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
 
-                User user = documentSnapshot.toObject(User.class);
-                event = new Event(title,user,quota,"Tutoring",null);
-                //sets interest
-                String interestString = "";
-                if(selectedInterest == 0) { interestString = "Chit-Chat"; }
-                else if(selectedInterest == 1) { interestString = "Partying"; }
-                else if(selectedInterest == 2) { interestString = "Coffee Date"; }
-                else if(selectedInterest == 3) { interestString = "Eating"; }
-                else if(selectedInterest == 4) { interestString = "Concert"; }
-                event.setInterest(interestString);
-                //sets description and other stuffs
-                event.setDescription(binding.eventDescriptionText.getText().toString());
-                event.setEventDocumentPlace(userId + id);
-                event.setHost(user);
-                //get event place
-                firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if(task.isSuccessful()) {
-                            DocumentSnapshot snapshot = task.getResult();
-                            Place place = snapshot.toObject(Place.class);
-                            event.setEventPlace(place);
-                            firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
+                                //adds the event to users createdEvents
+                                firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
+                                //adds the event to places
+                                firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
 
-                            //adds the event to users createdEvents
-                            firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
-                            //adds the event to places
-                            firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
-
-                            Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
-                            startActivity(intent);
-                            finish();
+                                Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
-                    }
-                });
+                    });
 
-                    Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
-                    startActivity(intent);
-                    finish();
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -192,11 +200,11 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                     Toast.makeText(EntertainmentEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
-        } else {
-            Toast.makeText(this, "Please enter the necessary information", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Please enter the necessary information", Toast.LENGTH_SHORT).show();
+            }
         }
-
-    }
 
     public void selectDate(View view) {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
@@ -215,6 +223,11 @@ public class EntertainmentEventActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                 date = i2 + "/" + i1 + "/" + i;
+                Calendar c1 = Calendar.getInstance();
+                c1.set(Calendar.DAY_OF_MONTH, i2);
+                c1.set(Calendar.MONTH, i1);
+                c1.set(Calendar.YEAR, i);
+                zaman = c1.getTime();
             }
         }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
 
