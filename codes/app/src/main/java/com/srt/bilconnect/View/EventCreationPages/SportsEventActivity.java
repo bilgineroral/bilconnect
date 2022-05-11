@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,8 +40,13 @@ public class SportsEventActivity extends AppCompatActivity {
     Button swimming;
     Button tableTennis;
     Button american;
-    ArrayList<Button> buttons;
+    Button[] buttons;
     Button selectedButton;
+
+    ImageView footballView, basketballView, volleyballView, tennisView, fitnessView, walkingView,
+        swimmingView, tableTennisView, americanView;
+    ImageView selectedImage;
+    ImageView[] images;
 
     int selectedInterest;
     boolean[] selected;
@@ -53,19 +59,26 @@ public class SportsEventActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        buttons = new ArrayList<>();
+        buttons = new Button[9];
+        images = new ImageView[buttons.length];
 
-        buttons.add(football = binding.footballButton);
-        buttons.add(basketball = binding.basketballButton);
-        buttons.add(volleyball = binding.volleyballButton);
-        buttons.add(tennis = binding.tennisButton);
-        buttons.add(fitness = binding.fitnessButton);
-        buttons.add(walking = binding.walkingButton);
-        buttons.add(swimming = binding.swimmingButton);
-        buttons.add(tableTennis = binding.tableTennisButton);
-        buttons.add(american = binding.americanButton);
+        buttons[0] = football = binding.footballButton;
+        buttons[1] = basketball = binding.basketballButton;
+        buttons[2] = volleyball = binding.volleyballButton;
+        buttons[3] = tennis = binding.tennisButton;
+        buttons[4] = fitness = binding.fitnessButton;
+        buttons[5] = walking = binding.walkingButton;
+        buttons[6] = swimming = binding.swimmingButton;
+        buttons[7] = tableTennis = binding.tableTennisButton;
+        buttons[8] = american = binding.americanButton;
 
-        selected = new boolean[buttons.size()];
+        images[0] = footballView = binding.footballView; images[1] = basketballView = binding.basketballView;
+        images[2] = volleyballView = binding.volleyballView; images[3] = tennisView = binding.tennisView;
+        images[4] = fitnessView = binding.fitnessView; images[5] = walkingView = binding.walkingView;
+        images[6] = swimmingView = binding.swimmingView; images[7] = tableTennisView = binding.tabTennisView;
+        images[8] = americanView = binding.americanView;
+
+        selected = new boolean[buttons.length];
         selectedInterest = -1;
 
         auth = FirebaseAuth.getInstance();
@@ -114,12 +127,22 @@ public class SportsEventActivity extends AppCompatActivity {
         });
     }
 
+    public void imageSelected(View view) {
+        selectedImage = findViewById(view.getId());
+        int i = 0;
+
+        for (i = 0; i < images.length; i++) {
+            if (selectedImage == images[i]) break;
+        }
+        selected(buttons[i]);
+    }
+
     public void selected(View view) {
         selectedButton = findViewById(view.getId());
         int i = 0;
 
-        for (i = 0; i < buttons.size(); i++) {
-            if (selectedButton == buttons.get(i)) break;
+        for (i = 0; i < buttons.length; i++) {
+            if (selectedButton == buttons[i]) break;
         }
 
         if (selected[i]) {
@@ -128,9 +151,9 @@ public class SportsEventActivity extends AppCompatActivity {
             selectedInterest = -1;
         }
         else {
-            for (int j = 0; j < buttons.size(); j++) {
+            for (int j = 0; j < buttons.length; j++) {
                 if (j == i) continue;
-                buttons.get(j).setBackgroundColor(Color.argb(100,76,175,80));
+                buttons[j].setBackgroundColor(Color.argb(100,76,175,80));
                 selected[j] = false;
             }
             selectedButton.setBackgroundColor(Color.parseColor("#ff99cc9b"));

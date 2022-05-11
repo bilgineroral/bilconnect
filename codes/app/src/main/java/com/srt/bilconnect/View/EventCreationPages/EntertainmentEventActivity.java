@@ -38,7 +38,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
     Button concertButton;
     ActivityEntertainmentEventBinding binding;
     Button selectedButton;
-    ArrayList<Button> buttons;
+    Button[] buttons;
     MapFragment mapFragment;
 
     @Override
@@ -53,12 +53,12 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         coffeeButton = binding.coffeeButton;
         partyingButton = binding.partyingButton;
         concertButton = binding.concertButton;
-        buttons = new ArrayList<>();
+        buttons = new Button[5];
 
-        buttons.add(chitchatButton); buttons.add(eatingButton);
-        buttons.add(coffeeButton); buttons.add(partyingButton);
-        buttons.add(concertButton);
-        selected = new boolean[this.buttons.size()];
+        buttons[0] = chitchatButton; buttons[1] = eatingButton;
+        buttons[2] = coffeeButton; buttons[3] = partyingButton;
+        buttons[4] = concertButton;
+        selected = new boolean[this.buttons.length];
 
         mapFragment = new MapFragment();
 
@@ -71,8 +71,8 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         selectedButton = findViewById(view.getId());
         int i = 0;
 
-        for (i = 0; i < buttons.size(); i++) {
-            if (selectedButton == buttons.get(i)) break;
+        for (i = 0; i < buttons.length; i++) {
+            if (selectedButton == buttons[i]) break;
         }
 
         if (selected[i]) {
@@ -81,9 +81,9 @@ public class EntertainmentEventActivity extends AppCompatActivity {
             selectedInterest = -1;
         }
         else {
-            for (int j = 0; j < buttons.size(); j++) {
+            for (int j = 0; j < buttons.length; j++) {
                 if (j == i) continue;
-                buttons.get(j).setBackgroundColor(Color.argb(100,103,58,183));
+                buttons[j].setBackgroundColor(Color.argb(100,103,58,183));
                 selected[j] = false;
             }
             selectedButton.setBackgroundColor(Color.parseColor("#ffb8a6da"));

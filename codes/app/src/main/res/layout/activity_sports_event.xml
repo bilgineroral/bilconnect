@@ -64,8 +64,8 @@
             android:layout_marginTop="25dp"
             android:text="Type the title of your event:"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+            app:layout_constraintStart_toStartOf="@+id/swimmingView"
+            app:layout_constraintTop_toBottomOf="@+id/swimmingView" />
 
         <TextView
             android:id="@+id/textView8"
@@ -91,8 +91,8 @@
             android:text="amerıcan football"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintStart_toStartOf="@+id/walkingView"
+            app:layout_constraintTop_toBottomOf="@+id/walkingView" />
 
         <Button
             android:id="@+id/swimmingButton"
@@ -107,8 +107,8 @@
             android:text="swımmıng"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintStart_toStartOf="@+id/tennisView"
+            app:layout_constraintTop_toBottomOf="@+id/tennisView" />
 
         <Button
             android:id="@+id/tableTennisButton"
@@ -123,8 +123,8 @@
             android:text="table tennıs"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintStart_toStartOf="@+id/fitnessView"
+            app:layout_constraintTop_toBottomOf="@+id/fitnessView" />
 
         <Button
             android:id="@+id/fitnessButton"
@@ -139,8 +139,8 @@
             android:text="fıtness"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintStart_toStartOf="@+id/basketballView"
+            app:layout_constraintTop_toBottomOf="@+id/basketballView" />
 
         <Button
             android:id="@+id/tennisButton"
@@ -155,8 +155,8 @@
             android:text="tennıs"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintStart_toStartOf="@+id/footballView"
+            app:layout_constraintTop_toBottomOf="@+id/footballView" />
 
         <Button
             android:id="@+id/walkingButton"
@@ -171,8 +171,8 @@
             android:text="walkıng"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintStart_toStartOf="@+id/volleyballView"
+            app:layout_constraintTop_toBottomOf="@+id/volleyballView" />
 
         <Button
             android:id="@+id/volleyballButton"
@@ -207,10 +207,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/footballView"
             android:layout_width="105dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="@+id/footballButton"
             app:layout_constraintStart_toStartOf="@+id/footballButton"
@@ -233,80 +234,88 @@
             app:layout_constraintStart_toEndOf="@+id/footballButton" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/basketballView"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/basketballButton"
             app:layout_constraintTop_toBottomOf="@+id/basketballButton"
             app:srcCompat="@drawable/basketball" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/volleyballView"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/volleyballButton"
             app:layout_constraintTop_toBottomOf="@+id/volleyballButton"
             app:srcCompat="@drawable/volleyball" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/tennisView"
             android:layout_width="105dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/tennisButton"
             app:layout_constraintTop_toBottomOf="@+id/tennisButton"
             app:srcCompat="@drawable/tennis" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/fitnessView"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/fitnessButton"
             app:layout_constraintTop_toBottomOf="@+id/fitnessButton"
             app:srcCompat="@drawable/fitness" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/walkingView"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/walkingButton"
             app:layout_constraintTop_toBottomOf="@+id/walkingButton"
             app:srcCompat="@drawable/walk" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/americanView"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/americanButton"
             app:layout_constraintTop_toBottomOf="@+id/americanButton"
             app:srcCompat="@drawable/american" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/tabTennisView"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/tableTennisButton"
             app:layout_constraintTop_toBottomOf="@+id/tableTennisButton"
             app:srcCompat="@drawable/tabletennis" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/swimmingView"
             android:layout_width="105dp"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+            android:onClick="imageSelected"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="@+id/swimmingButton"
             app:layout_constraintTop_toBottomOf="@+id/swimmingButton"

@@ -43,7 +43,7 @@ public class StudyEventActivity extends AppCompatActivity {
     Button talkingButton;
     Button quietButton;
     Button selectedButton;
-    ArrayList<Button> buttons;
+    Button[] buttons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +53,11 @@ public class StudyEventActivity extends AppCompatActivity {
 
         selectedInterest = -1;
 
-        buttons = new ArrayList<>();
-        buttons.add(talkingButton = binding.talkingButton); buttons.add(gettingTutoredButton = binding.gettingTutoredButton);
-        buttons.add(quietButton = binding.quietButton); buttons.add(tutoringButton = binding.tutoringButton);
+        buttons = new Button[4];
+        buttons[0] = talkingButton = binding.talkingButton; buttons[1] = gettingTutoredButton = binding.gettingTutoredButton;
+        buttons[2] = quietButton = binding.quietButton; buttons[3] = tutoringButton = binding.tutoringButton;
 
-        selected = new boolean[this.buttons.size()];
+        selected = new boolean[this.buttons.length];
 
         setContentView(view);
 
@@ -115,8 +115,8 @@ public class StudyEventActivity extends AppCompatActivity {
         selectedButton = findViewById(view.getId());
         int i = 0;
 
-        for (i = 0; i < buttons.size(); i++) {
-            if (selectedButton == buttons.get(i)) break;
+        for (i = 0; i < buttons.length; i++) {
+            if (selectedButton == buttons[i]) break;
         }
 
         if (selected[i]) {
@@ -125,9 +125,9 @@ public class StudyEventActivity extends AppCompatActivity {
             selectedInterest = -1;
         }
         else {
-            for (int j = 0; j < buttons.size(); j++) {
+            for (int j = 0; j < buttons.length; j++) {
                 if (j == i) continue;
-                buttons.get(j).setBackgroundColor(Color.argb(100,244,67,54));
+                buttons[j].setBackgroundColor(Color.argb(100,244,67,54));
                 selected[j] = false;
             }
             selectedButton.setBackgroundColor(Color.parseColor("#ffe39994"));
