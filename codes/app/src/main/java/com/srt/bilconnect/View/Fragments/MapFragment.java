@@ -59,17 +59,14 @@ public class MapFragment extends Fragment {
         View view = binding.getRoot();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
-
+/*
         places = new ArrayList<>();
         places.add(place1);
         places.add(place2);
         places.add(place3);
         places.add(place4);
-        places.add(place5);
+        places.add(place5);*/
 
-
-
-        //setPlaces();
 
         textViewFirst = binding.textFirst;
         textViewSecond = binding.textSecond;

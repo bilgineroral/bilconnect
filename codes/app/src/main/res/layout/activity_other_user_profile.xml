@@ -51,40 +51,29 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/dormText3"
-        android:layout_width="86dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="7dp"
-        android:text="dorm"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/deptText3"
-        app:layout_constraintTop_toBottomOf="@+id/deptText3" />
-
-    <TextView
         android:id="@+id/bioText3"
         android:layout_width="218dp"
         android:layout_height="76dp"
-        android:layout_marginTop="8dp"
         android:text="bio"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/dormText3"
-        app:layout_constraintTop_toBottomOf="@+id/dormText3"
-        tools:ignore="MissingConstraints" />
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="138dp" />
 
     <TextView
         android:id="@+id/deptText3"
-        android:layout_width="101dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="7dp"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
         android:text="dept"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/nickNameText3"
         app:layout_constraintTop_toBottomOf="@+id/nickNameText3" />
 
     <ImageView
         android:id="@+id/profilePicture4"
-        android:layout_width="117dp"
-        android:layout_height="119dp"
+        android:layout_width="114dp"
+        android:layout_height="116dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_baseline_person_24"
@@ -96,32 +85,33 @@
         android:layout_width="190dp"
         android:layout_height="33dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="nickname"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profilePicture4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
+        android:layout_width="84dp"
+        android:layout_height="38dp"
         android:backgroundTint="#005CE5"
         android:text="Follow"
+        android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/nickNameText3"
-        tools:layout_editor_absoluteX="278dp" />
+        tools:layout_editor_absoluteX="294dp" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="84dp"
+        android:layout_height="38dp"
         android:text="Block"
+        android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/nickNameText3"
-        tools:layout_editor_absoluteX="278dp" />
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
