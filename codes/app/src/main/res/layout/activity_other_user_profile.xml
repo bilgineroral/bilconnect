@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:backgroundTint="#015DE6"
     android:foregroundTint="#005CE5"
-    tools:context=".View.Fragments.OtherUserProfileActivity">
+    tools:context=".View.OtherUserProfileActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="383dp"
-        android:layout_height="206dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
@@ -44,21 +44,24 @@
         android:id="@+id/interestText3"
         android:layout_width="362dp"
         android:layout_height="46dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="interests:"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bioText3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/bioText3"
         android:layout_width="218dp"
         android:layout_height="76dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
         android:text="bio"
         android:textSize="18sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="138dp" />
+        app:layout_constraintStart_toEndOf="@+id/ratingText4"
+        app:layout_constraintTop_toBottomOf="@+id/deptText3"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/deptText3"
@@ -97,12 +100,13 @@
         android:id="@+id/button"
         android:layout_width="84dp"
         android:layout_height="38dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="#005CE5"
         android:text="Follow"
         android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/nickNameText3"
-        tools:layout_editor_absoluteX="294dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nickNameText3" />
 
     <Button
         android:id="@+id/button3"

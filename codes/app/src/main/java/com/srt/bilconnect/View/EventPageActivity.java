@@ -46,6 +46,23 @@ public class EventPageActivity extends AppCompatActivity {
         binding.details.setText(event.getDescription());
     }
 
+    public void goToUser(View view) {
+        firebaseFirestore.collection("UserData").whereEqualTo("email", ourEvent.getHost().getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        User user = documentSnapshot.toObject(User.class);
+                        Intent intent = new Intent(EventPageActivity.this, OtherUserProfileActivity.class);
+                        intent.putExtra("email", user.getEmail());
+
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
+    }
+
     public void registerToTheEvent(View view) {
         firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
