@@ -28,7 +28,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="rating"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture"
         tools:ignore="MissingConstraints" />
@@ -40,7 +40,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="followers"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingText"
         tools:ignore="MissingConstraints" />
