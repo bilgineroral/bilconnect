@@ -137,6 +137,7 @@ public class MapFragment extends Fragment {
         imageView1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(getActivity(), EventsAtSelectedLocation.class);
+                intent.putExtra("EventPlace", "Odeon");
                 startActivity(intent);
             }
         });
@@ -144,6 +145,7 @@ public class MapFragment extends Fragment {
         imageView2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(getActivity(), EventsAtSelectedLocation.class);
+                intent.putExtra("EventPlace", "Odeon");
                 startActivity(intent);
             }
         });
@@ -151,6 +153,7 @@ public class MapFragment extends Fragment {
         imageView3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(getActivity(), EventsAtSelectedLocation.class);
+                intent.putExtra("EventPlace", "Odeon");
                 startActivity(intent);
             }
         });
@@ -158,6 +161,7 @@ public class MapFragment extends Fragment {
         imageView4.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(getActivity(), EventsAtSelectedLocation.class);
+                intent.putExtra("EventPlace", "Odeon");
                 startActivity(intent);
             }
         });
@@ -165,6 +169,7 @@ public class MapFragment extends Fragment {
         imageView5.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(getActivity(), EventsAtSelectedLocation.class);
+                intent.putExtra("EventPlace", "Odeon");
                 startActivity(intent);
             }
         });

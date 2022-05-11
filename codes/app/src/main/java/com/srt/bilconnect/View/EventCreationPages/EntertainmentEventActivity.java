@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -46,6 +48,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
     MapFragment mapFragment;
     Spinner spinner;
     String selectedPlace;
+    Event event;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +136,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                 String userId = auth.getCurrentUser().getUid();
 
                 User user = documentSnapshot.toObject(User.class);
-                Event event = new Event(title,user,quota,"Tutoring",null);
+                event = new Event(title,user,quota,"Tutoring",null);
                 //sets interest
                 String interestString = "";
                 if(selectedInterest == 0) { interestString = "Chit-Chat"; }
@@ -147,38 +150,24 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                 event.setDescription(binding.eventDescriptionText.getText().toString());
                 event.setEventDocumentPlace(userId + id);
                 event.setHost(user);
-
-                /*firebaseFirestore.collection("UserData").document(userId).collection("Events").document(userId + id).set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
+                //get event place
+                firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onSuccess(Void unused) {
-
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()) {
+                            DocumentSnapshot snapshot = task.getResult();
+                            Place place = snapshot.toObject(Place.class);
+                            event.setEventPlace(place);
+                        }
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });*/
-                //adds the event to users createdEvents
-                //firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));
-                //adds the event to placeData and gets event class to add to the event
-                //firebaseFirestore.collection("PlaceData").document("Odeon").update("upcomingEvents", FieldValue.arrayUnion(event));
+                });
 
                 firebaseFirestore.collection("EventData").document(userId + id).set(event);
 
-                firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Place place = documentSnapshot.toObject(Place.class);
-                        event.setEventPlace(place);
-                        //sets the event for the page
-                        firebaseFirestore.collection("EventData").document(userId + id).update("eventPlace", place);
-                        //adds the event to users createdEvents
-                        firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));
-                        //adds the event to places
-                        firebaseFirestore.collection("PlaceData").document("Odeon").update("upcomingEvents", FieldValue.arrayUnion(event));
-                    }
-                });
+                //adds the event to users createdEvents
+                firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));
+                //adds the event to places
+                firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
 
                 Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
