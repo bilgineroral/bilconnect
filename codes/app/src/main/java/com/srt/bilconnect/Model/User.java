@@ -136,6 +136,19 @@ public class User implements Serializable {
         this.email = email;
     }
 
+<<<<<<< HEAD
+    public ArrayList<Event> getPastEvents() {
+
+    public void setQuestionAnswers(ArrayList<String> questionAnswers) {
+        this.questionAnswers = questionAnswers;
+    }
+
+    public ArrayList<PastEvent> getPastEvents(){
+        return pastEvents;
+    }
+
+=======
+>>>>>>> main
     public void setDepartment(String department) {
         this.department = department;
     }
