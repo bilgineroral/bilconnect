@@ -11,7 +11,7 @@ public class Place implements Serializable {
     private String placeName;
     //private ArrayList<User> followers;
     private ArrayList<Event> upcomingEvents;
-    //public static String[] placeNames = {"81", "Mayfest", "Odeon", "Bilkent Center", "East Campus"};
+    public static String[] placeNames = {"81", "Mayfest", "Odeon", "Bilkent Center", "East Campus"};
 
     public Place() {}
 
@@ -21,7 +21,7 @@ public class Place implements Serializable {
         upcomingEvents = new ArrayList<>();
     }
 
-    //public static String[] getPlaceNames() {return placeNames;}
+    public static String[] getPlaceNames() {return placeNames;}
 
     //public static void setPlaceNames(String[] placeNames) {Place.placeNames = placeNames;}
 

@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -17,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.srt.bilconnect.Model.Event;
+import com.srt.bilconnect.Model.Place;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.R;
 import com.srt.bilconnect.View.MainPageActivity;
@@ -42,6 +45,7 @@ public class SportsEventActivity extends AppCompatActivity {
     Button american;
     Button[] buttons;
     Button selectedButton;
+    Spinner spinner;
 
     ImageView footballView, basketballView, volleyballView, tennisView, fitnessView, walkingView,
         swimmingView, tableTennisView, americanView;
@@ -80,6 +84,12 @@ public class SportsEventActivity extends AppCompatActivity {
 
         selected = new boolean[buttons.length];
         selectedInterest = -1;
+
+        spinner = binding.spinner5;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_item, Place.placeNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();

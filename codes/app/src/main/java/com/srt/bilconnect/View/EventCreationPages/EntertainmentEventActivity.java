@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -40,6 +42,7 @@ public class EntertainmentEventActivity extends AppCompatActivity {
     Button selectedButton;
     Button[] buttons;
     MapFragment mapFragment;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,12 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         buttons[2] = coffeeButton; buttons[3] = partyingButton;
         buttons[4] = concertButton;
         selected = new boolean[this.buttons.length];
+
+        spinner = binding.spinner2;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_item, Place.placeNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         mapFragment = new MapFragment();
 
