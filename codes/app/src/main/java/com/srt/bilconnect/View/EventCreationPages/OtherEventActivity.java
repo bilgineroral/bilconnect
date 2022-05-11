@@ -3,12 +3,16 @@ package com.srt.bilconnect.View.EventCreationPages;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +31,7 @@ import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.databinding.ActivityOtherEventBinding;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 public class OtherEventActivity extends AppCompatActivity {
@@ -34,6 +39,8 @@ public class OtherEventActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private ActivityOtherEventBinding binding;
 
+    String time;
+    String date;
     String selectedPlace;
     Spinner spinner;
     Event event;
@@ -45,6 +52,8 @@ public class OtherEventActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        time = "";
+        date = "";
         selectedPlace = "";
 
         spinner = binding.spinner4;
@@ -71,13 +80,16 @@ public class OtherEventActivity extends AppCompatActivity {
 
     public void publishEvent(View view) {
 
-        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                String title = binding.eventTitleText.getText().toString();
-                int quota = Integer.parseInt(binding.quotaNumberText.getText().toString());
-                String id = UUID.randomUUID().toString();
-                String userId = auth.getCurrentUser().getUid();
+        if(!binding.eventTitleText.getText().toString().equals("") &&
+                !binding.quotaNumberText.getText().toString().equals("") && !date.equals("")
+        && !binding.eventDescriptionText.getText().toString().equals("")) {
+            firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    String title = binding.eventTitleText.getText().toString();
+                    int quota = Integer.parseInt(binding.quotaNumberText.getText().toString());
+                    String id = UUID.randomUUID().toString();
+                    String userId = auth.getCurrentUser().getUid();
 
                 User user = documentSnapshot.toObject(User.class);
                 event = new Event(title,user,quota,"Tutoring",null);
@@ -113,13 +125,28 @@ public class OtherEventActivity extends AppCompatActivity {
 
 
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
+    public void selectDate(View view) {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onFailure(@NonNull Exception e) {
-                System.out.println(e.getLocalizedMessage());
-                Toast.makeText(OtherEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                String hour = "" + i;
+                String minute = "" + i1;
+                if (i < 10) hour = "0" + hour;
+                if (i1 < 10) minute = "0" + minute;
+                time = hour + ":" + minute;
             }
-        });
+        }, Calendar.HOUR_OF_DAY, Calendar.MINUTE, true);
+        timePickerDialog.show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                date = i2 + "/" + i1 + "/" + i;
+            }
+        }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
+
+        datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis());
+        datePickerDialog.show();
     }
+
 }

@@ -43,7 +43,7 @@ public class MapEventAdapter extends RecyclerView.Adapter<MapEventHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.itemView.getContext(), EventPageActivity.class);
-                intent.putExtra("event", list.get(holder.getAdapterPosition()));
+                intent.putExtra("mapevents", list.get(holder.getAdapterPosition()));
                 holder.itemView.getContext().startActivity(intent);
             }
         });

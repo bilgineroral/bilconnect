@@ -39,7 +39,7 @@ public class EventPageActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         Intent intent = getIntent();
-        Event event = (Event) intent.getSerializableExtra("event");
+        Event event = (Event) intent.getSerializableExtra("mapevents");
         ourEvent = event;
         binding.eventHeader.setText(event.getTitle());
         binding.usernameText.setText(event.getHost().getUsername());

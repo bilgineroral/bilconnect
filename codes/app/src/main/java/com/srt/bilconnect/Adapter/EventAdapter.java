@@ -39,6 +39,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventHolder> {
         holder.getBinding().quotaText.setText("katılımcı/" + this.list.get(position).getQuota());
         holder.getBinding().detailsText.setText(this.list.get(position).getDescription());
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

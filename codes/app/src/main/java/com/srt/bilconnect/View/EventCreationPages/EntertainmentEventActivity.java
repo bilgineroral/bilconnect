@@ -3,6 +3,8 @@ package com.srt.bilconnect.View.EventCreationPages;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,7 +12,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,11 +34,16 @@ import com.srt.bilconnect.View.Fragments.MapFragment;
 import com.srt.bilconnect.databinding.ActivityEntertainmentEventBinding;
 import com.srt.bilconnect.databinding.ActivityStudyEventBinding;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class EntertainmentEventActivity extends AppCompatActivity {
 
+    String time;
+    String date;
     int selectedInterest;
     boolean[] selected;
     Button chitchatButton;
@@ -57,6 +66,8 @@ public class EntertainmentEventActivity extends AppCompatActivity {
 
         selectedInterest = -1;
         selectedPlace = "";
+        date = "";
+        time = "";
 
         chitchatButton = binding.chitButton;
         eatingButton = binding.eatingButton;
@@ -65,8 +76,10 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         concertButton = binding.concertButton;
         buttons = new Button[5];
 
-        buttons[0] = chitchatButton; buttons[1] = eatingButton;
-        buttons[2] = coffeeButton; buttons[3] = partyingButton;
+        buttons[0] = chitchatButton;
+        buttons[1] = eatingButton;
+        buttons[2] = coffeeButton;
+        buttons[3] = partyingButton;
         buttons[4] = concertButton;
         selected = new boolean[this.buttons.length];
 
@@ -105,14 +118,13 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         }
 
         if (selected[i]) {
-            selectedButton.setBackgroundColor(Color.argb(100,103,58,183));
+            selectedButton.setBackgroundColor(Color.argb(100, 103, 58, 183));
             selected[i] = false;
             selectedInterest = -1;
-        }
-        else {
+        } else {
             for (int j = 0; j < buttons.length; j++) {
                 if (j == i) continue;
-                buttons[j].setBackgroundColor(Color.argb(100,103,58,183));
+                buttons[j].setBackgroundColor(Color.argb(100, 103, 58, 183));
                 selected[j] = false;
             }
             selectedButton.setBackgroundColor(Color.parseColor("#ffb8a6da"));
@@ -127,13 +139,9 @@ public class EntertainmentEventActivity extends AppCompatActivity {
 
     public void publishEvent(View view) {
 
-        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                String title = binding.eventTitleText.getText().toString();
-                int quota = Integer.parseInt(binding.quotaNumberText.getText().toString());
-                String id = UUID.randomUUID().toString();
-                String userId = auth.getCurrentUser().getUid();
+        if (selectedInterest >= 0 && !binding.eventTitleText.getText().toString().equals("") &&
+                !binding.quotaNumberText.getText().toString().equals("") && !binding.eventDescriptionText.
+                getText().toString().equals("") && !date.equals("")) {
 
                 User user = documentSnapshot.toObject(User.class);
                 event = new Event(title,user,quota,"Tutoring",null);
@@ -172,15 +180,46 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                     }
                 });
 
+                    Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    System.out.println(e.getLocalizedMessage());
+                    Toast.makeText(EntertainmentEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            Toast.makeText(this, "Please enter the necessary information", Toast.LENGTH_SHORT).show();
+        }
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
+    }
+
+    public void selectDate(View view) {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onFailure(@NonNull Exception e) {
-                System.out.println(e.getLocalizedMessage());
-                Toast.makeText(EntertainmentEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                String hour = "" + i;
+                String minute = "" + i1;
+                if (i < 10) hour = "0" + hour;
+                if (i1 < 10) minute = "0" + minute;
+                time = hour + ":" + minute;
             }
-        });
+        }, Calendar.HOUR_OF_DAY, Calendar.MINUTE, true);
+        timePickerDialog.show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                date = i2 + "/" + i1 + "/" + i;
+            }
+        }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
+
+        datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis());
+        datePickerDialog.show();
     }
 
 }
