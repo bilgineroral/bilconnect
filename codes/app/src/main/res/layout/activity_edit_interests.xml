@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    android:foregroundTint="#FFFFFF"
+    tools:context=".EditInterests">
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Football"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+    <CheckBox
+        android:id="@+id/checkBox12"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Tutoring"
+        android:textColor="#F44336"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView36"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <CheckBox
+        android:id="@+id/checkBox16"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Chit-Chat"
+        android:textColor="#C446DA"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView37"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <CheckBox
+        android:id="@+id/checkBox17"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Partying"
+        android:textColor="#C446DA"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/checkBox16"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <CheckBox
+        android:id="@+id/checkBox20"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Concert"
+        android:textColor="#C446DA"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/checkBox16"
+        app:layout_constraintTop_toTopOf="@+id/checkBox19" />
+
+    <CheckBox
+        android:id="@+id/checkBox18"
+        android:layout_width="106dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Coffee Date"
+        android:textColor="#C446DA"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox10"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <CheckBox
+        android:id="@+id/checkBox19"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Eating"
+        android:textColor="#C446DA"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox16"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox16" />
+
+    <CheckBox
+        android:id="@+id/checkBox14"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Studying with talking"
+        android:textColor="#F44336"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox9"
+        app:layout_constraintTop_toTopOf="@+id/checkBox12" />
+
+    <CheckBox
+        android:id="@+id/checkBox15"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Quiet Studying"
+        android:textColor="#F44336"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/checkBox13"
+        app:layout_constraintTop_toTopOf="@+id/checkBox13" />
+
+    <CheckBox
+        android:id="@+id/checkBox13"
+        android:layout_width="115dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Getting tutored"
+        android:textColor="#F44336"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox12"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:text="Basketball"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintTop_toTopOf="@+id/checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:text="Volleyball"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/checkBox3"
+        app:layout_constraintTop_toTopOf="@+id/checkBox3" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="Tennis"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="Swimming"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:text="Fitness"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox3"
+        app:layout_constraintTop_toTopOf="@+id/checkBox5" />
+
+    <CheckBox
+        android:id="@+id/checkBox9"
+        android:layout_width="113dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="Table Tennis"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
+        android:text="Walking"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox4"
+        app:layout_constraintTop_toTopOf="@+id/checkBox6" />
+
+    <CheckBox
+        android:id="@+id/checkBox10"
+        android:layout_width="101dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        android:text="American Football"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox4"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="245dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Change Your Interests"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="79dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="Sports"
+        android:textColor="#3A973E"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="100dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="24dp"
+        android:text="Studying"
+        android:textColor="#CA2D22"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView35"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox8" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="140dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="24dp"
+        android:text="Entertainment"
+        android:textColor="#A624BC"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/checkBox13"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox13" />
+</androidx.constraintlayout.widget.ConstraintLayout>
