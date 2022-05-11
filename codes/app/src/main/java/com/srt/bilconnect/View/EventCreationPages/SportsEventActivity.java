@@ -153,12 +153,10 @@ public class SportsEventActivity extends AppCompatActivity {
                             DocumentSnapshot snapshot = task.getResult();
                             Place place = snapshot.toObject(Place.class);
                             event.setEventPlace(place);
+                            firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
                         }
                     }
                 });
-
-
-                firebaseFirestore.collection("EventData").document(userId + id).set(event);
 
                 //adds the event to users createdEvents
                 firebaseFirestore.collection("UserData").document(userId).update("createdEvents", FieldValue.arrayUnion(event));

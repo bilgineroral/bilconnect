@@ -26,6 +26,7 @@ public class EventPageActivity extends AppCompatActivity {
     ActivityEventPageBinding binding;
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth auth;
+    private User user;
     private Event ourEvent;
 
     @Override
@@ -68,17 +69,20 @@ public class EventPageActivity extends AppCompatActivity {
         firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                User user = documentSnapshot.toObject(User.class);
+                user = documentSnapshot.toObject(User.class);
                 if(!user.getEmail().equals(ourEvent.getHost().getEmail())) {
-                    user.registerToEvent(ourEvent);
-                    ourEvent.registerUser(user);
-                    ourEvent.setQuota(ourEvent.getQuota() - 1);
-                    if(ourEvent.getQuota() > ourEvent.getAttendees().size() /*datele alakalı yeri ekle*/) {
-                        firebaseFirestore.collection("EventData").document(ourEvent.getEventDocumentPlace()).update("attendees", FieldValue.arrayUnion(user));
-                        firebaseFirestore.collection("EventData").document(ourEvent.getEventDocumentPlace()).update("quota", ourEvent.getQuota());
-                        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("registeredEvents", FieldValue.arrayUnion(ourEvent));
-                        firebaseFirestore.collection("PlaceData").document(ourEvent.getEventPlace().getPlaceName()).update("attendees", FieldValue.arrayUnion(user));
-                    }
+                    firebaseFirestore.collection("EventData").document(ourEvent.getEventDocumentPlace()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            Event event = documentSnapshot.toObject(Event.class);
+                            if(event.getQuota() > event.getAttendees().size() /*datele alakalı yeri ekle*/) {
+                                firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).update("attendees", FieldValue.arrayUnion(user));
+                                firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).update("quota", event.getQuota() - 1);
+                                firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("registeredEvents", FieldValue.arrayUnion(event));
+                                firebaseFirestore.collection("PlaceData").document(event.getEventPlace().getPlaceName()).update("attendees", FieldValue.arrayUnion(user));
+                            }
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(EventPageActivity.this, "Unable to Register Becuase You are the Event Host", Toast.LENGTH_SHORT).show();
