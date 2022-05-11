@@ -23,8 +23,8 @@
 
     <TextView
         android:id="@+id/deptText"
-        android:layout_width="170dp"
-        android:layout_height="29dp"
+        android:layout_width="227dp"
+        android:layout_height="26dp"
         android:layout_marginTop="20dp"
         android:text="dept"
         android:textSize="18sp"
@@ -116,7 +116,7 @@
         android:onClick="editProfileClicked"
         android:src="@drawable/edit_profile_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/deptText"
         app:layout_constraintTop_toTopOf="@+id/nickNameText" />
 

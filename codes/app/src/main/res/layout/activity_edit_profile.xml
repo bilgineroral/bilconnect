@@ -1,65 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.editProfileActivity">
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="252dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".View.editProfileActivity">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="252dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Department"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="253dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Bio"
-        android:inputType="textPersonName"
-        android:textAlignment="textStart"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        <ImageView
+            android:id="@+id/selectImage2"
+            android:layout_width="160dp"
+            android:layout_height="156dp"
+            android:layout_marginTop="520dp"
+            android:onClick="selectImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/upload_image" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="161dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="16dp"
-        android:text=" Edit Interests"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        <EditText
+            android:id="@+id/usernameTexto"
+            android:layout_width="252dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="221dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:text=" Edit Profile"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/deptTexto"
+            android:layout_width="252dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Department"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/usernameTexto"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTexto" />
+
+        <EditText
+            android:id="@+id/bioTexto"
+            android:layout_width="253dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Bio"
+            android:inputType="textPersonName"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="@+id/deptTexto"
+            app:layout_constraintTop_toBottomOf="@+id/deptTexto" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="161dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="16dp"
+            android:text=" Edit Interests"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/bioTexto"
+            app:layout_constraintTop_toBottomOf="@+id/bioTexto" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="221dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:text=" Edit Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/usernameTexto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/changeUsernameBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="88dp"
+            android:onClick="changeUsername"
+            android:text="Change"
+            app:layout_constraintStart_toEndOf="@+id/usernameTexto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/changeDeptBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="24dp"
+            android:onClick="changeDept"
+            android:text="Change"
+            app:layout_constraintStart_toEndOf="@+id/deptTexto"
+            app:layout_constraintTop_toBottomOf="@+id/changeUsernameBut" />
+
+        <Button
+            android:id="@+id/changeBioBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:onClick="changeBio"
+            android:text="Change"
+            app:layout_constraintStart_toEndOf="@+id/bioTexto"
+            app:layout_constraintTop_toBottomOf="@+id/changeDeptBut" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Profile Picture"
+            app:layout_constraintBottom_toTopOf="@+id/selectImage2"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="134dp" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:onClick="uploadImage"
+            android:text="Upload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectImage2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

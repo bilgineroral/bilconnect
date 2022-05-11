@@ -7,20 +7,19 @@ import java.util.ArrayList;
 
 public class User implements Serializable {
 
-    public String username;
-    public String userID;
-    public String bilkentID;
-    public String email;
-    public String department;
-    public String profilePhotoURL;
-    public String bio;
-    public String dorm;
-    public String password;
-    public double rating;
-    public ArrayList<Event> createdEvents;
-    public ArrayList<User> followers;
-    public ArrayList<User> followedAccounts;
-    public ArrayList<Event> registeredEvents;
+    public String username;//done
+    public String userID;//done
+    public String bilkentID;//done
+    public String email;//done
+    public String department;//done
+    public String profilePhotoURL;//done
+    public String bio;//done
+    public String password;//not done
+    public double rating;//not done
+    public ArrayList<Event> createdEvents;//done
+    public ArrayList<User> followers;//not done
+    public ArrayList<User> followedAccounts;//not done
+    public ArrayList<Event> registeredEvents;//not done
 
 //interestleri ekle
 
@@ -144,9 +143,6 @@ public class User implements Serializable {
     public void setProfilePhotoURL(String profilePhotoURL) {
         this.profilePhotoURL = profilePhotoURL;
     }
-
-    public String getDorm() {return dorm;}
-    public void setDorm(String dorm) {this.dorm = dorm;}
 
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
