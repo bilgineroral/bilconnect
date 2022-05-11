@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,6 +31,7 @@ import java.util.UUID;
 
 public class EntertainmentEventActivity extends AppCompatActivity {
 
+    int selectedInterest;
     boolean[] selected;
     Button chitchatButton;
     Button eatingButton;
@@ -37,26 +40,35 @@ public class EntertainmentEventActivity extends AppCompatActivity {
     Button concertButton;
     ActivityEntertainmentEventBinding binding;
     Button selectedButton;
-    ArrayList<Button> buttons;
+    Button[] buttons;
     MapFragment mapFragment;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityEntertainmentEventBinding.inflate(getLayoutInflater());
 
-        selected = new boolean[5];
+        selectedInterest = -1;
 
         chitchatButton = binding.chitButton;
         eatingButton = binding.eatingButton;
         coffeeButton = binding.coffeeButton;
         partyingButton = binding.partyingButton;
         concertButton = binding.concertButton;
-        buttons = new ArrayList<>();
+        buttons = new Button[5];
 
-        buttons.add(chitchatButton); buttons.add(eatingButton);
-        buttons.add(coffeeButton); buttons.add(partyingButton);
-        buttons.add(concertButton);
+        buttons[0] = chitchatButton; buttons[1] = eatingButton;
+        buttons[2] = coffeeButton; buttons[3] = partyingButton;
+        buttons[4] = concertButton;
+        selected = new boolean[this.buttons.length];
+
+        spinner = binding.spinner2;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_item, Place.placeNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
         mapFragment = new MapFragment();
 
         setContentView(binding.getRoot());
@@ -68,22 +80,24 @@ public class EntertainmentEventActivity extends AppCompatActivity {
         selectedButton = findViewById(view.getId());
         int i = 0;
 
-        for (i = 0; i < buttons.size(); i++) {
-            if (selectedButton == buttons.get(i)) break;
+        for (i = 0; i < buttons.length; i++) {
+            if (selectedButton == buttons[i]) break;
         }
 
         if (selected[i]) {
             selectedButton.setBackgroundColor(Color.argb(100,103,58,183));
             selected[i] = false;
+            selectedInterest = -1;
         }
         else {
-            for (int j = 0; j < buttons.size(); j++) {
+            for (int j = 0; j < buttons.length; j++) {
                 if (j == i) continue;
-                buttons.get(j).setBackgroundColor(Color.argb(100,103,58,183));
+                buttons[j].setBackgroundColor(Color.argb(100,103,58,183));
                 selected[j] = false;
             }
             selectedButton.setBackgroundColor(Color.parseColor("#ffb8a6da"));
             selected[i] = true;
+            selectedInterest = i;
         }
 
     }

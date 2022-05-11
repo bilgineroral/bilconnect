@@ -1,8 +1,9 @@
 package com.srt.bilconnect.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PastEvent extends Event{
+public class PastEvent extends Event implements Serializable {
 
     private ArrayList<Review> reviews;
 

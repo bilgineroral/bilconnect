@@ -36,8 +36,8 @@ public class HomeFragment extends Fragment {
         sortItems = new String[2];
         sortItems[0] = "Sort by date.";
         sortItems[1] = "Sort lexicographically.";
-        /*
-        //spinner = binding.spinner;
+
+        spinner = binding.spinner;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -48,8 +48,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
-                    case 0: Toast.makeText(getActivity(), "test0", Toast.LENGTH_SHORT).show();
-                    case 1: Toast.makeText(getActivity(), "test1", Toast.LENGTH_SHORT).show();
+                    // case 0: Toast.makeText(getActivity(), "test0", Toast.LENGTH_SHORT).show();
+                    // case 1: Toast.makeText(getActivity(), "test1", Toast.LENGTH_SHORT).show();
                     // kac tane secenek varsa artik
                 }
             }
@@ -63,17 +63,29 @@ public class HomeFragment extends Fragment {
         binding.recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ArrayList<Event> testList = new ArrayList<>();
-        testList.add(new Event("mayfest buluşma", new User("denem123", "2412req","denem@gmail.com", "12323", "CS"), 6));
-        testList.add(new Event("basketbol", new User("Eren", "2412req","denem@gmail.com", "12323", "CS"), 5));
-        testList.add(new Event("kahve içicez", new User("Deniz", "2412req","denem@gmail.com", "12323", "CS"), 3));
-        testList.add(new Event("futbol", new User("Ali", "2412req","denem@gmail.com", "12323", "CS"), 22));
-        testList.add(new Event("ders", new User("Ayşe", "2412req","denem@gmail.com", "12323", "CS"), 9));
-        testList.add(new Event("deneme", new User("Sinan", "2412req","denem@gmail.com", "12323", "CS"), 8));
-        testList.add(new Event("eğlence", new User("Melis", "2412req","denem@gmail.com", "12323", "CS"), 6));
-        testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"), 5));
+        testList.add(new Event("mayfest buluşma",
+                new User("deneme123", "2412req","denem@gmail.com", "12323", "CS"),
+                6, "details test"));
+        testList.add(new Event("basketbol",
+                new User("Eren", "2412req","denem@gmail.com", "12323", "CS"),
+                5, "basketbol oynayacagiz"));
+        testList.add(new Event("kahve içme eventi", new User("Deniz", "2412req","denem@gmail.com", "12323",
+                "CS"), 3, "coffee break gelin"));
+        testList.add(new Event("futbol", new User("Ali", "2412req","denem@gmail.com", "12323", "CS"),
+                22, "test details"));
+        testList.add(new Event("ders", new User("Ayşe", "2412req","denem@gmail.com", "12323", "CS"),
+                9, "details test test test test test test test test test test test test test test test test test test test"
+        + "test test test test test test test test test test test test test test test test test test test test test test test test test test"
+        + " test test test test test test test test test test test"));
+        testList.add(new Event("deneme", new User("Sinan", "2412req","denem@gmail.com", "12323", "CS"),
+                8, "deneme description event"));
+        testList.add(new Event("eğlence", new User("Melis", "2412req","denem@gmail.com", "12323", "CS"),
+                6, "eğlence details'i"));
+        testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"),
+                5, "Math tutoring"));
         EventAdapter eventAdapter = new EventAdapter(testList);
         binding.recyclerViewHome.setAdapter(eventAdapter);
-*/
+
         return root;
     }
 

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilConnect">
         <activity
+            android:name=".View.editProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlaceProfileActivity"
             android:exported="false" />
         <activity

@@ -1,8 +1,9 @@
 package com.srt.bilconnect.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CurrentEvent extends Event {
+public class CurrentEvent extends Event implements Serializable {
 
     public CurrentEvent(){
         super();
