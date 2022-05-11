@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -41,6 +42,8 @@ public class StudyEventActivity extends AppCompatActivity {
     int selectedInterest;
     boolean[] selected;
 
+    String selectedPlace;
+
     Button tutoringButton;
     Button gettingTutoredButton;
     Button talkingButton;
@@ -55,6 +58,7 @@ public class StudyEventActivity extends AppCompatActivity {
         binding = ActivityStudyEventBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
+        selectedPlace = "";
         selectedInterest = -1;
 
         buttons = new Button[4];
@@ -70,6 +74,18 @@ public class StudyEventActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, Place.placeNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedPlace = Place.placeNames[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();

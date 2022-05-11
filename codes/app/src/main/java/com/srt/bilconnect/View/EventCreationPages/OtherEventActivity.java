@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class OtherEventActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private ActivityOtherEventBinding binding;
 
+    String selectedPlace;
     Spinner spinner;
 
     @Override
@@ -39,6 +41,8 @@ public class OtherEventActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        selectedPlace = "";
+
         spinner = binding.spinner4;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_item, Place.placeNames);
@@ -47,6 +51,18 @@ public class OtherEventActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedPlace = Place.placeNames[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     public void publishEvent(View view) {

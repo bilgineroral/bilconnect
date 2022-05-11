@@ -13,6 +13,7 @@
         android:layout_height="69dp"
         android:layout_marginStart="235dp"
         android:layout_marginBottom="480dp"
+        android:onClick="clicked1"
         android:src="@drawable/ic_baseline_location_on_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

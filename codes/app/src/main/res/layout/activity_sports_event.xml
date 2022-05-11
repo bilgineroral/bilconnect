@@ -327,6 +327,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:ems="10"
+            android:maxLength="20"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="@+id/textView23"
             app:layout_constraintStart_toEndOf="@+id/textView23"

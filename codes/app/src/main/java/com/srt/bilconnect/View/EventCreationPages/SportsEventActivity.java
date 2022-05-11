@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -46,6 +47,7 @@ public class SportsEventActivity extends AppCompatActivity {
     Button[] buttons;
     Button selectedButton;
     Spinner spinner;
+    String selectedPlace;
 
     ImageView footballView, basketballView, volleyballView, tennisView, fitnessView, walkingView,
         swimmingView, tableTennisView, americanView;
@@ -91,8 +93,24 @@ public class SportsEventActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedPlace = Place.placeNames[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+    }
+
+    public void test(View view) {
+        Toast.makeText(this, selectedPlace, Toast.LENGTH_SHORT).show();
     }
 
     public void publishEvent(View view) {

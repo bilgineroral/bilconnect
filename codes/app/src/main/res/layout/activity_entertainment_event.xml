@@ -7,7 +7,7 @@
     tools:context=".View.EventCreationPages.EntertainmentEventActivity">
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -125,8 +125,8 @@
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:ems="10"
+        android:maxLength="20"
         android:inputType="textPersonName"
-        android:maxLength="25"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
@@ -167,8 +167,8 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintStart_toStartOf="@+id/dateText"
+        app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
     <ScrollView
         android:id="@+id/scrollView2"
