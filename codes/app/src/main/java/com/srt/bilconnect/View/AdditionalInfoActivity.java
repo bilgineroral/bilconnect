@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.srt.bilconnect.EditInterests;
 import com.srt.bilconnect.databinding.ActivityAdditionalInfoBinding;
 
 import java.util.UUID;
@@ -40,6 +42,7 @@ public class AdditionalInfoActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private ActivityResultLauncher<String> permissionLauncher;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,16 @@ public class AdditionalInfoActivity extends AppCompatActivity {
         firebaseStorage = FirebaseStorage.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = firebaseStorage.getReference();
+        textView= binding.textView33;
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdditionalInfoActivity.this, EditInterests.class);
+                startActivity(intent);
+            }
+
+        });
 
         registerLauncher();
     }
