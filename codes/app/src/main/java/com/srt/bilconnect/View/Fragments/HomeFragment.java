@@ -91,32 +91,6 @@ public class HomeFragment extends Fragment {
         });
 
         return binding.getRoot();
-
-       /* testList.add(new Event("mayfest buluşma",
-                new User("deneme123", "2412req","denem@gmail.com", "12323", "CS"),
-                6, "details test"));
-        testList.add(new Event("basketbol",
-                new User("Eren", "2412req","denem@gmail.com", "12323", "CS"),
-                5, "basketbol oynayacagiz"));
-        testList.add(new Event("kahve içme eventi", new User("Deniz", "2412req","denem@gmail.com", "12323",
-                "CS"), 3, "coffee break gelin"));
-        testList.add(new Event("futbol", new User("Ali", "2412req","denem@gmail.com", "12323", "CS"),
-                22, "test details"));
-        testList.add(new Event("ders", new User("Ayşe", "2412req","denem@gmail.com", "12323", "CS"),
-                9, "details test test test test test test test test test test test test test test test test test test test"
-        + "test test test test test test test test test test test test test test test test test test test test test test test test test test"
-        + " test test test test test test test test test test test"));
-        testList.add(new Event("deneme", new User("Sinan", "2412req","denem@gmail.com", "12323", "CS"),
-                8, "deneme description event"));
-        testList.add(new Event("eğlence", new User("Melis", "2412req","denem@gmail.com", "12323", "CS"),
-                6, "eğlence details'i"));
-        testList.add(new Event("Tutoring", new User("Adem", "2412req","denem@gmail.com", "12323", "CS"),
-                5, "Math tutoring"));
-
-        EventAdapter eventAdapter = new EventAdapter(testList);
-        binding.recyclerViewHome.setAdapter(eventAdapter);
-
-        return root;*/
     }
 
     @Override

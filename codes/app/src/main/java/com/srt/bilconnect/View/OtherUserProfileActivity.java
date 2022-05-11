@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,8 @@ public class OtherUserProfileActivity extends AppCompatActivity {
 
     ActivityOtherUserProfileBinding binding;
     FirebaseFirestore firebaseFirestore;
+    FirebaseAuth auth;
+    String email;
 
 
     @Override
@@ -34,9 +37,10 @@ public class OtherUserProfileActivity extends AppCompatActivity {
         binding = ActivityOtherUserProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         firebaseFirestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(OtherUserProfileActivity.this));
         Intent intent = getIntent();
-        String email = intent.getStringExtra("email");
+        email = intent.getStringExtra("email");
         firebaseFirestore.collection("UserData").whereEqualTo("email", email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -57,6 +61,19 @@ public class OtherUserProfileActivity extends AppCompatActivity {
                         Toast.makeText(OtherUserProfileActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
 
+                }
+            }
+        });
+    }
+
+    public void follow(View view) {
+        firebaseFirestore.collection("UserData").whereEqualTo("email", email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        
+                    }
                 }
             }
         });
