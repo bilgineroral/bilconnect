@@ -22,9 +22,10 @@
         android:id="@+id/selectImage"
         android:layout_width="160dp"
         android:layout_height="156dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:onClick="selectImage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deptText"
         app:srcCompat="@drawable/upload_image" />
@@ -33,7 +34,7 @@
         android:id="@+id/uploadImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:onClick="uploadImage"
         android:text="Upload"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,17 +43,16 @@
 
     <EditText
         android:id="@+id/bioText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="313dp"
+        android:layout_height="55dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="53dp"
-        android:layout_marginBottom="89dp"
         android:ems="10"
         android:hint="Write a bio!"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
 
@@ -61,26 +61,46 @@
         android:layout_width="324dp"
         android:layout_height="44dp"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="389dp"
+        android:layout_marginTop="396dp"
         android:layout_marginEnd="51dp"
-        android:layout_marginBottom="100dp"
         android:text="Great! Now write a bio. You can share further information about yourself here."
-        app:layout_constraintBottom_toTopOf="@+id/okButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/bioTextView2"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="51dp"
+        android:text="Select your interests, this will help you find events that you will be interested in."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImageButton" />
+
     <Button
         android:id="@+id/okButton"
-        android:layout_width="85dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:onClick="finishRegistration"
         android:text="Ok"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
+        app:layout_constraintEnd_toEndOf="@+id/bioText"
+        app:layout_constraintTop_toBottomOf="@+id/bioText" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="168dp"
+        android:layout_height="28dp"
+        android:text="Select Your Interests"
+        android:textColor="#2196F3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bioTextView"
+        app:layout_constraintTop_toBottomOf="@+id/bioTextView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
