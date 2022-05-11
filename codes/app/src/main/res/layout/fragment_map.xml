@@ -69,55 +69,63 @@
 
     <TextView
         android:id="@+id/textSecond"
-        android:layout_width="37dp"
-        android:layout_height="30dp"
+        android:layout_width="73dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="108dp"
         android:layout_marginBottom="165dp"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="#673AB7"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.509" />
 
     <TextView
         android:id="@+id/textFifth"
-        android:layout_width="37dp"
-        android:layout_height="30dp"
+        android:layout_width="73dp"
+        android:layout_height="32dp"
         android:layout_marginTop="450dp"
         android:layout_marginEnd="251dp"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="#3F51B5"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517" />
 
     <TextView
         android:id="@+id/textthird"
-        android:layout_width="37dp"
-        android:layout_height="30dp"
+        android:layout_width="73dp"
+        android:layout_height="25dp"
         android:layout_marginStart="308dp"
         android:layout_marginTop="94dp"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="#673AB7"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
 
     <TextView
         android:id="@+id/textFourth"
-        android:layout_width="37dp"
-        android:layout_height="30dp"
+        android:layout_width="73dp"
+        android:layout_height="28dp"
         android:layout_marginTop="231dp"
         android:layout_marginEnd="70dp"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="#673AB7"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,13 +133,14 @@
 
     <TextView
         android:id="@+id/textFirst"
-        android:layout_width="37dp"
+        android:layout_width="73dp"
         android:layout_height="30dp"
         android:layout_marginStart="236dp"
         android:layout_marginBottom="487dp"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="#673AB7"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,16 +148,20 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="66dp"
-        android:layout_height="24dp"
+        android:layout_width="74dp"
+        android:layout_height="21dp"
         android:layout_marginEnd="108dp"
         android:layout_marginBottom="250dp"
         android:text="Odeon"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 
     <TextView
         android:id="@+id/textView6"
@@ -158,9 +171,11 @@
         android:layout_marginBottom="480dp"
         android:text="Bilkent Center"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintHorizontal_bias="0.855"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.163" />
@@ -172,10 +187,13 @@
         android:layout_marginStart="308dp"
         android:text="East Campus"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523" />
 
     <TextView
         android:id="@+id/textView28"
@@ -185,10 +203,13 @@
         android:layout_marginEnd="70dp"
         android:text="Mayfest"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528" />
 
     <TextView
         android:id="@+id/textView29"
@@ -196,11 +217,15 @@
         android:layout_height="22dp"
         android:layout_marginTop="360dp"
         android:layout_marginEnd="251dp"
-        android:text="81"
+        android:text="Dorm 81"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.552" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

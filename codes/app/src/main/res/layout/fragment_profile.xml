@@ -113,10 +113,11 @@
         android:layout_width="30dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
+        android:background="#FFFFFF"
         android:onClick="editProfileClicked"
         android:src="@drawable/edit_profile_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toEndOf="@+id/deptText"
         app:layout_constraintTop_toTopOf="@+id/nickNameText" />
 
