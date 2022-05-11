@@ -59,10 +59,9 @@
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="110dp"
-        android:layout_height="39dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
-        android:onClick="registerUser"
         android:text="regıster"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/quota_text"
