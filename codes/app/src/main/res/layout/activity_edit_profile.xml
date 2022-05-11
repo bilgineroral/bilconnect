@@ -30,17 +30,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="252dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Dormitory"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-    <EditText
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="253dp"
         android:layout_height="96dp"
@@ -50,7 +39,7 @@
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <TextView
         android:id="@+id/textView"
