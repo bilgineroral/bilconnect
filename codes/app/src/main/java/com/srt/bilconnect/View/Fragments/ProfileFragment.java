@@ -1,42 +1,33 @@
 package com.srt.bilconnect.View.Fragments;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
-import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.User;
-import com.srt.bilconnect.View.MainPageActivity;
 import com.srt.bilconnect.View.RegisteredEventsActivity;
+import com.srt.bilconnect.View.editProfileActivity;
 import com.srt.bilconnect.databinding.FragmentProfileBinding;
 
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ProfileFragment extends Fragment {
 
@@ -48,6 +39,7 @@ public class ProfileFragment extends Fragment {
     private User user;
     private FragmentProfileBinding binding;
     private Map data;
+    ImageView imageView;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -70,6 +62,15 @@ public class ProfileFragment extends Fragment {
 
         //sets all the textviews and imageviews according to the firebase data
         getData();
+        imageView = binding.imageView14;
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), editProfileActivity.class);
+                startActivity(intent);
+            }
+
+        });
         //
         seeRegisteredEventsButton = binding.button2;
 
@@ -79,6 +80,7 @@ public class ProfileFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), RegisteredEventsActivity.class);
                 startActivity(intent);
             }
+
         });
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -114,6 +116,8 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 
 
 }

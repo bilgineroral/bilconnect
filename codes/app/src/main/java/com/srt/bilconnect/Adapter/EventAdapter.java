@@ -34,11 +34,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull EventHolder holder, int position) {
-        holder.getBinding().eventNameText.setText("Event: " + this.list.get(position).getTitle());
-        //commented out for test ...
-        // holder.getBinding().hostNameText.setText("Host: " + this.list.get(position).getHost().getUsername());
-        holder.getBinding().hostNameText.setText("Host: " + this.list.get(position).getHost());
-        holder.getBinding().quotaText.setText("quota: " + this.list.get(position).getQuota());
+        holder.getBinding().eventNameText.setText(this.list.get(position).getTitle());
+        holder.getBinding().userNameText.setText(this.list.get(position).getHost().getUsername());
+        holder.getBinding().quotaText.setText("katılımcı/" + this.list.get(position).getQuota());
+        holder.getBinding().detailsText.setText(this.list.get(position).getDescription());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,8 @@
 package com.srt.bilconnect.Model;
 
-public class Review extends Comment{
+import java.io.Serializable;
+
+public class Review extends Comment implements Serializable {
     private double rating;
 
     public Review(User commenter, String comment, Event event) {

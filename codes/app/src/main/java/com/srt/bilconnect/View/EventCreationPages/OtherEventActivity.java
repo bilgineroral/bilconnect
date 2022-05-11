@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -14,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.srt.bilconnect.Model.Event;
+import com.srt.bilconnect.Model.Place;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.R;
 import com.srt.bilconnect.View.MainPageActivity;
@@ -27,12 +30,20 @@ public class OtherEventActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private ActivityOtherEventBinding binding;
 
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityOtherEventBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        spinner = binding.spinner4;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_item, Place.placeNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
