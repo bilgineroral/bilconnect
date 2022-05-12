@@ -13,7 +13,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.srt.bilconnect.Adapter.EventAdapter;
-import com.srt.bilconnect.Adapter.MapEventAdapter;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.Place;
 import com.srt.bilconnect.Model.User;
