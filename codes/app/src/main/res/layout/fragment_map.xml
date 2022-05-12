@@ -165,8 +165,8 @@
 
     <TextView
         android:id="@+id/textView245"
-        android:layout_width="98dp"
-        android:layout_height="25dp"
+        android:layout_width="145dp"
+        android:layout_height="18dp"
         android:layout_marginStart="50dp"
         android:text="Bilkent Center"
         android:textAlignment="center"

@@ -144,7 +144,7 @@ public class StudyEventActivity extends AppCompatActivity {
                             //adds the event to users createdEvents
                             firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
                             //adds the event to places
-                            firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
+                            firebaseFirestore.collection("PlaceData").document(place.getPlaceName()).update("upcomingEvents", FieldValue.arrayUnion(event));
 
                             Toast.makeText(StudyEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(StudyEventActivity.this, MainPageActivity.class);
