@@ -23,13 +23,16 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
+import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.R;
 import com.srt.bilconnect.View.FirstPageActivity;
@@ -94,9 +97,18 @@ public class ProfileFragment extends Fragment {
 
         });
 
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //EventAdapter adapter = new EventAdapter(user.getPastEvents());
-        //binding.recyclerView.setAdapter(adapter);
+        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    User user = task.getResult().toObject(User.class);
+                    binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    EventAdapter adapter = new EventAdapter(user.getCreatedEvents());
+                    binding.recyclerView.setAdapter(adapter);
+                }
+            }
+        });
+
 
         return view;
     }

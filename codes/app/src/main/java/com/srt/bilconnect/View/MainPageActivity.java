@@ -24,7 +24,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.R;
-import com.srt.bilconnect.View.Fragments.SettingsActivity2;
 import com.srt.bilconnect.databinding.ActivityMainPageBinding;
 
 
@@ -64,7 +63,7 @@ public class MainPageActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.settings_menu) {
-            Intent intentToSettings = new Intent(MainPageActivity.this, SettingsActivity2.class);
+            Intent intentToSettings = new Intent(MainPageActivity.this, SettingsActivity.class);
             startActivity(intentToSettings);
         }
         else if(item.getItemId() == R.id.signout) {

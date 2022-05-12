@@ -30,7 +30,7 @@
             android:name=".View.BlockedUsersActivity"
             android:exported="false" />
         <activity
-            android:name=".View.Fragments.SettingsActivity2"
+            android:name=".View.SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".View.EventCreationActivity"
@@ -43,9 +43,6 @@
             android:exported="false" />
         <activity
             android:name=".View.EventPageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".View.AdditionalInfoActivity"

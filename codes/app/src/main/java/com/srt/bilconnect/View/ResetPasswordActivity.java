@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.srt.bilconnect.databinding.ActivityChangePasswordBinding;
 import com.srt.bilconnect.databinding.ActivityResetPasswordBinding;
 
 public class ResetPasswordActivity extends AppCompatActivity {//bu kullanıcı hesabına girememişken şifresini değiştirmesini sağlayacak

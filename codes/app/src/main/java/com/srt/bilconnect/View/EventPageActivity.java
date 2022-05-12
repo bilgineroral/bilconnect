@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 import com.srt.bilconnect.Model.Event;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.databinding.ActivityEventPageBinding;
@@ -42,13 +43,16 @@ public class EventPageActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         Intent intent = getIntent();
-        Event event = (Event) intent.getSerializableExtra("mapevents");
+        Event event = (Event) intent.getSerializableExtra("event");
         ourEvent = event;
         binding.eventHeader.setText(event.getTitle());
         binding.usernameText.setText(event.getHost().getUsername());
         binding.quota.setText("" + event.getQuota());
-        // binding.placeText.setText(event.getEventPlace().getPlaceName());
+        binding.textDate.setText(event.getDate());
+        binding.textTime.setText(event.getTime());
+        binding.placeText.setText(event.getEventPlace().getPlaceName());
         binding.details.setText(event.getDescription());
+        Picasso.get().load(event.getHost().getProfilePhotoURL()).into(binding.imageView20);
     }
 
     public void goToUser(View view) {

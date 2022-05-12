@@ -1,4 +1,4 @@
-package com.srt.bilconnect.View.Fragments;
+package com.srt.bilconnect.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,14 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.srt.bilconnect.EditInterests;
 import com.srt.bilconnect.R;
-import com.srt.bilconnect.View.AdditionalInfoActivity;
-import com.srt.bilconnect.View.ChangePasswordActivity;
-import com.srt.bilconnect.databinding.FragmentProfileBinding;
 
 
-public class SettingsActivity2 extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
     TextView textView;
 
 
@@ -27,8 +23,9 @@ public class SettingsActivity2 extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingsActivity2.this, ChangePasswordActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, ResetPasswordActivity.class);
                 startActivity(intent);
+
             }
 
         });

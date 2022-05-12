@@ -68,29 +68,6 @@ public class HomeFragment extends Fragment {
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        spinner = binding.spinner;
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, sortItems);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
-
-        // BUGGED, TO BE FIXED
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    // case 0: Toast.makeText(getActivity(), "test0", Toast.LENGTH_SHORT).show();
-                    // case 1: Toast.makeText(getActivity(), "test1", Toast.LENGTH_SHORT).show();
-                    // kac tane secenek varsa artik
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
         binding.recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ArrayList<Event> testList = new ArrayList<>();
