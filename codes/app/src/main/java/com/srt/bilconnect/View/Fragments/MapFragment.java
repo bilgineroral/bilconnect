@@ -106,10 +106,10 @@ public class MapFragment extends Fragment {
         });
 
 
-        binding.imageViewEastCampus.setOnClickListener(new View.OnClickListener(){
+        binding.imageViewOdeon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(getActivity(), EventsAtSelectedLocation.class);
-                intent.putExtra("EventPlace", "East Campus");
+                intent.putExtra("EventPlace", "Odeon");
                 startActivity(intent);
             }
         });

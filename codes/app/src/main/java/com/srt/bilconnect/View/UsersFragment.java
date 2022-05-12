@@ -32,7 +32,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.srt.bilconnect.Adapter.AdapterUsers;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.R;
-import com.srt.bilconnect.View.Fragments.SettingsActivity2;
+
 import com.srt.bilconnect.databinding.FragmentUsersBinding;
 
 import java.util.ArrayList;
@@ -159,7 +159,7 @@ public class UsersFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.settings_menu) {
-            Intent intentToSettings = new Intent(getActivity(), SettingsActivity2.class);
+            Intent intentToSettings = new Intent(getActivity(), SettingsActivity.class);
             startActivity(intentToSettings);
         }
         else if(item.getItemId() == R.id.signout) {

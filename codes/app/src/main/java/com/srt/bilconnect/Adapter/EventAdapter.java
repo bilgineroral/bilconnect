@@ -43,7 +43,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventHolder> {
     public void onBindViewHolder(@NonNull EventHolder holder, int position) {
         holder.getBinding().eventNameText.setText(this.list.get(position).getTitle());
         holder.getBinding().userNameText.setText(this.list.get(position).getHost().getUsername());
-        holder.getBinding().quotaText.setText("katılımcı/" + this.list.get(position).getQuota());
+        holder.getBinding().quotaText.setText(this.list.get(position).getAttendees().size() + "/" + this.list.get(position).getQuota());
         holder.getBinding().detailsText.setText(this.list.get(position).getDescription());
         holder.getBinding().dateTextRow.setText(this.list.get(position).getDate());
         holder.getBinding().timeTextRow.setText(this.list.get(position).getTime());
