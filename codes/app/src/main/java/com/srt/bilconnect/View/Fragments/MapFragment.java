@@ -2,25 +2,35 @@ package com.srt.bilconnect.View.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.srt.bilconnect.Model.Place;
+import com.srt.bilconnect.R;
+import com.srt.bilconnect.View.FirstPageActivity;
 import com.srt.bilconnect.View.PlaceActivities.EventsAtSelectedLocation;
 import com.srt.bilconnect.databinding.FragmentMapBinding;
 
@@ -30,6 +40,7 @@ public class MapFragment extends Fragment {
 
     private FragmentMapBinding binding;
     private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth auth;
 
     public Place place;
     public ArrayList<Place> places;
@@ -42,6 +53,7 @@ public class MapFragment extends Fragment {
         View view = binding.getRoot();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -144,4 +156,43 @@ public class MapFragment extends Fragment {
         binding = null;
     }
 
+   /* public void setPlaces() {
+        firebaseFirestore.collection("PlaceData").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    int i = 0;
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                        Place place;
+                        place = documentSnapshot.toObject(Place.class);
+                        places.set(i, place);
+                        i++;
+                    }
+                }
+                else {
+                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        firebaseFirestore.collection("PlaceData").document("Odeon").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Place place;
+                place = documentSnapshot.toObject(Place.class);
+                places.set(4, place);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }*/
 }

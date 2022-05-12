@@ -4,15 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,7 +31,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 import com.srt.bilconnect.Model.User;
+import com.srt.bilconnect.R;
+import com.srt.bilconnect.View.FirstPageActivity;
 import com.srt.bilconnect.View.RegisteredEventsActivity;
+import com.srt.bilconnect.View.UsersFragment;
 import com.srt.bilconnect.View.editProfileActivity;
 import com.srt.bilconnect.databinding.FragmentProfileBinding;
 
@@ -47,11 +58,10 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         documentReference = firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid());
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -77,6 +87,7 @@ public class ProfileFragment extends Fragment {
         seeRegisteredEventsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getActivity(), RegisteredEventsActivity.class);
                 startActivity(intent);
             }
@@ -116,4 +127,7 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
+
 }
