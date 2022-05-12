@@ -14,36 +14,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.srt.bilconnect.Model.User;
 import com.srt.bilconnect.R;
+import com.srt.bilconnect.databinding.FragmentUsersBinding;
+import com.srt.bilconnect.databinding.PastEventsProfileRecyclerViewBinding;
+import com.srt.bilconnect.databinding.RowUsersBinding;
 
 import java.util.ArrayList;
 
-public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
-
-    Context context;
+public class AdapterUsers extends RecyclerView.Adapter<MyHolder>{
     ArrayList<User> userList;
+    RowUsersBinding binding;
 
-    public AdapterUsers(Context context, ArrayList<User> userList) {
-        this.context = context;
-        this.userList = userList;
+
+    public AdapterUsers(ArrayList<User> users) {
+       super();
+        this.userList = users;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        binding = RowUsersBinding
+                .inflate(LayoutInflater.from(parent.getContext()), parent, false);
 
-        View view = LayoutInflater.from(context).inflate(R.layout.row_users, parent, false);
-        return new MyHolder(view);
+        return new MyHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
 
-        String userImage = userList.get(position).getProfilePhotoURL();
-        String userName = userList.get(position).getUsername();
-        String userEmail = userList.get(position).getEmail();
+        String userImage = this.userList.get(position).getProfilePhotoURL();
+        String userName = this.userList.get(position).getUsername();
+        String userEmail = this.userList.get(position).getEmail();
 
-        holder.mNameTv.setText(userName);
-        holder.mEmailTv.setText(userEmail);
+        holder.mNameTv.setText(this.userList.get(position).getUsername());
+        holder.mEmailTv.setText(this.userList.get(position).getEmail());
         try {
             Picasso.get().load(userImage).into(holder.mavatarIv);
         }
@@ -54,7 +58,6 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, ""+ userEmail, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -64,18 +67,22 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
         return userList.size();
     }
 
-    class MyHolder extends RecyclerView.ViewHolder {
 
-        ImageView mavatarIv;
-        TextView mNameTv, mEmailTv;
+}
+class MyHolder extends RecyclerView.ViewHolder {
 
-        public MyHolder(@NonNull View itemView) {
-            super(itemView);
+    ImageView mavatarIv;
+    TextView mNameTv, mEmailTv;
+    private RowUsersBinding binding;
 
-            mavatarIv = itemView.findViewById(R.id.avatarIv);
-            mNameTv = itemView.findViewById(R.id.nameTv);
-            mEmailTv = itemView.findViewById(R.id.emailTv);
-        }
+    public MyHolder(RowUsersBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
+
+
+        mavatarIv = itemView.findViewById(R.id.avatarIv);
+        mNameTv = itemView.findViewById(R.id.nameTv);
+        mEmailTv = itemView.findViewById(R.id.emailTv);
     }
 }
 

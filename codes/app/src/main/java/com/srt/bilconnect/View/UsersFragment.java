@@ -21,9 +21,12 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -61,7 +64,6 @@ public class UsersFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentUsersBinding.inflate(getLayoutInflater());
 
-
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
@@ -77,20 +79,24 @@ public class UsersFragment extends Fragment {
     }
 
     private void getAllUsers() {
-        firebaseFirestore.collection("UserData").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                for (QueryDocumentSnapshot documentSnapshot : value) {
-                    if (documentSnapshot.toString() != auth.getCurrentUser().getUid()) {
-                        userList.add(documentSnapshot.toObject(User.class));
-                    }
-                    adapterUsers = new AdapterUsers(getActivity(), userList);
 
-                    recyclerView.setAdapter(adapterUsers);
+        firebaseFirestore.collection("UserData").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                    User user = documentSnapshot.toObject(User.class);
+
+                    userList.add(user);
+
                 }
+                AdapterUsers adapterUsers = new AdapterUsers(userList);
+
+                binding.usersRecyclerView.setAdapter(adapterUsers);
             }
         });
     }
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstance) {
         setHasOptionsMenu(true);
@@ -148,7 +154,7 @@ public class UsersFragment extends Fragment {
                         }
 
                     }
-                    adapterUsers = new AdapterUsers(getActivity(), userList);
+                    adapterUsers = new AdapterUsers(userList);
                     adapterUsers.notifyDataSetChanged();
                     recyclerView.setAdapter(adapterUsers);
                 }
