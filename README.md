@@ -6,7 +6,7 @@ BilConnect allows Bilkenters to create and join events in Bilkent.
 TO EXECUTE, 
   1- You should have Android Stude IDE.
   2- Also download an emulator to run the app.
-  3- Open the .zip file and then open bilconnect/codes through Android Studio.
+  3- Open the .zip file and then open final/codes through Android Studio.
   
 The dependencies we have used,
   1- Navigation
