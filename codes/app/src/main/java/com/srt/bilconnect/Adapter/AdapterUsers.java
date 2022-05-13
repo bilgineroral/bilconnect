@@ -46,14 +46,10 @@ public class AdapterUsers extends RecyclerView.Adapter<MyHolder>{
         String userName = this.userList.get(position).getUsername();
         String userEmail = this.userList.get(position).getEmail();
 
-        holder.mNameTv.setText(this.userList.get(position).getUsername());
-        holder.mEmailTv.setText(this.userList.get(position).getEmail());
-        try {
-            Picasso.get().load(userImage).into(holder.mavatarIv);
-        }
-        catch (Exception e) {
+        holder.mNameTv.setText(userName);
+        holder.mEmailTv.setText(userEmail);
+        Picasso.get().load(userImage).into(holder.mavatarIv);
 
-        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,5 +80,7 @@ class MyHolder extends RecyclerView.ViewHolder {
         mNameTv = itemView.findViewById(R.id.nameTv);
         mEmailTv = itemView.findViewById(R.id.emailTv);
     }
+
+    public RowUsersBinding getBinding() { return this.binding; }
 }
 

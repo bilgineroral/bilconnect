@@ -27,13 +27,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.srt.bilconnect.EditInterests;
-import com.srt.bilconnect.R;
 import com.srt.bilconnect.databinding.ActivityEditProfileBinding;
 
 import java.util.UUID;
 
-public class editProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity {
 
     private ActivityEditProfileBinding binding;
     private Uri imageData;
@@ -59,7 +57,7 @@ public class editProfileActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(editProfileActivity.this, EditInterests.class);
+                Intent intent = new Intent(EditProfileActivity.this, EditInterests.class);
                 startActivity(intent);
             }
 
@@ -156,7 +154,7 @@ public class editProfileActivity extends AppCompatActivity {
                     activityResultLauncher.launch(intentToGallery);
                 }
                 else {
-                    Toast.makeText(editProfileActivity.this, "Permission needed!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditProfileActivity.this, "Permission needed!", Toast.LENGTH_LONG).show();
                 }
             }
         });

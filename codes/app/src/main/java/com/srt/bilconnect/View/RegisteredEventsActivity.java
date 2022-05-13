@@ -57,4 +57,18 @@ public class RegisteredEventsActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onResume() {
+        super.onResume();
+        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                User user = documentSnapshot.toObject(User.class);
+
+                ArrayList<Event> events = user.getRegisteredEvents();
+                EventAdapter eventAdapter = new EventAdapter(events);
+                binding.recylerEvents.setAdapter(eventAdapter);
+            }
+        });
+    }
 }

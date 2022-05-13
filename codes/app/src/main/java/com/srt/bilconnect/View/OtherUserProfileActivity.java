@@ -10,8 +10,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -29,6 +32,7 @@ public class OtherUserProfileActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth auth;
     String email;
+    User user;
 
 
     @Override
@@ -45,7 +49,7 @@ public class OtherUserProfileActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
-                    User user = new User();
+                     user = new User();
                     for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                         user = documentSnapshot.toObject(User.class);
                     }
@@ -67,14 +71,11 @@ public class OtherUserProfileActivity extends AppCompatActivity {
     }
 
     public void follow(View view) {
-        firebaseFirestore.collection("UserData").whereEqualTo("email", email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()) {
-                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-
-                    }
-                }
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                User usero = documentSnapshot.toObject(User.class);
+                firebaseFirestore.collection("UserData").document(user.getUserID()).update("followers", FieldValue.arrayUnion(usero));
             }
         });
     }

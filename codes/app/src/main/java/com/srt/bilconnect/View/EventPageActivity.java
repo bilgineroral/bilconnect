@@ -82,12 +82,14 @@ public class EventPageActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             Event event = documentSnapshot.toObject(Event.class);
-                            //if(event.getQuota() > event.getAttendees().size() && Calendar.getInstance().getTime().compareTo(event.getZaman()) < 0) {
+                            if(event.getQuota() > event.getAttendees().size() && Calendar.getInstance().getTime().compareTo(event.getZaman()) < 0) {
                                 firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).update("attendees", FieldValue.arrayUnion(user));
-                                firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).update("quota", event.getQuota() - 1);
                                 firebaseFirestore.collection("UserData").document(auth.getCurrentUser().getUid()).update("registeredEvents", FieldValue.arrayUnion(event));
-                                firebaseFirestore.collection("PlaceData").document(ourEvent.getEventPlace().getPlaceName()).update("attendees", FieldValue.arrayUnion(user));
-                            //}
+                                firebaseFirestore.collection("PlaceData").document(ourEvent.getEventPlace().getPlaceName()).update("upcomingEvents", FieldValue.arrayUnion(event));
+                            }
+                            else {
+                                Toast.makeText(EventPageActivity.this, "Event is full or it already took place!", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
                 }

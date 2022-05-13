@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF"
     android:foregroundTint="#FFFFFF"
-    tools:context=".EditInterests">
+    tools:context=".View.EditInterests">
 
     <CheckBox
         android:id="@+id/checkBox"

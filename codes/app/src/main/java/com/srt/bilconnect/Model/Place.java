@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Place implements Serializable {
 
     private String placeName;
-
     private ArrayList<Event> upcomingEvents;
     public static String[] placeNames = {"81", "Mayfest", "Odeon", "Bilkent Center", "East Campus"};
 
@@ -17,8 +16,11 @@ public class Place implements Serializable {
 
     public Place(String placeName) {
         this.placeName = placeName;
-        //followers = new ArrayList<>();
         upcomingEvents = new ArrayList<>();
+    }
+
+    public static void setPlaceNames(String[] placeNames) {
+        Place.placeNames = placeNames;
     }
 
     public static String[] getPlaceNames() {return placeNames;}

@@ -21,9 +21,6 @@ public class User implements Serializable {
     public ArrayList<User> followedAccounts;//not done
     public ArrayList<Event> registeredEvents;//not done
 
-//interestleri ekle
-
-
 //eventleri ekle
     /*
     public User() {//boş user constructoru firebase için gerekli

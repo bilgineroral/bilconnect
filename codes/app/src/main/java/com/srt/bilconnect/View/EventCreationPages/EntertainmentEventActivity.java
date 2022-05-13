@@ -151,56 +151,54 @@ public class EntertainmentEventActivity extends AppCompatActivity {
                     String userId = auth.getCurrentUser().getUid();
 
                     User user = documentSnapshot.toObject(User.class);
-                    event = new Event(title,user,quota,"Tutoring",null);
+                    event = new Event(title, user, quota, "Tutoring", null);
                     //sets time and date
                     event.setDate(date);
                     event.setTime(time);
                     event.setZaman(zaman);
                     //sets interest
                     String interestString = "";
-                    if(selectedInterest == 0) { interestString = "Chit-Chat"; }
-                    else if(selectedInterest == 1) { interestString = "Partying"; }
-                    else if(selectedInterest == 2) { interestString = "Coffee Date"; }
-                    else if(selectedInterest == 3) { interestString = "Eating"; }
-                    else if(selectedInterest == 4) { interestString = "Concert"; }
+                    if (selectedInterest == 0) {
+                        interestString = "Chit-Chat";
+                    } else if (selectedInterest == 1) {
+                        interestString = "Partying";
+                    } else if (selectedInterest == 2) {
+                        interestString = "Coffee Date";
+                    } else if (selectedInterest == 3) {
+                        interestString = "Eating";
+                    } else if (selectedInterest == 4) {
+                        interestString = "Concert";
+                    }
                     event.setInterest(interestString);
                     //sets description and other stuffs
                     event.setDescription(binding.eventDescriptionText.getText().toString());
                     event.setEventDocumentPlace(userId + id);
                     event.setHost(user);
                     //get event place
-                    firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if(task.isSuccessful()) {
-                                DocumentSnapshot snapshot = task.getResult();
-                                Place place = snapshot.toObject(Place.class);
-                                event.setEventPlace(place);
-                                firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            Place place = documentSnapshot.toObject(Place.class);
+                            event.setEventPlace(place);
+                            firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
+                            //adds the event to users createdEvents
+                            firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
+                            //adds the event to places
+                            firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
 
-                                //adds the event to users createdEvents
-                                firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
-                                //adds the event to places
-                                firebaseFirestore.collection("PlaceData").document(place.getPlaceName()).update("upcomingEvents", FieldValue.arrayUnion(event));
-
-                                Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
+                            Toast.makeText(EntertainmentEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(EntertainmentEventActivity.this, MainPageActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println(e.getLocalizedMessage());
+                            Toast.makeText(EntertainmentEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    System.out.println(e.getLocalizedMessage());
-                    Toast.makeText(EntertainmentEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-            }
+                } }); }
             else {
                 Toast.makeText(this, "Please enter the necessary information", Toast.LENGTH_SHORT).show();
             }

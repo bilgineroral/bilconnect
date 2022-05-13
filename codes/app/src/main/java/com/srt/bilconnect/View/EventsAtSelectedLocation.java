@@ -1,4 +1,4 @@
-package com.srt.bilconnect.View.PlaceActivities;
+package com.srt.bilconnect.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

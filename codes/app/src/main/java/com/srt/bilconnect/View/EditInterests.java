@@ -1,8 +1,10 @@
-package com.srt.bilconnect;
+package com.srt.bilconnect.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.srt.bilconnect.R;
 
 public class EditInterests extends AppCompatActivity {
 

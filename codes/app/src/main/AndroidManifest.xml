@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilConnect">
         <activity
-            android:name=".EditInterests"
+            android:name=".View.EditInterests"
             android:exported="false" />
         <activity
-            android:name=".View.editProfileActivity"
+            android:name=".View.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".PlaceProfileActivity"
+            android:name=".View.PlaceProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".View.PlaceActivities.EventsAtSelectedLocation"
+            android:name=".View.EventsAtSelectedLocation"
             android:exported="false" />
         <activity
             android:name=".View.OtherUserProfileActivity"

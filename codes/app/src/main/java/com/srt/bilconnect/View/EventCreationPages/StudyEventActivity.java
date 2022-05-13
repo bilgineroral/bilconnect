@@ -41,23 +41,23 @@ public class StudyEventActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private ActivityStudyEventBinding binding;
 
-    int selectedInterest;
-    boolean[] selected;
+    private int selectedInterest;
+    private boolean[] selected;
 
-    String time;
-    String date;
-    Date zaman;
-    String selectedPlace;
-    Event event;
-    Calendar calendar;
+    private String time;
+    private String date;
+    private Date zaman;
+    private String selectedPlace;
+    private Event event;
+    private Calendar calendar;
 
-    Button tutoringButton;
-    Button gettingTutoredButton;
-    Button talkingButton;
-    Button quietButton;
-    Button selectedButton;
-    Button[] buttons;
-    Spinner spinner;
+    private Button tutoringButton;
+    private Button gettingTutoredButton;
+    private Button talkingButton;
+    private Button quietButton;
+    private Button selectedButton;
+    private Button[] buttons;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,28 +131,29 @@ public class StudyEventActivity extends AppCompatActivity {
                 event.setEventDocumentPlace(userId + id);
                 event.setHost(user);
                 //get event place
-                firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if(task.isSuccessful()) {
-                            DocumentSnapshot snapshot = task.getResult();
-                            Place place = snapshot.toObject(Place.class);
+                    firebaseFirestore.collection("PlaceData").document(selectedPlace).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            Place place = documentSnapshot.toObject(Place.class);
                             event.setEventPlace(place);
-
                             firebaseFirestore.collection("EventData").document(event.getEventDocumentPlace()).set(event);
-
                             //adds the event to users createdEvents
                             firebaseFirestore.collection("UserData").document(event.getHost().getUserID()).update("createdEvents", FieldValue.arrayUnion(event));
                             //adds the event to places
-                            firebaseFirestore.collection("PlaceData").document(place.getPlaceName()).update("upcomingEvents", FieldValue.arrayUnion(event));
+                            firebaseFirestore.collection("PlaceData").document(selectedPlace).update("upcomingEvents", FieldValue.arrayUnion(event));
 
                             Toast.makeText(StudyEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(StudyEventActivity.this, MainPageActivity.class);
                             startActivity(intent);
                             finish();
                         }
-                    }
-                });
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println(e.getLocalizedMessage());
+                            Toast.makeText(StudyEventActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

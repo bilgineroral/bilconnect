@@ -4,23 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,11 +26,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 import com.srt.bilconnect.Adapter.EventAdapter;
 import com.srt.bilconnect.Model.User;
-import com.srt.bilconnect.R;
-import com.srt.bilconnect.View.FirstPageActivity;
 import com.srt.bilconnect.View.RegisteredEventsActivity;
-import com.srt.bilconnect.View.UsersFragment;
-import com.srt.bilconnect.View.editProfileActivity;
+import com.srt.bilconnect.View.EditProfileActivity;
 import com.srt.bilconnect.databinding.FragmentProfileBinding;
 
 import java.util.Map;
@@ -79,7 +68,7 @@ public class ProfileFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), editProfileActivity.class);
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
                 startActivity(intent);
             }
 

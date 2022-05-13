@@ -62,7 +62,7 @@ public class UsersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentUsersBinding.inflate(getLayoutInflater());
+        binding = FragmentUsersBinding.inflate(getLayoutInflater(), container, false);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -85,12 +85,9 @@ public class UsersFragment extends Fragment {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     User user = documentSnapshot.toObject(User.class);
-
                     userList.add(user);
-
                 }
                 AdapterUsers adapterUsers = new AdapterUsers(userList);
-
                 binding.usersRecyclerView.setAdapter(adapterUsers);
             }
         });

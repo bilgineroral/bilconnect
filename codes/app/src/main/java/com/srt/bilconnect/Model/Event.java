@@ -11,8 +11,8 @@ public class Event implements Serializable {
     private String description;//done
     private User host;//done
     private int quota;//done
-    private Place eventPlace;//not done
-    private String interest;//not done
+    private Place eventPlace;//done
+    private String interest;//done
     private String eventDocumentPlace;//done
     private ArrayList<User> attendees;//done
     private ArrayList<Comment> comments;//not done
@@ -31,14 +31,14 @@ public class Event implements Serializable {
         attendees = new ArrayList<>();
         comments = new ArrayList<>();
     }
-
+/*
     // TEST CTOR'U (BILGINER)
     public Event(String title, User host, int quota, String details) {
         this.title = title;
         this.host = host;
         this.quota = quota;
         this.description = details;
-    }
+    }*/
 
     public Date getZaman() {
         return zaman;
